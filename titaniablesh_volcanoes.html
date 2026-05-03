@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volcanoes — Titania Blesh</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --apricot:    #fff5ee;
+  --apricot-mid:#fde8d8;
+  --apricot-dk: #f5d8c0;
+  --terra:      #e8785a;
+  --terra-dk:   #c95a3a;
+  --peach:      #f5d090;
+  --peach-lt:   #fceabb;
+  --ink:        #3a2e28;
+  --ink-mid:    #5c4a3e;
+  --ink-lt:     #9a8070;
+  --display:    'Lora', Georgia, serif;
+  --body:       'Nunito', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--apricot);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3.5rem;
+  background: rgba(255,245,238,0.93);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid var(--apricot-dk);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.55rem;
+  font-family: var(--display);
+  font-size: 1.15rem; font-weight: 700; font-variant: small-caps;
+  color: var(--terra-dk); text-decoration: none; letter-spacing: 0.04em;
+}
+.nav-logo img { height: 26px; width: auto; display: block; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: var(--body); font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--ink-mid);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--terra); }
+.nav-links a.active { color: var(--terra); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+
+/* ── HERO ─────────────────────────────── */
+.vol-hero {
+  min-height: 60vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 8rem 5rem 5rem;
+  position: relative; overflow: hidden;
+  background-color: var(--ink);
+}
+
+/* dot grid on dark bg */
+.vol-hero::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 75% 40%, rgba(232,120,90,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 15% 70%, rgba(245,208,144,0.1) 0%, transparent 40%),
+    radial-gradient(circle, rgba(245,208,144,0.08) 1.5px, transparent 1.5px);
+  background-size: auto, auto, 30px 30px;
+}
+
+/* concentric rings */
+.vol-hero-ring {
+  position: absolute; border-radius: 50%;
+  border: 1.5px solid rgba(245,208,144,0.1);
+  pointer-events: none;
+}
+.vol-hero-ring-1 { width: 700px; height: 700px; top: -20%; right: -12%; }
+.vol-hero-ring-2 { width: 500px; height: 500px; top: -10%; right: -5%; }
+.vol-hero-ring-3 { width: 300px; height: 300px; top: 0%;   right:  4%; border-color: rgba(245,208,144,0.16); }
+.vol-hero-ring-4 { width: 150px; height: 150px; top: 10%;  right: 12%; border-color: rgba(245,208,144,0.22); }
+
+/* volcano silhouette art at bottom of hero */
+.vol-hero-art {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  width: 100%; height: 260px;
+  pointer-events: none; display: block; z-index: 0;
+}
+
+.vol-hero-content { position: relative; z-index: 1; }
+
+.vol-hero-eyebrow {
+  font-family: var(--body); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--terra); margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.vol-hero-eyebrow::before {
+  content: ''; display: block; width: 2rem; height: 2px;
+  background: var(--terra); border-radius: 2px;
+}
+.vol-hero-title {
+  font-family: var(--display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700; font-variant: small-caps;
+  line-height: 1.0; color: #fff;
+  margin-bottom: 1.2rem; letter-spacing: -0.01em;
+}
+.vol-hero-title em { color: var(--terra); font-style: normal; }
+.vol-hero-desc {
+  font-size: 1rem; color: rgba(255,245,238,0.7);
+  max-width: 52ch; margin-bottom: 2rem; line-height: 1.8;
+}
+.vol-legend {
+  display: flex; gap: 1.8rem; flex-wrap: wrap;
+  font-size: 0.78rem; font-weight: 600; color: rgba(255,245,238,0.55);
+}
+.vol-legend span { display: flex; align-items: center; gap: 0.4rem; }
+
+/* ── COLLECTION ───────────────────────── */
+#collection {
+  padding: 6rem 5rem;
+  background-color: var(--apricot);
+  background-image:
+    radial-gradient(circle at 90% 10%, rgba(245,208,144,0.3) 0%, transparent 40%),
+    radial-gradient(circle at 5%  90%, rgba(232,120,90,0.08) 0%, transparent 35%),
+    radial-gradient(circle, rgba(245,216,192,0.7) 1.5px, transparent 1.5px);
+  background-size: auto, auto, 32px 32px;
+}
+
+.country-block { margin-bottom: 5rem; }
+.country-block:last-child { margin-bottom: 0; }
+
+.country-header {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 2rem; padding-bottom: 0.8rem;
+  border-bottom: 1.5px solid var(--apricot-dk);
+}
+.country-flag { font-size: 1.6rem; line-height: 1; }
+.country-name {
+  font-family: var(--display); font-size: 1.5rem; font-weight: 700;
+  color: var(--ink);
+}
+.country-count {
+  margin-left: auto;
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-lt);
+}
+
+.volcano-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.4rem;
+}
+
+.vol-card {
+  border-radius: 12px; overflow: hidden;
+  background: var(--apricot-mid);
+  box-shadow: 3px 3px 0 var(--apricot-dk);
+  transition: transform 0.22s, box-shadow 0.22s;
+  position: relative;
+}
+.vol-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 5px 8px 0 var(--apricot-dk);
+}
+.vol-card-img {
+  width: 100%; aspect-ratio: 1/1;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.vol-card:hover .vol-card-img { transform: scale(1.04); }
+
+/* decade volcano warning badge */
+.decade-badge {
+  position: absolute; top: 10px; right: 10px;
+  background: var(--terra); color: #fff;
+  font-family: var(--body); font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.22rem 0.6rem; border-radius: 20px;
+}
+
+.vol-card-info { padding: 0.85rem 1rem 1rem; }
+.vol-card-name {
+  font-family: var(--display); font-weight: 700;
+  font-size: 1rem; color: var(--ink); line-height: 1.2;
+}
+
+/* ── FOOTER ───────────────────────────── */
+footer {
+  padding: 2.2rem 3.5rem;
+  background: var(--ink); border-top: 1px solid rgba(245,208,144,0.15);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-name { font-family: var(--body); font-size: 0.85rem; font-weight: 400; color: var(--ink-lt); }
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--ink-lt); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--peach); }
+
+/* ── RESPONSIVE ───────────────────────── */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--apricot); border-bottom: 1.5px solid var(--apricot-dk); padding: 1rem 1.5rem 1.5rem; gap: 1.2rem; }
+  .nav-links.open { display: flex; }
+  .nav-burger { display: flex; }
+  .vol-hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+  .vol-hero-title { font-size: 3rem; }
+  #collection { padding: 4rem 1.5rem; }
+  .volcano-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+  footer { padding: 1.8rem 1.5rem; }
+  .footer-links { gap: 1.2rem; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.vol-hero-content > * { animation: fadeUp 0.55s ease both; }
+.vol-hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.vol-hero-content > *:nth-child(2) { animation-delay: 0.12s; }
+.vol-hero-content > *:nth-child(3) { animation-delay: 0.19s; }
+.vol-hero-content > *:nth-child(4) { animation-delay: 0.26s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="assets/images/Animation_Logo.gif" alt="Volcano logo">Titania Blesh
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="index.html">Books</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="titaniablesh_volcanoes.html" class="active">Volcanoes</a></li>
+    <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="vol-hero">
+  <div class="vol-hero-ring vol-hero-ring-1"></div>
+  <div class="vol-hero-ring vol-hero-ring-2"></div>
+  <div class="vol-hero-ring vol-hero-ring-3"></div>
+  <div class="vol-hero-ring vol-hero-ring-4"></div>
+
+  <!-- volcano silhouette art -->
+  <svg class="vol-hero-art" viewBox="0 0 1400 260" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g opacity="0.08" fill="#e8785a">
+      <polygon points="0,260 200,40 400,260"/>
+      <polygon points="900,260 1120,20 1340,260"/>
+    </g>
+    <g opacity="0.14" fill="#e8785a">
+      <polygon points="0,260 130,130 260,260"/>
+      <polygon points="220,260 360,150 500,260"/>
+      <polygon points="780,260 950,100 1120,260"/>
+      <polygon points="1080,260 1230,140 1380,260"/>
+    </g>
+    <g fill="none" stroke="#e8785a" stroke-width="1.6" stroke-linejoin="round" opacity="0.45">
+      <polyline points="0,260 80,200 160,260"/>
+      <polyline points="300,260 480,70 660,260"/>
+      <polyline points="560,260 630,175 700,260"/>
+      <polyline points="740,260 870,115 1000,260"/>
+      <polyline points="1150,260 1240,190 1330,260"/>
+    </g>
+    <g fill="none" stroke="#e8785a" stroke-width="1.2" opacity="0.35" stroke-linecap="round">
+      <path d="M470,65 C464,46 454,36 464,22 C474,8 484,18 477,4"/>
+      <path d="M480,60 C486,42 496,32 490,16 C484,0 473,7 478,0"/>
+      <path d="M862,110 C856,93 848,84 856,72 C864,60 872,68 867,56"/>
+      <path d="M870,106 C876,90 884,81 879,69 C874,57 864,63 869,51"/>
+    </g>
+    <g fill="#f5d090" opacity="0.4">
+      <circle cx="480" cy="255" r="2.2"/><circle cx="460" cy="258" r="1.6"/>
+      <circle cx="502" cy="257" r="1.8"/><circle cx="870" cy="255" r="2"/>
+      <circle cx="852" cy="258" r="1.5"/>
+    </g>
+  </svg>
+
+  <div class="vol-hero-content">
+    <p class="vol-hero-eyebrow">Titania's collection</p>
+    <h1 class="vol-hero-title">My <em>Volcanoes</em></h1>
+    <p class="vol-hero-desc">Every volcano I've visited, climbed, or stood next to while resisting the urge to jump in. The <a href="https://en.wikipedia.org/wiki/Decade_Volcanoes" target="_blank" style="color:var(--terra);text-decoration:underline;font-weight:700;">Decade Volcanoes</a> are the 16 most dangerous on Earth. Obviously my favorites.</p>
+    <div class="vol-legend">
+      <span>🌋 Visited</span>
+      <span><span style="display:inline-block;background:var(--terra);color:#fff;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;padding:0.18rem 0.5rem;border-radius:20px;">DECADE</span> High-risk</span>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION -->
+<section id="collection">
+
+  <!-- Italy -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇮🇹</span>
+      <h2 class="country-name">Italy</h2>
+      <span class="country-count">6 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Etna-2.jpg" alt="Etna">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Etna 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/stromboli-300x300.jpg" alt="Stromboli">
+        <div class="vol-card-info"><p class="vol-card-name">Stromboli 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/vesuvio-300x300.jpg" alt="Vesuvio">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Vesuvio 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/vulcano-300x300.jpg" alt="Vulcano">
+        <div class="vol-card-info"><p class="vol-card-name">Vulcano 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Nirano.jpg" alt="Salse di Nirano">
+        <div class="vol-card-info"><p class="vol-card-name">Salse di Nirano 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/solfatara-300x300.jpg" alt="Solfatara">
+        <div class="vol-card-info"><p class="vol-card-name">Solfatara 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indonesia -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇮🇩</span>
+      <h2 class="country-name">Indonesia</h2>
+      <span class="country-count">3 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/krakatoa-300x300.jpg" alt="Krakatoa">
+        <div class="vol-card-info"><p class="vol-card-name">Krakatoa 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/merapi-300x300.jpg" alt="Merapi">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Merapi 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/bromo-300x300.jpg" alt="Bromo">
+        <div class="vol-card-info"><p class="vol-card-name">Bromo 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Costa Rica -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇨🇷</span>
+      <h2 class="country-name">Costa Rica</h2>
+      <span class="country-count">2 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/arenal-300x300.jpg" alt="Arenal">
+        <div class="vol-card-info"><p class="vol-card-name">Arenal 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/miravalles-300x300.jpg" alt="Miravalles">
+        <div class="vol-card-info"><p class="vol-card-name">Miravalles 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Greece -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇬🇷</span>
+      <h2 class="country-name">Greece</h2>
+      <span class="country-count">1 volcano</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/IMG_9020-300x225.jpg" alt="Thera, Santorini">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Thera, Santorini 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Spain -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇪🇸</span>
+      <h2 class="country-name">Spain</h2>
+      <span class="country-count">4 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Teide-1.jpg" alt="Teide">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Teide 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Chinyero.jpg" alt="Chinyero">
+        <div class="vol-card-info"><p class="vol-card-name">Chinyero 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Calderon-Hondo.jpg" alt="Calderón Hondo">
+        <div class="vol-card-info"><p class="vol-card-name">Calderón Hondo 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Caldera-Blanca.jpg" alt="Caldera Blanca">
+        <div class="vol-card-info"><p class="vol-card-name">Caldera Blanca 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Japan -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇯🇵</span>
+      <h2 class="country-name">Japan</h2>
+      <span class="country-count">3 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Unzen.png" alt="Unzen">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Unzen 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Aso.png" alt="Aso">
+        <div class="vol-card-info"><p class="vol-card-name">Aso 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Sakurajima.png" alt="Sakurajima">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Sakurajima 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Philippines -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇵🇭</span>
+      <h2 class="country-name">Philippines</h2>
+      <span class="country-count">3 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Canlaon.jpeg" alt="Canlaon">
+        <div class="vol-card-info"><p class="vol-card-name">Canlaon 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Taal.jpeg" alt="Taal">
+        <span class="decade-badge">Decade ⚠</span>
+        <div class="vol-card-info"><p class="vol-card-name">Taal 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Mayon.jpeg" alt="Mayon">
+        <div class="vol-card-info"><p class="vol-card-name">Mayon 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ethiopia -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇪🇹</span>
+      <h2 class="country-name">Ethiopia</h2>
+      <span class="country-count">2 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Erta-Ale.jpg" alt="Erta Ale">
+        <div class="vol-card-info"><p class="vol-card-name">Erta Ale 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/Dallol.jpg" alt="Dallol">
+        <div class="vol-card-info"><p class="vol-card-name">Dallol 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tanzania -->
+  <div class="country-block">
+    <div class="country-header">
+      <span class="country-flag">🇹🇿</span>
+      <h2 class="country-name">Tanzania</h2>
+      <span class="country-count">3 volcanoes</span>
+    </div>
+    <div class="volcano-grid">
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/kilimanjaro-300x225.jpg" alt="Kilimanjaro">
+        <div class="vol-card-info"><p class="vol-card-name">Kilimanjaro 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/ol-doinyo-lengai-225x300.jpg" alt="Ol Doinyo Lengai">
+        <div class="vol-card-info"><p class="vol-card-name">Ol Doinyo Lengai 🌋</p></div>
+      </div>
+      <div class="vol-card">
+        <img class="vol-card-img" src="assets/images/ngorongoro-300x225.jpg" alt="Ngorongoro">
+        <div class="vol-card-info"><p class="vol-card-name">Ngorongoro 🌋</p></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">© Titania Blesh</p>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
+    <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
+    <li><a href="#">Top ↑</a></li>
+  </ul>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('navlinks');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+</body>
+</html>

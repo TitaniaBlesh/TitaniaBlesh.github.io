@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titania Blesh — Sci-Fi & Fantasy Writer</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --apricot:    #fff5ee;
+  --apricot-mid:#fde8d8;
+  --apricot-dk: #f5d8c0;
+  --terra:      #e8785a;
+  --terra-dk:   #c95a3a;
+  --peach:      #f5d090;
+  --peach-lt:   #fceabb;
+  --ink:        #3a2e28;
+  --ink-mid:    #5c4a3e;
+  --ink-lt:     #9a8070;
+  --display:    'Lora', Georgia, serif;
+  --body:       'Nunito', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--apricot);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ───────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 3.5rem;
+  background: rgba(255,245,238,0.93);
+  backdrop-filter: blur(12px);
+  border-bottom: 1.5px solid var(--apricot-dk);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 0.55rem;
+  font-family: var(--display);
+  font-size: 1.15rem; font-weight: 700; font-variant: small-caps;
+  color: var(--terra-dk); text-decoration: none; letter-spacing: 0.04em;
+}
+.nav-logo img { height: 26px; width: auto; display: block; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: var(--body); font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.04em; color: var(--ink-mid);
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--terra); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+
+/* ── HERO ──────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  padding-top: 4.5rem; position: relative; overflow: hidden;
+  background-color: var(--apricot);
+  background-image:
+    radial-gradient(circle at 15% 85%, rgba(245,208,144,0.3) 0%, transparent 40%),
+    radial-gradient(circle, rgba(245,216,192,0.7) 1.5px, transparent 1.5px);
+  background-size: auto, 34px 34px;
+}
+.hero-ring {
+  position: absolute; border-radius: 50%;
+  border: 1.5px solid rgba(232,120,90,0.12);
+  z-index: 0; pointer-events: none;
+}
+.hero-ring-1 { width: 700px; height: 700px; bottom: -20%; right: -10%; }
+.hero-ring-2 { width: 500px; height: 500px; bottom: -12%; right: -3%; }
+.hero-ring-3 { width: 300px; height: 300px; bottom: -4%;  right:  6%; border-color: rgba(232,120,90,0.18); }
+.hero-blob {
+  position: absolute; top: -10%; right: -5%; width: 55%; height: 110%;
+  background: var(--peach-lt); border-radius: 50% 0 0 40%;
+  z-index: 0;
+}
+.hero-blob2 {
+  position: absolute; bottom: -8%; left: 15%; width: 30%; height: 40%;
+  background: var(--apricot-mid); border-radius: 50%;
+  z-index: 0;
+}
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 5rem 2.5rem 5rem 5rem; position: relative; z-index: 1;
+}
+.eyebrow {
+  font-family: var(--body); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--terra); margin-bottom: 1.2rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.eyebrow::before {
+  content: ''; display: block; width: 2rem; height: 2px;
+  background: var(--terra); border-radius: 2px;
+}
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(3.5rem, 6vw, 6.2rem);
+  font-weight: 700; line-height: 1.0;
+  color: var(--ink); margin-bottom: 1.6rem;
+  letter-spacing: -0.01em; font-variant: small-caps;
+}
+.hero-name em { font-style: normal; color: var(--terra); display: block; }
+.hero-tagline {
+  font-family: var(--body); font-size: 1rem; font-weight: 400;
+  color: var(--ink-mid); max-width: 38ch;
+  margin-bottom: 2.5rem; line-height: 1.75;
+}
+.hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.btn {
+  display: inline-block; font-family: var(--body);
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
+  text-decoration: none; border-radius: 40px;
+  padding: 0.8rem 2rem; transition: transform 0.15s, background 0.2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-fill { background: var(--terra); color: #fff; }
+.btn-fill:hover { background: var(--terra-dk); }
+.btn-outline {
+  background: transparent; color: var(--terra);
+  border: 2px solid var(--terra);
+}
+.btn-outline:hover { background: var(--apricot-mid); }
+.hero-right {
+  position: relative; z-index: 1;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 3rem 3rem 0;
+}
+.hero-photo-wrap { position: relative; }
+.hero-photo-wrap::before {
+  content: ''; position: absolute;
+  inset: -12px 12px 12px -12px;
+  border: 3px solid var(--peach);
+  border-radius: 8px; z-index: -1;
+}
+.hero-photo-wrap::after {
+  content: ''; position: absolute;
+  inset: -24px 24px 24px -24px;
+  border: 1.5px solid var(--apricot-dk);
+  border-radius: 10px; z-index: -2;
+}
+.hero-photo-wrap img {
+  width: 100%; max-width: 380px; display: block;
+  border-radius: 6px 6px 0 0;
+  object-fit: cover; object-position: top;
+}
+
+/* ── SECTION COMMONS ───────────────────────────────── */
+.sec-label {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--terra); margin-bottom: 0.6rem;
+}
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
+  line-height: 1.1; color: var(--ink); margin-bottom: 1.2rem;
+}
+.sec-title em { font-style: italic; color: var(--terra); }
+
+/* featured dune art */
+.feat-dunes {
+  position: absolute;
+  inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none; display: block;
+}
+#featured > *:not(.feat-dunes) { position: relative; z-index: 1; }
+.hero-volcanoes {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  width: 100%; height: 320px;
+  z-index: 0; pointer-events: none;
+  display: block;
+}
+
+/* Soft dot grid pattern reusable */
+.dot-bg {
+  background-image: radial-gradient(circle, var(--apricot-dk) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── HERO extra atmosphere */
+.hero { background: var(--apricot); }
+.hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(245,208,144,0.28) 0%, transparent 45%),
+    radial-gradient(circle at 80% 10%, rgba(232,120,90,0.1) 0%, transparent 40%);
+}
+
+/* ── BOOKS ─────────────────────────────────────────── */
+#books {
+  padding: 7rem 5rem;
+  background-color: var(--apricot);
+  position: relative; overflow: hidden;
+}
+#books::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 90% 15%, rgba(245,208,144,0.35) 0%, transparent 38%),
+    radial-gradient(circle at 5%  70%, rgba(232,120,90,0.1)  0%, transparent 35%),
+    radial-gradient(circle, var(--apricot-dk) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px;
+}
+#books > * { position: relative; z-index: 1; }
+.books-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-end; gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap;
+}
+.books-top p { font-size: 0.95rem; color: var(--ink-mid); max-width: 40ch; }
+.series-pill {
+  display: inline-block; background: var(--peach); color: var(--ink);
+  font-family: var(--body); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 0.35rem 1rem; border-radius: 40px; margin-bottom: 1.5rem;
+}
+.books-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem; margin-bottom: 4rem;
+}
+.book-card { position: relative; }
+.book-cover {
+  position: relative; overflow: hidden; border-radius: 8px;
+  margin-bottom: 1rem; background: var(--apricot-mid);
+  box-shadow: 5px 5px 0 var(--apricot-dk), 8px 8px 0 var(--peach);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.book-card:hover .book-cover {
+  transform: translateY(-5px);
+  box-shadow: 7px 12px 0 var(--apricot-dk), 12px 18px 0 var(--peach);
+}
+.book-cover img {
+  width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.book-card:hover .book-cover img { transform: scale(1.03); }
+.book-hover {
+  position: absolute; inset: 0;
+  background: rgba(232,120,90,0.9);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.25s; border-radius: 8px;
+}
+.book-card:hover .book-hover { opacity: 1; }
+.buy-btn {
+  display: inline-block; background: #fff; color: var(--terra-dk);
+  font-family: var(--body); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.08em; text-decoration: none;
+  padding: 0.6rem 1.4rem; border-radius: 40px;
+  transition: background 0.2s;
+}
+.buy-btn:hover { background: var(--peach-lt); }
+.book-title {
+  font-family: var(--display); font-size: 1.05rem;
+  font-weight: 700; font-style: italic; color: var(--ink); margin-bottom: 0.2rem;
+}
+.book-sub { font-size: 0.72rem; font-weight: 600; color: var(--ink-lt); letter-spacing: 0.05em; }
+
+/* translations band */
+.trans-band {
+  background: var(--apricot-mid); border-radius: 16px;
+  padding: 2.5rem; margin-top: 1rem;
+}
+.trans-band + .trans-band { margin-top: 1.5rem; }
+.trans-band-title {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-lt);
+  margin-bottom: 1.8rem;
+}
+.trans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 1.2rem; }
+.trans-card { background: var(--apricot); border-radius: 10px; overflow: hidden; }
+.trans-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
+.trans-info { padding: 0.9rem; }
+.trans-pill {
+  display: inline-block; background: var(--peach); color: var(--ink);
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px;
+  margin-bottom: 0.4rem;
+}
+.trans-name { font-family: var(--display); font-size: 0.9rem; font-style: italic; color: var(--ink); margin-bottom: 0.7rem; }
+.trans-link {
+  display: block; text-align: center; background: var(--terra);
+  color: #fff; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.1em; padding: 0.4rem; border-radius: 6px;
+  text-decoration: none; transition: background 0.2s;
+}
+.trans-link:hover { background: var(--terra-dk); }
+
+/* audiobook grid — square icon cards */
+.audio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem; }
+.audio-card { background: var(--apricot); border-radius: 10px; overflow: hidden; text-decoration: none; display: block; transition: transform 0.2s; }
+.audio-card:hover { transform: translateY(-3px); }
+.audio-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+.audio-info { padding: 0.8rem; }
+.audio-name { font-family: var(--display); font-size: 0.85rem; font-style: italic; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
+.audio-cta {
+  display: block; text-align: center; background: var(--ink);
+  color: var(--peach-lt); font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.1em; padding: 0.38rem; border-radius: 6px;
+  transition: background 0.2s;
+}
+.audio-card:hover .audio-cta { background: var(--terra-dk); }
+
+/* ── FEATURED ──────────────────────────────────────── */
+#featured {
+  padding: 7rem 5rem; background: var(--peach-lt);
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 5rem; align-items: center;
+  position: relative; overflow: hidden;
+}
+#featured::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 100% 50%, rgba(232,120,90,0.18) 0%, transparent 50%),
+    radial-gradient(circle at 0%   0%, rgba(245,208,144,0.35) 0%, transparent 40%);
+}
+#featured::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 500' preserveAspectRatio='xMidYMid meet'%3E%3Cg fill='none' stroke='%23c95a3a' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M700,500 C740,440 790,390 870,348 C950,306 1040,296 1200,302' stroke-width='1.2' opacity='0.09'/%3E%3Cpath d='M720,500 C758,448 808,400 886,360 C964,320 1052,308 1200,314' stroke-width='1.2' opacity='0.12'/%3E%3Cpath d='M742,500 C778,456 826,410 902,372 C978,334 1064,322 1200,328' stroke-width='1.2' opacity='0.15'/%3E%3Cpath d='M766,500 C800,464 846,422 920,386 C994,350 1076,338 1200,344' stroke-width='1.3' opacity='0.18'/%3E%3Cpath d='M792,500 C824,472 868,434 940,400 C1012,366 1090,354 1200,360' stroke-width='1.3' opacity='0.21'/%3E%3Cpath d='M820,500 C850,480 892,448 962,416 C1032,384 1106,372 1200,378' stroke-width='1.3' opacity='0.24'/%3E%3Cpath d='M850,500 C878,490 918,462 984,432 C1050,402 1120,392 1200,396' stroke-width='1.4' opacity='0.27'/%3E%3Cpath d='M882,500 C908,498 946,476 1008,450 C1070,424 1136,414 1200,416' stroke-width='1.4' opacity='0.29'/%3E%3Cpath d='M916,500 C940,500 976,492 1032,468 C1088,444 1150,436 1200,438' stroke-width='1.5' opacity='0.31'/%3E%3Cpath d='M952,500 C972,500 1006,500 1058,482 C1110,464 1164,458 1200,460' stroke-width='1.5' opacity='0.32'/%3E%3C/g%3E%3Cg fill='none' stroke='%23c95a3a' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M0,400 C50,362 110,330 190,318 C270,306 340,318 400,348 C440,368 460,396 468,430' stroke-width='1.0' opacity='0.08'/%3E%3Cpath d='M0,418 C48,382 106,350 184,338 C262,326 332,336 392,366 C432,386 452,412 460,448' stroke-width='1.0' opacity='0.11'/%3E%3Cpath d='M0,436 C44,402 100,372 176,360 C252,348 322,358 382,386 C422,404 444,430 450,464' stroke-width='1.1' opacity='0.14'/%3E%3Cpath d='M0,456 C40,424 94,396 168,384 C242,372 312,382 370,410 C410,428 432,452 438,482' stroke-width='1.1' opacity='0.17'/%3E%3Cpath d='M0,476 C34,448 86,422 158,412 C230,402 300,412 356,440 C396,458 418,480 422,500' stroke-width='1.2' opacity='0.20'/%3E%3Cpath d='M0,494 C26,470 76,448 146,440 C216,432 286,444 340,470 C374,486 394,500 396,500' stroke-width='1.2' opacity='0.22'/%3E%3C/g%3E%3Cg fill='none' stroke='%23c95a3a' stroke-linecap='round' opacity='0.12'%3E%3Cpath d='M390,488 C460,480 540,476 620,478 C700,480 764,484 810,488' stroke-width='0.9'/%3E%3Cpath d='M374,500 C446,492 528,488 608,490 C688,492 752,496 800,500' stroke-width='0.9'/%3E%3C/g%3E%3Cg fill='%23c95a3a'%3E%3Ccircle cx='470' cy='472' r='1.2' opacity='0.18'/%3E%3Ccircle cx='542' cy='460' r='1.0' opacity='0.16'/%3E%3Ccircle cx='618' cy='476' r='1.3' opacity='0.15'/%3E%3Ccircle cx='688' cy='464' r='1.0' opacity='0.18'/%3E%3Ccircle cx='748' cy='482' r='1.1' opacity='0.16'/%3E%3Ccircle cx='510' cy='494' r='0.9' opacity='0.14'/%3E%3Ccircle cx='650' cy='490' r='1.0' opacity='0.16'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center;
+}
+#featured > * { position: relative; z-index: 1; }
+.feat-img { position: relative; }
+.feat-img img { width: 240px; display: block; border-radius: 8px; box-shadow: 8px 8px 0 var(--peach); }
+.feat-img::before {
+  content: ''; position: absolute; top: -10px; left: -10px;
+  width: 240px; height: 100%;
+  border: 2.5px solid var(--terra); border-radius: 10px;
+  z-index: -1;
+}
+.feat-quote {
+  font-family: var(--display); font-size: 1.05rem; font-style: italic;
+  font-weight: 500; color: var(--ink-mid); line-height: 1.85;
+  padding-left: 1.5rem; border-left: 4px solid var(--terra);
+  margin: 1.2rem 0 1.8rem;
+}
+.feat-sub { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-lt); margin-bottom: 1.8rem; }
+
+/* ── ABOUT ─────────────────────────────────────────── */
+#about {
+  padding: 7rem 5rem; background: var(--apricot);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  position: relative; overflow: hidden;
+}
+#about::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(ellipse at 110% 50%, rgba(245,208,144,0.4) 0%, transparent 45%),
+    radial-gradient(circle at 10%  90%, rgba(232,120,90,0.1)  0%, transparent 35%),
+    radial-gradient(circle, rgba(245,216,192,0.7) 1.5px, transparent 1.5px);
+  background-size: auto, auto, 36px 36px;
+}
+#about > * { position: relative; z-index: 1; }
+.about-img { position: relative; }
+.about-img img { width: 100%; display: block; border-radius: 12px; }
+.about-img::after {
+  content: ''; position: absolute;
+  bottom: -14px; right: -14px; width: 55%; height: 55%;
+  border: 3px solid var(--peach); border-radius: 8px; z-index: -1;
+}
+.about-text p { color: var(--ink-mid); margin-bottom: 1rem; font-size: 0.97rem; line-height: 1.8; }
+.about-text p strong { color: var(--terra-dk); font-weight: 700; }
+.about-socials { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.8rem; }
+
+/* fun facts strip */
+.facts-strip {
+  background: var(--terra); padding: 1.8rem 5rem;
+  display: flex; gap: 3rem; flex-wrap: wrap; align-items: center;
+}
+.fact {
+  display: flex; align-items: center; gap: 0.8rem;
+  color: #fff; font-size: 0.88rem; font-weight: 600;
+}
+.fact-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--peach); flex-shrink: 0;
+}
+
+/* ── PUBLISHERS ────────────────────────────────────── */
+#publishers {
+  padding: 5rem 5rem; background: var(--apricot-mid);
+  position: relative; overflow: hidden;
+}
+#publishers::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(245,208,144,0.3) 0%, transparent 60%),
+    radial-gradient(circle, rgba(245,216,192,0.9) 1px, transparent 1px);
+  background-size: auto, 24px 24px;
+}
+#publishers > * { position: relative; z-index: 1; }
+.pub-logos {
+  display: flex; flex-wrap: wrap; gap: 2rem 3rem;
+  align-items: center; margin-top: 2.5rem;
+}
+.pub-item {
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  text-decoration: none;
+}
+.pub-item img {
+  height: 48px; width: auto; max-width: 140px; object-fit: contain;
+  opacity: 0.75; filter: sepia(20%) saturate(0.6) brightness(0.75);
+  transition: opacity 0.2s, filter 0.2s, transform 0.2s;
+}
+.pub-item:hover img { opacity: 1; filter: none; transform: translateY(-2px); }
+.pub-name {
+  font-family: var(--body); font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-lt);
+  transition: color 0.2s;
+}
+.pub-item:hover .pub-name { color: var(--terra); }
+
+/* ── PROJECTS ──────────────────────────────────────── */
+#projects {
+  padding: 7rem 5rem; background: var(--apricot);
+  position: relative; overflow: hidden;
+}
+#projects::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(circle at 95% 5%,  rgba(232,120,90,0.12)  0%, transparent 35%),
+    radial-gradient(circle at 5%  95%, rgba(245,208,144,0.35) 0%, transparent 40%),
+    radial-gradient(circle, rgba(245,216,192,0.65) 1.5px, transparent 1.5px);
+  background-size: auto, auto, 30px 30px;
+}
+#projects > * { position: relative; z-index: 1; }
+.proj-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
+.proj-table th {
+  font-family: var(--body); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-lt);
+  text-align: left; padding: 0.6rem 1rem 0.8rem 0.8rem;
+  border-bottom: 2px solid var(--apricot-dk);
+  background: var(--apricot-mid);
+}
+.proj-table th:first-child { border-radius: 8px 0 0 0; padding-left: 1rem; }
+.proj-table th:last-child  { border-radius: 0 8px 0 0; }
+.proj-table td {
+  padding: 1rem 0.8rem; border-bottom: 1px solid var(--apricot-mid);
+  color: var(--ink-mid); font-size: 0.88rem; vertical-align: middle;
+}
+.proj-table tbody tr:last-child td { border-bottom: none; }
+.proj-table tbody tr:hover td { background: var(--peach-lt); }
+.proj-title-cell {
+  font-family: var(--display);
+  font-weight: 700; color: var(--ink); font-size: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.proj-emoji { font-size: 1rem; flex-shrink: 0; }
+.lang-pill {
+  display: inline-block; font-family: var(--body); font-size: 0.58rem;
+  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.18rem 0.6rem; border-radius: 20px; margin: 2px 2px 2px 0;
+  background: var(--apricot-mid); color: var(--ink-mid);
+  white-space: nowrap;
+}
+.badge {
+  display: inline-block; font-family: var(--body); font-size: 0.6rem;
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.8rem; border-radius: 20px;
+}
+.badge-yes { background: var(--peach); color: var(--ink); }
+.badge-no  { background: var(--apricot-mid); color: var(--ink-lt); }
+
+/* ── VOLCANOES ─────────────────────────────────────── */
+#volcanoes {
+  padding: 6rem 5rem; background: var(--ink);
+  text-align: center; position: relative; overflow: hidden;
+}
+#volcanoes::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(232,120,90,0.12) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(245,208,144,0.07) 0%, transparent 70%);
+}
+.vol-ring {
+  position: absolute; border-radius: 50%;
+  border: 1.5px solid rgba(245,208,144,0.12);
+}
+.vol-ring-1 { width: 620px; height: 620px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.vol-ring-2 { width: 460px; height: 460px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+.vol-ring-3 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(245,208,144,0.18); }
+.vol-ring-4 { width: 160px; height: 160px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(245,208,144,0.25); }
+.vol-inner { position: relative; z-index: 1; max-width: 48ch; margin: 0 auto; }
+.vol-inner .sec-label { color: var(--peach); }
+.vol-inner .sec-title { color: #fff; }
+.vol-inner .sec-title em { color: var(--terra); }
+.vol-inner p { color: rgba(255,245,238,0.7); font-size: 0.97rem; margin-bottom: 2rem; line-height: 1.8; }
+.btn-peach { background: var(--peach); color: var(--ink); }
+.btn-peach:hover { background: var(--peach-lt); }
+
+/* ── FOOTER ────────────────────────────────────────── */
+footer {
+  padding: 2.2rem 3.5rem;
+  background: var(--ink); border-top: 1px solid rgba(245,208,144,0.15);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-name {
+  font-family: var(--body); font-size: 0.85rem;
+  font-weight: 400; color: var(--ink-lt);
+}
+.footer-links { display: flex; gap: 1.8rem; list-style: none; }
+.footer-links a {
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--ink-lt); text-decoration: none; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--peach); }
+
+/* ── ANIMATIONS ────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-left > * { animation: fadeUp 0.55s ease both; }
+.hero-left > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-left > *:nth-child(2) { animation-delay: 0.13s; }
+.hero-left > *:nth-child(3) { animation-delay: 0.21s; }
+.hero-left > *:nth-child(4) { animation-delay: 0.29s; }
+.hero-right { animation: fadeUp 0.7s 0.18s ease both; }
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 960px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--apricot); border-bottom: 1.5px solid var(--apricot-dk); padding: 1rem 1.5rem 1.5rem; gap: 1.2rem; }
+  .nav-links.open { display: flex; }
+  .nav-burger { display: flex; }
+
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-blob, .hero-blob2 { display: none; }
+  .hero-left { padding: 4rem 1.5rem 2rem; }
+  .hero-right { padding: 1rem 1.5rem 0; justify-content: flex-start; }
+  .hero-photo-wrap img { max-width: 240px; border-radius: 6px; }
+  .hero-photo-wrap::before, .hero-photo-wrap::after { display: none; }
+
+  #books { padding: 5rem 1.5rem; }
+  .books-top { flex-direction: column; align-items: flex-start; }
+  .books-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+
+  #featured { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 2.5rem; }
+  .feat-img img { width: 180px; }
+  .feat-img::before { width: 180px; }
+
+  #about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
+  .about-img { max-width: 320px; }
+
+  .facts-strip { padding: 1.5rem; gap: 1.5rem; }
+
+  #publishers, #projects, #volcanoes { padding: 5rem 1.5rem; }
+  .pub-logos { gap: 1.5rem 2.5rem; }
+
+  .proj-table th:last-child, .proj-table td:last-child,
+  .proj-table th:nth-child(3), .proj-table td:nth-child(3) { display: none; }
+
+  footer { padding: 1.8rem 1.5rem; }
+  .footer-links { gap: 1.2rem; }
+}
+
+@media (max-width: 520px) {
+  .books-grid { grid-template-columns: 1fr; max-width: 240px; }
+  .hero-name { font-size: 3rem; }
+  .trans-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><img src="assets/images/Animation_Logo.gif" alt="Volcano logo">Titania Blesh</a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="#books">Books</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#volcanoes">Volcanoes</a></li>
+    <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
+  </ul>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-ring hero-ring-1"></div>
+  <div class="hero-ring hero-ring-2"></div>
+  <div class="hero-ring hero-ring-3"></div>
+
+  <!-- volcano background art -->
+  <svg class="hero-volcanoes" viewBox="0 0 1400 320" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- far back: very faint large volcanoes -->
+    <g opacity="0.10" fill="#c95a3a">
+      <!-- huge volcano far left -->
+      <polygon points="30,320 260,80 490,320"/>
+      <!-- huge volcano right -->
+      <polygon points="950,320 1170,50 1390,320"/>
+    </g>
+
+    <!-- mid layer: medium volcanoes, slightly more visible -->
+    <g opacity="0.17" fill="#e8785a">
+      <!-- mid left -->
+      <polygon points="0,320 155,155 310,320"/>
+      <!-- mid centre-left -->
+      <polygon points="280,320 420,180 560,320"/>
+      <!-- mid centre-right -->
+      <polygon points="820,320 980,140 1140,320"/>
+      <!-- mid right -->
+      <polygon points="1100,320 1250,170 1400,320"/>
+    </g>
+
+    <!-- front layer: sharp, outlined, most visible -->
+    <g fill="none" stroke="#e8785a" stroke-width="1.8" stroke-linejoin="round" opacity="0.55">
+      <!-- small left -->
+      <polyline points="0,320 90,240 180,320"/>
+      <!-- tall centrepiece -->
+      <polyline points="340,320 520,100 700,320"/>
+      <!-- small beside centrepiece -->
+      <polyline points="590,320 660,210 730,320"/>
+      <!-- medium right of centre -->
+      <polyline points="800,320 920,160 1040,320"/>
+      <!-- small far right -->
+      <polyline points="1200,320 1290,235 1380,320"/>
+    </g>
+
+    <!-- eruption plumes on the front volcanoes — small smoke puffs -->
+    <g fill="none" stroke="#e8785a" stroke-width="1.4" opacity="0.4" stroke-linecap="round">
+      <!-- plume on centrepiece (peak at 520,100) -->
+      <path d="M510,95 C505,75 495,65 505,50 C515,35 525,45 518,30"/>
+      <path d="M520,90 C525,70 535,60 528,44 C521,28 510,35 515,20"/>
+      <path d="M530,96 C538,78 548,70 540,54 C532,38 520,44 526,28"/>
+      <!-- small plume on right-of-centre (peak at 920,160) -->
+      <path d="M913,156 C908,140 900,132 908,120 C916,108 924,116 918,104"/>
+      <path d="M922,153 C928,138 936,130 930,118 C924,106 914,112 918,100"/>
+    </g>
+
+    <!-- tiny lava dots near bases -->
+    <g fill="#f5d090" opacity="0.45">
+      <circle cx="520" cy="315" r="2.5"/>
+      <circle cx="498" cy="318" r="1.8"/>
+      <circle cx="544" cy="317" r="2"/>
+      <circle cx="920" cy="315" r="2.2"/>
+      <circle cx="900" cy="318" r="1.6"/>
+    </g>
+  </svg>
+  <div class="hero-left">
+    <p class="eyebrow">Sci-Fi &amp; Fantasy Writer</p>
+    <h1 class="hero-name">Titania<em>Blesh</em></h1>
+    <p class="hero-tagline">Forged in a volcano, carried across the world.</p>
+    <div class="hero-ctas">
+      <a href="#books" class="btn btn-fill">Browse the books</a>
+      <a href="#about" class="btn btn-outline">Meet Tita</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <img src="assets/images/FullSizeRender-981x1024.jpg" alt="Titania Blesh">
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section id="books">
+  <div class="books-top">
+    <div>
+      <p class="sec-label">Catalogue</p>
+      <h2 class="sec-title"><em>Piratesse</em><br>del Mediterraneo</h2>
+      <p>A historical fantasy trilogy soaked in Mediterranean legend, sea-salt, and adventure. Traditionally published in Italy and France — also on audiobook.</p>
+    </div>
+  </div>
+
+  <div><span class="series-pill">Main trilogy</span></div>
+  <div class="books-grid">
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="assets/images/Mockup_Cannonau_small-233x300.png" alt="A Colpi di Cannonau">
+        <div class="book-hover"><a href="http://www.amazon.it/dp/B0FRXS566B" class="buy-btn" target="_blank">Buy on Amazon →</a></div>
+      </div>
+      <p class="book-title">A Colpi di Cannonau</p>
+      <p class="book-sub">Historical Fantasy · Book I</p>
+    </div>
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="assets/images/Mockup_Sangria_small-1-265x300.png" alt="Un Bagno di Sangria">
+        <div class="book-hover"><a href="http://www.amazon.it/dp/B0FS7KWPLT" class="buy-btn" target="_blank">Buy on Amazon →</a></div>
+      </div>
+      <p class="book-title">Un Bagno di Sangria</p>
+      <p class="book-sub">Historical Fantasy · Book II</p>
+    </div>
+    <div class="book-card">
+      <div class="book-cover">
+        <img src="assets/images/mockup-mirto-side-220x300.png" alt="O Mirto o Morte">
+        <div class="book-hover"><a href="http://www.amazon.it/dp/B0FS7J3QHL" class="buy-btn" target="_blank">Buy on Amazon →</a></div>
+      </div>
+      <p class="book-title">O Mirto o Morte</p>
+      <p class="book-sub">Historical Fantasy · Book III</p>
+    </div>
+  </div>
+
+  <div class="trans-band">
+    <p class="trans-band-title">Translations</p>
+    <div class="trans-grid">
+      <div class="trans-card">
+        <img src="assets/images/a_coups_de_canon_small.jpg" alt="À Coups de Canon">
+        <div class="trans-info">
+          <span class="trans-pill">French</span>
+          <p class="trans-name">À Coups de Canon</p>
+          <a href="https://www.amazon.it/coups-canon-French-Titania-Blesh-ebook/dp/B0F7GR32WW/" class="trans-link" target="_blank">Buy →</a>
+        </div>
+      </div>
+      <div class="trans-card" style="opacity:0.45; pointer-events:none;">
+        <div style="width:100%;aspect-ratio:2/3;background:var(--apricot-dk);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:0.75rem;color:var(--ink-lt);font-family:var(--body);font-weight:600;">Coming soon</span>
+        </div>
+        <div class="trans-info">
+          <span class="trans-pill">TBA</span>
+          <p class="trans-name">—</p>
+        </div>
+      </div>
+      <div class="trans-card" style="opacity:0.45; pointer-events:none;">
+        <div style="width:100%;aspect-ratio:2/3;background:var(--apricot-dk);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:0.75rem;color:var(--ink-lt);font-family:var(--body);font-weight:600;">Coming soon</span>
+        </div>
+        <div class="trans-info">
+          <span class="trans-pill">TBA</span>
+          <p class="trans-name">—</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trans-band">
+    <p class="trans-band-title">Audiobooks</p>
+    <div class="audio-grid">
+      <a href="https://www.audible.it/pd/A-colpi-di-Cannonau-Audiolibri/B0C66JWLGS" class="audio-card" target="_blank">
+        <img src="assets/images/51AmD-WtngL._SL500_.jpg" alt="A Colpi di Cannonau Audible">
+        <div class="audio-info">
+          <p class="audio-name">A Colpi di Cannonau</p>
+          <span class="audio-cta">Listen on Audible →</span>
+        </div>
+      </a>
+      <a href="https://www.audible.it/pd/Un-bagno-di-Sangria-Audiolibri/B0CB42G2K2" class="audio-card" target="_blank">
+        <img src="assets/images/61usf6F9oCL._SL500_.jpg" alt="Un Bagno di Sangria Audible">
+        <div class="audio-info">
+          <p class="audio-name">Un Bagno di Sangria</p>
+          <span class="audio-cta">Listen on Audible →</span>
+        </div>
+      </a>
+      <div class="audio-card" style="opacity:0.45; pointer-events:none; cursor:default;">
+        <div style="width:100%;aspect-ratio:1/1;background:var(--apricot-dk);display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:0.75rem;color:var(--ink-lt);font-family:var(--body);font-weight:600;">Coming soon</span>
+        </div>
+        <div class="audio-info">
+          <p class="audio-name">—</p>
+          <span class="audio-cta">TBA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED BOOK -->
+<section id="featured">
+  <!-- dune contour art -->
+  <svg class="feat-dunes" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+    <!-- far right dune cluster — large sweeping mound -->
+    <g fill="none" stroke="#c95a3a" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M780,500 C820,420 870,360 950,310 C1030,260 1110,255 1200,265" stroke-width="1.1" opacity="0.10"/>
+      <path d="M800,500 C840,430 892,372 972,322 C1052,272 1128,265 1200,273" stroke-width="1.1" opacity="0.13"/>
+      <path d="M822,500 C860,440 912,384 990,336 C1068,288 1142,278 1200,284" stroke-width="1.1" opacity="0.16"/>
+      <path d="M845,500 C882,450 930,396 1006,350 C1082,304 1152,292 1200,296" stroke-width="1.2" opacity="0.19"/>
+      <path d="M870,500 C906,460 952,410 1024,366 C1096,322 1162,308 1200,310" stroke-width="1.2" opacity="0.22"/>
+      <path d="M898,500 C932,470 976,424 1044,382 C1112,340 1170,326 1200,326" stroke-width="1.2" opacity="0.25"/>
+      <path d="M928,500 C960,480 1000,440 1064,400 C1128,360 1180,344 1200,344" stroke-width="1.3" opacity="0.28"/>
+      <path d="M960,500 C990,490 1026,456 1086,418 C1146,380 1188,364 1200,362" stroke-width="1.3" opacity="0.31"/>
+      <path d="M994,500 C1020,496 1054,472 1108,438 C1162,404 1194,388 1200,382" stroke-width="1.4" opacity="0.34"/>
+      <path d="M1030,500 C1052,500 1082,490 1130,460 C1178,430 1198,416 1200,404" stroke-width="1.4" opacity="0.37"/>
+      <path d="M1068,500 C1086,500 1110,498 1152,476 C1194,454 1200,444 1200,428" stroke-width="1.5" opacity="0.38"/>
+    </g>
+
+    <!-- left dune — smaller, shallower, mostly off-left-edge -->
+    <g fill="none" stroke="#c95a3a" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0,380 C40,340 90,305 160,295 C230,285 290,300 340,330 C390,360 410,400 420,440" stroke-width="1.0" opacity="0.09"/>
+      <path d="M0,396 C38,358 86,323 156,313 C226,303 286,316 334,346 C382,376 404,414 414,454" stroke-width="1.0" opacity="0.12"/>
+      <path d="M0,412 C36,376 82,341 150,332 C218,323 278,334 326,364 C374,394 396,430 406,468" stroke-width="1.1" opacity="0.15"/>
+      <path d="M0,428 C32,394 76,360 144,352 C212,344 272,354 318,384 C364,414 388,448 396,482" stroke-width="1.1" opacity="0.18"/>
+      <path d="M0,446 C28,414 70,381 136,374 C202,367 264,376 308,406 C352,436 378,468 384,500" stroke-width="1.2" opacity="0.21"/>
+      <path d="M0,464 C24,434 62,403 126,398 C190,393 254,400 296,430 C338,460 364,490 368,500" stroke-width="1.2" opacity="0.24"/>
+      <path d="M0,482 C18,456 52,428 114,424 C176,420 242,426 282,456 C310,478 334,498 340,500" stroke-width="1.3" opacity="0.26"/>
+    </g>
+
+    <!-- centre-bottom scattered wind-ripple lines -->
+    <g fill="none" stroke="#c95a3a" stroke-linecap="round" opacity="0.14">
+      <path d="M380,490 C440,482 510,478 580,480 C650,482 710,486 760,490" stroke-width="0.9"/>
+      <path d="M400,500 C460,493 525,489 595,491 C665,493 718,497 762,500" stroke-width="0.9"/>
+      <path d="M355,478 C418,470 492,467 562,469 C632,471 695,475 745,480" stroke-width="0.8"/>
+    </g>
+
+    <!-- tiny sand grain dots scattered across lower portion -->
+    <g fill="#c95a3a">
+      <circle cx="460" cy="470" r="1.2" opacity="0.20"/>
+      <circle cx="530" cy="458" r="1.0" opacity="0.18"/>
+      <circle cx="610" cy="475" r="1.4" opacity="0.16"/>
+      <circle cx="680" cy="462" r="1.0" opacity="0.20"/>
+      <circle cx="740" cy="480" r="1.2" opacity="0.17"/>
+      <circle cx="500" cy="492" r="0.9" opacity="0.15"/>
+      <circle cx="640" cy="488" r="1.1" opacity="0.18"/>
+      <circle cx="700" cy="495" r="0.9" opacity="0.14"/>
+      <circle cx="430" cy="483" r="1.0" opacity="0.16"/>
+    </g>
+  </svg>
+
+  <div class="feat-img">
+    <img src="assets/images/mockup_2.png" alt="Echi di Sabbia e Chele Spezzate">
+  </div>
+  <div>
+    <p class="sec-label">Also by Titania Blesh</p>
+    <h2 class="sec-title"><em>Echi di Sabbia</em><br>e Chele Spezzate</h2>
+    <blockquote class="feat-quote">Lei desidera solo evitare la guerra. Diventare cerebrale è il suo sogno. Lui ha un unico obiettivo: essere il migliore. E la nuova aspirante cerebrale è il suo incubo.</blockquote>
+    <p class="feat-sub">YA Fantasy · Italian only</p>
+    <a href="https://www.amazon.it/Sabbia-Chele-Spezzate-Titania-Blesh-ebook/dp/B0DPTHHLT9" class="btn btn-fill" target="_blank">Buy on Amazon →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <img src="assets/images/FullSizeRender-981x1024.jpg" alt="Titania Blesh author photo">
+  </div>
+  <div class="about-text">
+    <p class="sec-label">The author</p>
+    <h2 class="sec-title">Hey,<br>I'm <em>Tita.</em></h2>
+    <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada — and also on <strong>Proxima Centauri b</strong>, though you'll know for sure only in 4.25 light-years.</p>
+    <p>I love astronomy, volcanoes, handstands, and my dog Newt. My life goal is to climb every volcano on Earth and Olympus Mons on Mars.</p>
+    <p>Come say hello:</p>
+    <div class="about-socials">
+      <a href="https://www.instagram.com/titaniablesh/" class="btn btn-fill" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@titaniablesh" class="btn btn-outline" target="_blank">TikTok</a>
+      <a href="titaniablesh_volcanoes.html" class="btn btn-outline" target="_blank">🌋 Climb with me</a>
+    </div>
+  </div>
+</section>
+
+<!-- FUN FACTS STRIP -->
+<div class="facts-strip">
+  <div class="fact"><span class="fact-dot"></span>Traditionally published in 3 countries</div>
+  <div class="fact"><span class="fact-dot"></span>9 completed novels</div>
+  <div class="fact"><span class="fact-dot"></span>Sci-fi | Fantasy | Romantasy</div>
+  <div class="fact"><span class="fact-dot"></span>Adult | YA</div>
+</div>
+
+<!-- PUBLISHERS -->
+<section id="publishers">
+  <p class="sec-label">Published with</p>
+  <div class="pub-logos">
+    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" class="pub-item" target="_blank">
+      <img src="assets/images/hikaya.png" alt="Hikaya">
+    </a>
+    <a href="https://www.acheron.it/" class="pub-item" target="_blank">
+      <img src="assets/images/Acheron_Logo_Black-150x150.png" alt="Acheron Books">
+    </a>
+    <a href="https://www.lumien.it/" class="pub-item" target="_blank">
+      <img src="assets/images/logo-lumien-mondi-oltre-i-libri-head_invert.png" alt="Lumien">
+    </a>
+    <a href="http://www.dark-zone.it/" class="pub-item" target="_blank">
+      <img src="assets/images/103637136_288834252503190_1611508653666004182_n-150x150.png" alt="Dark Zone Edizioni">
+    </a>
+    <a href="https://www.mirrorworldpublishing.com/" class="pub-item" target="_blank">
+      <img src="assets/images/mirror_world_publishing-1024x961.webp" alt="Mirror World Publishing">
+    </a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="sec-label">Full catalogue</p>
+  <h2 class="sec-title"><em>Projects</em></h2>
+  <table class="proj-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Language</th>
+        <th>Status</th>
+        <th>Rights</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="proj-title-cell"><span class="proj-emoji">⚔️</span>A Colpi di Cannonau</div>
+          <div class="proj-title-cell" style="margin-top:0.3rem;"><span class="proj-emoji">🍷</span>Un Bagno di Sangria</div>
+          <div class="proj-title-cell" style="margin-top:0.3rem;"><span class="proj-emoji">🌿</span>O Mirto o Morte</div>
+        </td>
+        <td>Historical Fantasy</td>
+        <td><span class="lang-pill">Italian</span><span class="lang-pill">French</span></td>
+        <td><span class="badge badge-yes">Published</span></td>
+        <td style="font-size:0.82rem;">Author<br><span style="color:var(--ink-lt);font-size:0.75rem;">(excl. French rights)</span></td>
+      </tr>
+      <tr>
+        <td><div class="proj-title-cell"><span class="proj-emoji">🦀</span>Echi di Sabbia e Chele Spezzate</div></td>
+        <td>YA Fantasy</td>
+        <td><span class="lang-pill">Italian</span></td>
+        <td><span class="badge badge-yes">Published</span></td>
+        <td style="font-size:0.82rem;">Author</td>
+      </tr>
+      <tr>
+        <td><div class="proj-title-cell"><span class="proj-emoji">🚀</span>Neomentis</div></td>
+        <td>YA Sci-Fi</td>
+        <td><span class="lang-pill">Italian</span><span class="lang-pill">English</span></td>
+        <td><span class="badge badge-no">Unpublished</span></td>
+        <td style="font-size:0.82rem;">Author</td>
+      </tr>
+      <tr>
+        <td><div class="proj-title-cell"><span class="proj-emoji">🪐</span>Xeroton</div></td>
+        <td>Adult Sci-Fi</td>
+        <td><span class="lang-pill">English</span></td>
+        <td><span class="badge badge-no">Unpublished</span></td>
+        <td style="font-size:0.82rem;">Author</td>
+      </tr>
+      <tr>
+        <td><div class="proj-title-cell"><span class="proj-emoji">🏛️</span>Ataraxia</div></td>
+        <td>Historical Fantasy</td>
+        <td><span class="lang-pill">English</span></td>
+        <td><span class="badge badge-no">Unpublished</span></td>
+        <td style="font-size:0.82rem;">Author</td>
+      </tr>
+      <tr>
+        <td>
+          <div class="proj-title-cell"><span class="proj-emoji">🌋</span>Volcanomancer I</div>
+          <div class="proj-title-cell" style="margin-top:0.3rem;"><span class="proj-emoji">🌋</span>Volcanomancer II</div>
+        </td>
+        <td>YA Fantasy</td>
+        <td><span class="lang-pill">English</span></td>
+        <td><span class="badge badge-no">Unpublished</span></td>
+        <td style="font-size:0.82rem;">Author</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- VOLCANOES -->
+<section id="volcanoes">
+  <div class="vol-ring vol-ring-1"></div>
+  <div class="vol-ring vol-ring-2"></div>
+  <div class="vol-ring vol-ring-3"></div>
+  <div class="vol-ring vol-ring-4"></div>
+  <div class="vol-inner">
+    <p class="sec-label">A personal obsession</p>
+    <h2 class="sec-title">Why 🌋 <em>volcanoes?</em></h2>
+    <p>I'm utterly, uncontrollably fascinated by volcanoes. I have recurrent dreams of burning alive in a molten lava flow, and I wouldn't have it any other way.</p>
+    <a href="titaniablesh_volcanoes.html" class="btn btn-peach" target="_blank">Explore my craters collection →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-name">© Titania Blesh</p>
+  <ul class="footer-links">
+    <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
+    <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
+    <li><a href="#">Top ↑</a></li>
+  </ul>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const nav = document.getElementById('navlinks');
+  burger.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+</script>
+</body>
+</html>
