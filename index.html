@@ -4,898 +4,1797 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Titania Blesh — Sci-Fi & Fantasy Writer</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ─── PALETTES ─────────────────────────────────────────────
+   Sepia palette is the page default (cream / wine / gold / ink).
+   Volcanic palette is applied via .volcanic on individual sections,
+   which redefines the same semantic CSS variables for that scope.
+   ───────────────────────────────────────────────────────── */
+
 :root {
-  --apricot:    #fff5ee;
-  --apricot-mid:#fde8d8;
-  --apricot-dk: #f5d8c0;
-  --terra:      #e8785a;
-  --terra-dk:   #c95a3a;
-  --peach:      #f5d090;
-  --peach-lt:   #fceabb;
-  --ink:        #3a2e28;
-  --ink-mid:    #5c4a3e;
-  --ink-lt:     #9a8070;
-  --display:    'Lora', Georgia, serif;
-  --body:       'Nunito', system-ui, sans-serif;
+  /* SEPIA palette — page default */
+  --bg:         #f5ede0;
+  --bg-2:       #ece2cf;
+  --bg-3:       #ddd0b6;
+  --rule:       #ddd0b6;
+  --rule-soft:  rgba(31,24,21,0.08);
+
+  --txt:        #1f1815;     /* ink */
+  --txt-mid:    #4a3d33;
+  --txt-lt:     #8a7c6c;
+
+  --accent:     #7a2e2e;     /* wine */
+  --accent-dk:  #5b2020;
+  --accent-lt:  #a14545;
+
+  --gold:       #b88a3a;
+  --gold-lt:    #d8b87a;
+
+  --display:    'Lato', 'Nunito', system-ui, sans-serif;
+  --body:       'Nunito', system-ui, -apple-system, sans-serif;
+}
+
+/* VOLCANIC palette — scoped to .volcanic sections */
+.volcanic {
+  --bg:        #0d0908;
+  --bg-2:      #14110f;
+  --bg-3:      #1d1814;
+  --rule:      rgba(240,230,212,0.16);
+  --rule-soft: rgba(240,230,212,0.07);
+
+  --txt:       #f0e6d4;
+  --txt-mid:   #c5b89d;
+  --txt-lt:    #847964;
+
+  --accent:    #e85d2c;      /* ember */
+  --accent-dk: #b8431b;
+  --accent-lt: #f08855;
+
+  --gold:      #d8a64a;
+  --gold-lt:   #ebc77b;
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  background: var(--apricot);
-  color: var(--ink);
+  background: var(--bg);
+  color: var(--txt);
   font-family: var(--body);
   font-size: 17px;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* ── NAV ───────────────────────────────────────────── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 3.5rem;
-  background: rgba(255,245,238,0.93);
-  backdrop-filter: blur(12px);
-  border-bottom: 1.5px solid var(--apricot-dk);
-}
-.nav-logo {
-  display: flex; align-items: center; gap: 0.55rem;
-  font-family: var(--display);
-  font-size: 1.15rem; font-weight: 700; font-variant: small-caps;
-  color: var(--terra-dk); text-decoration: none; letter-spacing: 0.04em;
-}
-.nav-logo img { height: 26px; width: auto; display: block; }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-family: var(--body); font-size: 0.8rem; font-weight: 600;
-  letter-spacing: 0.04em; color: var(--ink-mid);
-  text-decoration: none; transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--terra); }
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.nav-burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
 
-/* ── HERO ──────────────────────────────────────────── */
+/* ─── NAV / MASTHEAD ─────────────────────────────── */
+nav.masthead {
+  position: sticky; top: 0; z-index: 100;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.4rem 3rem 1.2rem;
+  background-color: var(--bg);
+  background-image: linear-gradient(to right,
+    rgba(240,230,212,0)   0%,
+    rgba(240,230,212,0.15) 8%,
+    rgba(240,230,212,0.55) 16%,
+    rgba(240,230,212,0.92) 24%,
+    rgba(240,230,212,1)    32%,
+    rgba(240,230,212,1)    68%,
+    rgba(240,230,212,0.92) 76%,
+    rgba(240,230,212,0.55) 84%,
+    rgba(240,230,212,0.15) 92%,
+    rgba(240,230,212,0)   100%);
+  background-position: bottom;
+  background-size: 100% 2px;
+  background-repeat: no-repeat;
+  border-bottom: none;
+}
+.brand { grid-column: 1; }
+.nav-cta {
+  grid-column: 3;
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none;
+  background-color: var(--accent); color: var(--bg);
+  background-image: linear-gradient(180deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.04) 45%,
+    rgba(0,0,0,0.06)       75%,
+    rgba(0,0,0,0.14)      100%);
+  border: 1.5px solid var(--accent);
+  padding: 0.55rem 1.1rem;
+  transition: background 0.2s, color 0.2s, transform 0.15s, border-color 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover {
+  background-color: transparent; color: var(--accent);
+  background-image: none;
+  transform: translateY(-1px);
+}
+nav.masthead::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px;
+  height: 1px;
+  background: linear-gradient(to right,
+    rgba(240,230,212,0)    0%,
+    rgba(240,230,212,0.18) 12%,
+    rgba(240,230,212,0.55) 20%,
+    rgba(240,230,212,0.95) 28%,
+    rgba(240,230,212,1)    36%,
+    rgba(240,230,212,1)    64%,
+    rgba(240,230,212,0.95) 72%,
+    rgba(240,230,212,0.55) 80%,
+    rgba(240,230,212,0.18) 88%,
+    rgba(240,230,212,0)   100%);
+}
+.brand {
+  display: flex; align-items: center; gap: 0.7rem;
+  text-decoration: none;
+}
+.brand-logo {
+  position: relative;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  /* logo's base aligns with the text bottom via flex-end on .brand */
+}
+.brand-logo::before {
+  content: '';
+  position: absolute; inset: -10px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(255,230,210,0.92) 0%,
+    rgba(248,150,100,0.70) 22%,
+    rgba(232,93,44,0.42)   40%,
+    rgba(232,93,44,0.22)   58%,
+    rgba(232,93,44,0.10)   74%,
+    rgba(232,93,44,0.03)   88%,
+    rgba(232,93,44,0)     100%);
+  z-index: 0;
+  filter: blur(3px);
+  animation: halo-pulse 4s ease-in-out infinite alternate;
+}
+@keyframes halo-pulse {
+  from { opacity: 0.75; transform: scale(0.96); }
+  to   { opacity: 1;    transform: scale(1.06); }
+}
+.brand-logo img {
+  position: relative; z-index: 1;
+  height: 32px; width: auto; display: block;
+  /* shift just the volcano GIF up so its base aligns with the bottom of the title text;
+     the halo (::before) stays put */
+  transform: translateY(-6px);
+}
+.brand-text {
+  font-family: 'Lato', var(--body), system-ui, sans-serif;
+  font-style: normal; font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1rem; color: var(--txt);
+  letter-spacing: 0;
+}
+.nav-links {
+  display: flex; gap: 2.2rem; list-style: none; align-items: center;
+  justify-content: center;
+  grid-column: 2;
+}
+.nav-links a {
+  font-family: var(--body); font-size: 0.74rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--txt-mid); text-decoration: none;
+  padding-bottom: 2px; border-bottom: 1.5px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-burger span { display: block; width: 22px; height: 2px; background: var(--txt); border-radius: 2px; transition: all 0.3s; }
+
+/* ─── HERO (VOLCANIC) ─────────────────────────────── */
 .hero {
-  min-height: 100vh;
-  display: grid; grid-template-columns: 1.05fr 0.95fr;
-  padding-top: 4.5rem; position: relative; overflow: hidden;
-  background-color: var(--apricot);
-  background-image:
-    radial-gradient(circle at 15% 85%, rgba(245,208,144,0.3) 0%, transparent 40%),
-    radial-gradient(circle, rgba(245,216,192,0.7) 1.5px, transparent 1.5px);
-  background-size: auto, 34px 34px;
+  padding: 1rem 3rem 4rem;
+  text-align: center;
+  position: relative;
+  display: flex; flex-direction: column; align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 30%, rgba(232,93,44,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 80% at 50% 100%, rgba(184,67,27,0.18) 0%, transparent 70%),
+    linear-gradient(180deg, #0d0908 0%, #1a0f0b 60%, #2a1610 100%);
 }
-.hero-ring {
-  position: absolute; border-radius: 50%;
-  border: 1.5px solid rgba(232,120,90,0.12);
-  z-index: 0; pointer-events: none;
-}
-.hero-ring-1 { width: 700px; height: 700px; bottom: -20%; right: -10%; }
-.hero-ring-2 { width: 500px; height: 500px; bottom: -12%; right: -3%; }
-.hero-ring-3 { width: 300px; height: 300px; bottom: -4%;  right:  6%; border-color: rgba(232,120,90,0.18); }
-.hero-blob {
-  position: absolute; top: -10%; right: -5%; width: 55%; height: 110%;
-  background: var(--peach-lt); border-radius: 50% 0 0 40%;
+
+/* faint starfield SVG noise overlay */
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='600'><g fill='%23f0e6d4'><circle cx='80' cy='90' r='0.6' opacity='0.4'/><circle cx='220' cy='40' r='0.9' opacity='0.6'/><circle cx='340' cy='130' r='0.5' opacity='0.35'/><circle cx='480' cy='60' r='1.0' opacity='0.7'/><circle cx='600' cy='150' r='0.5' opacity='0.4'/><circle cx='720' cy='80' r='0.7' opacity='0.5'/><circle cx='160' cy='220' r='0.5' opacity='0.4'/><circle cx='420' cy='200' r='0.6' opacity='0.45'/><circle cx='640' cy='240' r='0.5' opacity='0.35'/><circle cx='90' cy='320' r='0.6' opacity='0.4'/><circle cx='280' cy='380' r='0.5' opacity='0.35'/><circle cx='520' cy='340' r='0.7' opacity='0.5'/><circle cx='700' cy='400' r='0.5' opacity='0.4'/></g></svg>");
   z-index: 0;
 }
-.hero-blob2 {
-  position: absolute; bottom: -8%; left: 15%; width: 30%; height: 40%;
-  background: var(--apricot-mid); border-radius: 50%;
+
+/* three small wider-than-tall volcanoes anchored at the bottom of the hero */
+.hero-volcanoes {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 0;
   z-index: 0;
+  pointer-events: none;
 }
-.hero-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 2.5rem 5rem 5rem; position: relative; z-index: 1;
+.hv {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  animation: volcano-glow 7s ease-in-out infinite alternate;
+  filter:
+    drop-shadow(0 0 24px rgba(232,93,44,0.26))
+    drop-shadow(0 0 60px rgba(232,93,44,0.14));
 }
-.eyebrow {
-  font-family: var(--body); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--terra); margin-bottom: 1.2rem;
-  display: flex; align-items: center; gap: 0.75rem;
+.hv svg { display: block; width: 100%; height: auto; overflow: visible; }
+.hv-left   { left: 4%;  width: clamp(180px, 26vw, 360px); animation-delay: 0s;  }
+.hv-center { left: 50%; transform: translateX(-50%); width: clamp(220px, 32vw, 440px); animation-delay: 1.7s; bottom: -3%; }
+.hv-right  { right: 5%; width: clamp(170px, 22vw, 310px); animation-delay: 3.4s; }
+@keyframes volcano-glow {
+  from {
+    filter:
+      drop-shadow(0 0 22px rgba(232,93,44,0.22))
+      drop-shadow(0 0 55px rgba(232,93,44,0.10));
+  }
+  to {
+    filter:
+      drop-shadow(0 0 38px rgba(232,93,44,0.40))
+      drop-shadow(0 0 90px rgba(232,93,44,0.20));
+  }
 }
-.eyebrow::before {
-  content: ''; display: block; width: 2rem; height: 2px;
-  background: var(--terra); border-radius: 2px;
+/* lava flickering inside the craters */
+.hv .crater-core {
+  animation: crater-flicker 2.4s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+.hv-center .crater-core { animation-duration: 2.0s; }
+.hv-right  .crater-core { animation-duration: 2.8s; }
+@keyframes crater-flicker {
+  from { opacity: 0.85; transform: scale(1); }
+  to   { opacity: 1;    transform: scale(1.08); }
+}
+/* vertical lava glow column (replaces flat UFO ellipse) — gentle pulse */
+.hv .lava-glow {
+  animation: lava-glow-pulse 3.5s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+.hv-center .lava-glow { animation-duration: 4.2s; }
+.hv-right  .lava-glow { animation-duration: 3s;   }
+@keyframes lava-glow-pulse {
+  from { opacity: 0.85; transform: scaleY(0.94) scaleX(0.96); }
+  to   { opacity: 1;    transform: scaleY(1.08) scaleX(1.02); }
+}
+/* smoke as blurred cloud puffs rising and fading */
+.hv .puff {
+  animation: smoke-puff 5s ease-out infinite;
+  transform-origin: center;
+  opacity: 0;
+}
+.hv-left .puff-a   { animation-delay: 0s;   }
+.hv-left .puff-b   { animation-delay: 1.7s; }
+.hv-left .puff-c   { animation-delay: 3.4s; }
+.hv-center .puff   { animation-duration: 5.6s; }
+.hv-center .puff-a { animation-delay: 0.5s; }
+.hv-center .puff-b { animation-delay: 2.4s; }
+.hv-center .puff-c { animation-delay: 4.2s; }
+.hv-right .puff    { animation-duration: 4.4s; }
+.hv-right .puff-a  { animation-delay: 0.2s; }
+.hv-right .puff-b  { animation-delay: 1.8s; }
+.hv-right .puff-c  { animation-delay: 3.3s; }
+@keyframes smoke-puff {
+  0%   { opacity: 0;    transform: translateY(2px)   scale(0.55); }
+  15%  { opacity: 0.55; }
+  55%  { opacity: 0.35; transform: translateY(-12px) scale(1.0); }
+  100% { opacity: 0;    transform: translateY(-30px) scale(1.5); }
+}
+
+/* drifting lapilli (volcanic stones) */
+.lapillus {
+  position: absolute;
+  bottom: -12px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #e85d2c;
+  box-shadow: 0 0 6px #e85d2c, 0 0 12px rgba(232,93,44,0.45);
+  animation: lapilli-rise linear infinite;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 1;
+}
+.lapillus.rock {
+  width: 7px; height: 7px;
+  border-radius: 1px;
+  background: #5a2e15;
+  box-shadow: 0 0 4px rgba(232,93,44,0.5), 0 0 10px rgba(184,67,27,0.4);
+}
+.lapillus.spark {
+  width: 3px; height: 3px;
+  background: #f0c987;
+  box-shadow: 0 0 8px #f08855, 0 0 14px rgba(240,201,135,0.5);
+}
+@keyframes lapilli-rise {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.9; }
+  85%  { opacity: 0.55; }
+  100% { transform: translateY(-110vh) translateX(var(--drift, 30px)) rotate(var(--spin, 360deg)); opacity: 0; }
+}
+
+.hero-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  width: 100%;
+}
+
+.hero-kicker {
+  font-family: var(--body);
+  font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+  display: inline-flex; align-items: center; gap: 0.9rem;
+}
+.hero-kicker::before, .hero-kicker::after {
+  content: ''; display: block;
+  width: 3rem; height: 1px;
+  background: var(--accent);
 }
 .hero-name {
-  font-family: var(--display);
-  font-size: clamp(3.5rem, 6vw, 6.2rem);
-  font-weight: 700; line-height: 1.0;
-  color: var(--ink); margin-bottom: 1.6rem;
-  letter-spacing: -0.01em; font-variant: small-caps;
+  font-family: 'Lato', var(--body), system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(2.4rem, 8.8vw, 6.8rem);
+  line-height: 1.05;
+  color: var(--txt);
+  letter-spacing: -0.015em;
+  margin: 0 auto 0.6rem;
+  white-space: nowrap;
+  text-shadow: 0 0 60px rgba(232,93,44,0.18);
 }
-.hero-name em { font-style: normal; color: var(--terra); display: block; }
-.hero-tagline {
-  font-family: var(--body); font-size: 1rem; font-weight: 400;
-  color: var(--ink-mid); max-width: 38ch;
-  margin-bottom: 2.5rem; line-height: 1.75;
+.hero-name .first { color: var(--txt); }
+.hero-name .last  { color: var(--accent); margin-left: 0.28em; }
+
+.hero-rule {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.9rem; margin: 1.2rem 0 1.4rem;
 }
-.hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; }
-.btn {
-  display: inline-block; font-family: var(--body);
-  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
-  text-decoration: none; border-radius: 40px;
-  padding: 0.8rem 2rem; transition: transform 0.15s, background 0.2s;
+.hero-rule .line {
+  flex: 0 0 5rem; height: 1px; background: var(--txt);
 }
-.btn:hover { transform: translateY(-2px); }
-.btn-fill { background: var(--terra); color: #fff; }
-.btn-fill:hover { background: var(--terra-dk); }
-.btn-outline {
-  background: transparent; color: var(--terra);
-  border: 2px solid var(--terra);
-}
-.btn-outline:hover { background: var(--apricot-mid); }
-.hero-right {
-  position: relative; z-index: 1;
-  display: flex; align-items: flex-end; justify-content: center;
-  padding: 3rem 3rem 0;
-}
-.hero-photo-wrap { position: relative; }
-.hero-photo-wrap::before {
-  content: ''; position: absolute;
-  inset: -12px 12px 12px -12px;
-  border: 3px solid var(--peach);
-  border-radius: 8px; z-index: -1;
-}
-.hero-photo-wrap::after {
-  content: ''; position: absolute;
-  inset: -24px 24px 24px -24px;
-  border: 1.5px solid var(--apricot-dk);
-  border-radius: 10px; z-index: -2;
-}
-.hero-photo-wrap img {
-  width: 100%; max-width: 380px; display: block;
-  border-radius: 6px 6px 0 0;
-  object-fit: cover; object-position: top;
+.hero-rule .star {
+  font-family: var(--body);   /* upright, not italic */
+  font-style: normal;
+  color: var(--gold); font-size: 1.1rem;
 }
 
-/* ── SECTION COMMONS ───────────────────────────────── */
-.sec-label {
+.hero-meta {
+  display: flex; justify-content: center;
+  gap: 3rem; flex-wrap: wrap;
   font-family: var(--body); font-size: 0.7rem; font-weight: 700;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--terra); margin-bottom: 0.6rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--txt-lt);
+  margin-bottom: 2.6rem;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.55rem; }
+.hero-meta span::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--gold); border-radius: 50%;
+}
+
+.hero-ctas { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; }
+
+.btn {
+  display: inline-block; font-family: var(--body);
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.95rem 2rem;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s, color 0.2s, border-color 0.2s;
+  border-radius: 0;
+}
+.btn:hover { transform: translateY(-1px); }
+/* subtle highlight→shadow overlay for all filled rectangular buttons */
+.btn-fill,
+.btn-accent,
+.btn-gold {
+  background-image: linear-gradient(180deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.04) 45%,
+    rgba(0,0,0,0.06)       75%,
+    rgba(0,0,0,0.14)      100%);
+}
+.btn-fill   { background-color: var(--txt); color: var(--bg); border-color: var(--txt); }
+.btn-fill:hover { background-color: var(--accent); border-color: var(--accent); }
+.btn-outline { background: transparent; color: var(--txt); border-color: var(--txt); }
+.btn-outline:hover { background: var(--txt); color: var(--bg); }
+.btn-accent { background-color: var(--accent); color: var(--bg); border-color: var(--accent); }
+.btn-accent:hover { background-color: var(--accent-lt, var(--accent-dk)); border-color: var(--accent-lt, var(--accent-dk)); }
+.btn-gold { background-color: var(--gold); color: var(--txt); border-color: var(--gold); }
+.btn-gold:hover { background-color: var(--gold-lt); border-color: var(--gold-lt); }
+
+/* ─── COMMON SECTION TYPE ────────────────────────── */
+section { position: relative; }
+.sec-pad { padding: 6rem 3rem; }
+
+.sec-eyebrow {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.8rem;
 }
 .sec-title {
   font-family: var(--display);
-  font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700;
-  line-height: 1.1; color: var(--ink); margin-bottom: 1.2rem;
+  font-weight: 700; font-style: italic;
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  line-height: 1.05; color: var(--txt);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.015em;
 }
-.sec-title em { font-style: italic; color: var(--terra); }
+.sec-title .accent { color: var(--accent); }
+.sec-deck {
+  font-family: var(--display); font-style: italic;
+  font-size: 1.05rem; color: var(--txt-mid);
+  max-width: 56ch; line-height: 1.55;
+}
+.ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.7rem; margin: 0 auto 3rem; max-width: 360px;
+  color: var(--gold);
+  font-style: normal;          /* ornament glyphs upright, not italic */
+}
+.ornament .line { flex: 1; height: 1px; background: var(--gold); opacity: 0.55; }
+.ornament .glyph {
+  font-family: var(--body);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+}
 
-/* featured dune art */
-.feat-dunes {
-  position: absolute;
-  inset: 0; width: 100%; height: 100%;
-  z-index: 0; pointer-events: none; display: block;
+/* ─── #bestsellers (SEPIA, paper-dim panel) ─────── */
+#bestsellers {
+  background: var(--bg-2);
+  border-top: 1px solid var(--bg-3);
+  border-bottom: 1px solid var(--bg-3);
+  position: relative;
+  overflow: hidden;
 }
-#featured > *:not(.feat-dunes) { position: relative; z-index: 1; }
-.hero-volcanoes {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  width: 100%; height: 320px;
+.bestsellers-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
   z-index: 0; pointer-events: none;
   display: block;
 }
+.bestsellers-waves {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 65%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+#bestsellers > *:not(.bestsellers-bg):not(.bestsellers-waves) { position: relative; z-index: 1; }
 
-/* Soft dot grid pattern reusable */
-.dot-bg {
-  background-image: radial-gradient(circle, var(--apricot-dk) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
+.trilogy-head { text-align: center; margin-bottom: 3rem; }
+.trilogy-head .sec-deck { margin: 0 auto; }
 
-/* ── HERO extra atmosphere */
-.hero { background: var(--apricot); }
-.hero::after {
-  content: '';
-  position: absolute; inset: 0; z-index: 0; pointer-events: none;
-  background-image:
-    radial-gradient(circle at 20% 80%, rgba(245,208,144,0.28) 0%, transparent 45%),
-    radial-gradient(circle at 80% 10%, rgba(232,120,90,0.1) 0%, transparent 40%);
+.trilogy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  max-width: 720px; margin: 0 auto;
 }
-
-/* ── BOOKS ─────────────────────────────────────────── */
-#books {
-  padding: 7rem 5rem;
-  background-color: var(--apricot);
-  position: relative; overflow: hidden;
-}
-#books::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(circle at 90% 15%, rgba(245,208,144,0.35) 0%, transparent 38%),
-    radial-gradient(circle at 5%  70%, rgba(232,120,90,0.1)  0%, transparent 35%),
-    radial-gradient(circle, var(--apricot-dk) 1px, transparent 1px);
-  background-size: auto, auto, 32px 32px;
-}
-#books > * { position: relative; z-index: 1; }
-.books-top {
-  display: flex; justify-content: space-between;
-  align-items: flex-end; gap: 2rem; margin-bottom: 3.5rem; flex-wrap: wrap;
-}
-.books-top p { font-size: 0.95rem; color: var(--ink-mid); max-width: 40ch; }
-.series-pill {
-  display: inline-block; background: var(--peach); color: var(--ink);
-  font-family: var(--body); font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  padding: 0.35rem 1rem; border-radius: 40px; margin-bottom: 1.5rem;
-}
-.books-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem; margin-bottom: 4rem;
-}
-.book-card { position: relative; }
+.book { text-align: center; position: relative; display: flex; flex-direction: column; align-items: center; }
 .book-cover {
-  position: relative; overflow: hidden; border-radius: 8px;
-  margin-bottom: 1rem; background: var(--apricot-mid);
-  box-shadow: 5px 5px 0 var(--apricot-dk), 8px 8px 0 var(--peach);
-  transition: box-shadow 0.25s, transform 0.25s;
-}
-.book-card:hover .book-cover {
-  transform: translateY(-5px);
-  box-shadow: 7px 12px 0 var(--apricot-dk), 12px 18px 0 var(--peach);
+  display: block; position: relative;
+  margin: 0 auto 1.5rem;
+  max-width: 360px; width: 100%;
+  aspect-ratio: 2 / 3;
+  background: transparent;
+  transition: transform 0.3s;
 }
 .book-cover img {
-  width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block;
-  transition: transform 0.4s ease;
+  width: 100%; height: 100%; display: block;
+  object-fit: contain;
+  object-position: center bottom;
+  padding: 0.5rem 0.5rem 1.2rem;
+  filter: drop-shadow(4px 6px 6px rgba(31,24,21,0.45)) drop-shadow(6px 10px 12px rgba(31,24,21,0.30));
+  transition: filter 0.3s;
 }
-.book-card:hover .book-cover img { transform: scale(1.03); }
-.book-hover {
-  position: absolute; inset: 0;
-  background: rgba(232,120,90,0.9);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.25s; border-radius: 8px;
+.book-cover:hover { transform: translateY(-4px); }
+.book-cover:hover img {
+  filter: drop-shadow(5px 8px 8px rgba(31,24,21,0.50)) drop-shadow(8px 14px 16px rgba(31,24,21,0.35));
 }
-.book-card:hover .book-hover { opacity: 1; }
-.buy-btn {
-  display: inline-block; background: #fff; color: var(--terra-dk);
-  font-family: var(--body); font-size: 0.72rem; font-weight: 700;
-  letter-spacing: 0.08em; text-decoration: none;
-  padding: 0.6rem 1.4rem; border-radius: 40px;
-  transition: background 0.2s;
-}
-.buy-btn:hover { background: var(--peach-lt); }
 .book-title {
-  font-family: var(--display); font-size: 1.05rem;
-  font-weight: 700; font-style: italic; color: var(--ink); margin-bottom: 0.2rem;
+  font-family: var(--display); font-style: normal; font-weight: 700;
+  font-size: 1.35rem; color: var(--txt);
+  line-height: 1.2; margin-bottom: 0.4rem;
 }
-.book-sub { font-size: 0.72rem; font-weight: 600; color: var(--ink-lt); letter-spacing: 0.05em; }
-
-/* translations band */
-.trans-band {
-  background: var(--apricot-mid); border-radius: 16px;
-  padding: 2.5rem; margin-top: 1rem;
-}
-.trans-band + .trans-band { margin-top: 1.5rem; }
-.trans-band-title {
+.book-sub {
   font-family: var(--body); font-size: 0.7rem; font-weight: 700;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-lt);
-  margin-bottom: 1.8rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--txt-lt); margin-bottom: 1rem;
 }
-.trans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(155px, 1fr)); gap: 1.2rem; }
-.trans-card { background: var(--apricot); border-radius: 10px; overflow: hidden; }
-.trans-card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
-.trans-info { padding: 0.9rem; }
-.trans-pill {
-  display: inline-block; background: var(--peach); color: var(--ink);
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em;
-  text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px;
-  margin-bottom: 0.4rem;
-}
-.trans-name { font-family: var(--display); font-size: 0.9rem; font-style: italic; color: var(--ink); margin-bottom: 0.7rem; }
-.trans-link {
-  display: block; text-align: center; background: var(--terra);
-  color: #fff; font-size: 0.65rem; font-weight: 700;
-  letter-spacing: 0.1em; padding: 0.4rem; border-radius: 6px;
-  text-decoration: none; transition: background 0.2s;
-}
-.trans-link:hover { background: var(--terra-dk); }
+.book .btn { margin-top: auto; padding: 0.7rem 1.5rem; font-size: 0.7rem; }
 
-/* audiobook grid — square icon cards */
-.audio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1.2rem; }
-.audio-card { background: var(--apricot); border-radius: 10px; overflow: hidden; text-decoration: none; display: block; transition: transform 0.2s; }
-.audio-card:hover { transform: translateY(-3px); }
-.audio-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
-.audio-info { padding: 0.8rem; }
-.audio-name { font-family: var(--display); font-size: 0.85rem; font-style: italic; color: var(--ink); margin-bottom: 0.5rem; line-height: 1.3; }
-.audio-cta {
-  display: block; text-align: center; background: var(--ink);
-  color: var(--peach-lt); font-size: 0.62rem; font-weight: 700;
-  letter-spacing: 0.1em; padding: 0.38rem; border-radius: 6px;
-  transition: background 0.2s;
+/* translations + audiobooks */
+.formats {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  max-width: 1100px; margin-left: auto; margin-right: auto;
 }
-.audio-card:hover .audio-cta { background: var(--terra-dk); }
-
-/* ── FEATURED ──────────────────────────────────────── */
-#featured {
-  padding: 7rem 5rem; background: var(--peach-lt);
-  display: grid; grid-template-columns: auto 1fr;
-  gap: 5rem; align-items: center;
-  position: relative; overflow: hidden;
+.format-block {
+  background: var(--bg);
+  border: 1px solid var(--bg-3);
+  padding: 2rem 2rem 1.6rem;
 }
-#featured::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(circle at 100% 50%, rgba(232,120,90,0.18) 0%, transparent 50%),
-    radial-gradient(circle at 0%   0%, rgba(245,208,144,0.35) 0%, transparent 40%);
+.format-block .label {
+  font-family: var(--body); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.4rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--bg-3);
 }
-#featured::after {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 500' preserveAspectRatio='xMidYMid meet'%3E%3Cg fill='none' stroke='%23c95a3a' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M700,500 C740,440 790,390 870,348 C950,306 1040,296 1200,302' stroke-width='1.2' opacity='0.09'/%3E%3Cpath d='M720,500 C758,448 808,400 886,360 C964,320 1052,308 1200,314' stroke-width='1.2' opacity='0.12'/%3E%3Cpath d='M742,500 C778,456 826,410 902,372 C978,334 1064,322 1200,328' stroke-width='1.2' opacity='0.15'/%3E%3Cpath d='M766,500 C800,464 846,422 920,386 C994,350 1076,338 1200,344' stroke-width='1.3' opacity='0.18'/%3E%3Cpath d='M792,500 C824,472 868,434 940,400 C1012,366 1090,354 1200,360' stroke-width='1.3' opacity='0.21'/%3E%3Cpath d='M820,500 C850,480 892,448 962,416 C1032,384 1106,372 1200,378' stroke-width='1.3' opacity='0.24'/%3E%3Cpath d='M850,500 C878,490 918,462 984,432 C1050,402 1120,392 1200,396' stroke-width='1.4' opacity='0.27'/%3E%3Cpath d='M882,500 C908,498 946,476 1008,450 C1070,424 1136,414 1200,416' stroke-width='1.4' opacity='0.29'/%3E%3Cpath d='M916,500 C940,500 976,492 1032,468 C1088,444 1150,436 1200,438' stroke-width='1.5' opacity='0.31'/%3E%3Cpath d='M952,500 C972,500 1006,500 1058,482 C1110,464 1164,458 1200,460' stroke-width='1.5' opacity='0.32'/%3E%3C/g%3E%3Cg fill='none' stroke='%23c95a3a' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M0,400 C50,362 110,330 190,318 C270,306 340,318 400,348 C440,368 460,396 468,430' stroke-width='1.0' opacity='0.08'/%3E%3Cpath d='M0,418 C48,382 106,350 184,338 C262,326 332,336 392,366 C432,386 452,412 460,448' stroke-width='1.0' opacity='0.11'/%3E%3Cpath d='M0,436 C44,402 100,372 176,360 C252,348 322,358 382,386 C422,404 444,430 450,464' stroke-width='1.1' opacity='0.14'/%3E%3Cpath d='M0,456 C40,424 94,396 168,384 C242,372 312,382 370,410 C410,428 432,452 438,482' stroke-width='1.1' opacity='0.17'/%3E%3Cpath d='M0,476 C34,448 86,422 158,412 C230,402 300,412 356,440 C396,458 418,480 422,500' stroke-width='1.2' opacity='0.20'/%3E%3Cpath d='M0,494 C26,470 76,448 146,440 C216,432 286,444 340,470 C374,486 394,500 396,500' stroke-width='1.2' opacity='0.22'/%3E%3C/g%3E%3Cg fill='none' stroke='%23c95a3a' stroke-linecap='round' opacity='0.12'%3E%3Cpath d='M390,488 C460,480 540,476 620,478 C700,480 764,484 810,488' stroke-width='0.9'/%3E%3Cpath d='M374,500 C446,492 528,488 608,490 C688,492 752,496 800,500' stroke-width='0.9'/%3E%3C/g%3E%3Cg fill='%23c95a3a'%3E%3Ccircle cx='470' cy='472' r='1.2' opacity='0.18'/%3E%3Ccircle cx='542' cy='460' r='1.0' opacity='0.16'/%3E%3Ccircle cx='618' cy='476' r='1.3' opacity='0.15'/%3E%3Ccircle cx='688' cy='464' r='1.0' opacity='0.18'/%3E%3Ccircle cx='748' cy='482' r='1.1' opacity='0.16'/%3E%3Ccircle cx='510' cy='494' r='0.9' opacity='0.14'/%3E%3Ccircle cx='650' cy='490' r='1.0' opacity='0.16'/%3E%3C/g%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: center;
-}
-#featured > * { position: relative; z-index: 1; }
-.feat-img { position: relative; }
-.feat-img img { width: 240px; display: block; border-radius: 8px; box-shadow: 8px 8px 0 var(--peach); }
-.feat-img::before {
-  content: ''; position: absolute; top: -10px; left: -10px;
-  width: 240px; height: 100%;
-  border: 2.5px solid var(--terra); border-radius: 10px;
-  z-index: -1;
-}
-.feat-quote {
-  font-family: var(--display); font-size: 1.05rem; font-style: italic;
-  font-weight: 500; color: var(--ink-mid); line-height: 1.85;
-  padding-left: 1.5rem; border-left: 4px solid var(--terra);
-  margin: 1.2rem 0 1.8rem;
-}
-.feat-sub { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-lt); margin-bottom: 1.8rem; }
-
-/* ── ABOUT ─────────────────────────────────────────── */
-#about {
-  padding: 7rem 5rem; background: var(--apricot);
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-  position: relative; overflow: hidden;
-}
-#about::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(ellipse at 110% 50%, rgba(245,208,144,0.4) 0%, transparent 45%),
-    radial-gradient(circle at 10%  90%, rgba(232,120,90,0.1)  0%, transparent 35%),
-    radial-gradient(circle, rgba(245,216,192,0.7) 1.5px, transparent 1.5px);
-  background-size: auto, auto, 36px 36px;
-}
-#about > * { position: relative; z-index: 1; }
-.about-img { position: relative; }
-.about-img img { width: 100%; display: block; border-radius: 12px; }
-.about-img::after {
-  content: ''; position: absolute;
-  bottom: -14px; right: -14px; width: 55%; height: 55%;
-  border: 3px solid var(--peach); border-radius: 8px; z-index: -1;
-}
-.about-text p { color: var(--ink-mid); margin-bottom: 1rem; font-size: 0.97rem; line-height: 1.8; }
-.about-text p strong { color: var(--terra-dk); font-weight: 700; }
-.about-socials { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.8rem; }
-
-/* fun facts strip */
-.facts-strip {
-  background: var(--terra); padding: 1.8rem 5rem;
-  display: flex; gap: 3rem; flex-wrap: wrap; align-items: center;
-}
-.fact {
-  display: flex; align-items: center; gap: 0.8rem;
-  color: #fff; font-size: 0.88rem; font-weight: 600;
-}
-.fact-dot {
-  width: 10px; height: 10px; border-radius: 50%;
-  background: var(--peach); flex-shrink: 0;
-}
-
-/* ── PUBLISHERS ────────────────────────────────────── */
-#publishers {
-  padding: 5rem 5rem; background: var(--apricot-mid);
-  position: relative; overflow: hidden;
-}
-#publishers::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(245,208,144,0.3) 0%, transparent 60%),
-    radial-gradient(circle, rgba(245,216,192,0.9) 1px, transparent 1px);
-  background-size: auto, 24px 24px;
-}
-#publishers > * { position: relative; z-index: 1; }
-.pub-logos {
-  display: flex; flex-wrap: wrap; gap: 2rem 3rem;
-  align-items: center; margin-top: 2.5rem;
-}
-.pub-item {
-  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+.format-list { display: flex; flex-direction: column; gap: 0.9rem; }
+.format-row {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 1rem;
   text-decoration: none;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed var(--bg-3);
 }
-.pub-item img {
+.format-row:last-child { border-bottom: none; }
+.format-row.disabled { opacity: 0.35; pointer-events: none; }
+.format-row img { width: 44px; height: 60px; object-fit: contain; display: block; }
+.format-row.audio img { width: 60px; height: 60px; aspect-ratio: 1/1; object-fit: cover; }
+.format-placeholder {
+  width: 44px; height: 60px;
+  background:
+    repeating-linear-gradient(45deg, transparent 0 4px, rgba(31,24,21,0.08) 4px 5px),
+    var(--bg-2);
+  border: 1px dashed var(--bg-3);
+}
+.format-placeholder.square { width: 60px; height: 60px; }
+.format-name {
+  font-family: var(--display); font-style: normal; font-weight: 700;
+  color: var(--txt); font-size: 1.05rem; line-height: 1.2;
+}
+.format-meta {
+  font-family: var(--body); font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--txt-lt); margin-top: 0.2rem;
+}
+.format-cta {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─── #also-by (VOLCANIC) ─────────────────────────── */
+#also-by {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 4.5rem;
+  align-items: center;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
+}
+#also-by::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(ellipse at 0% 50%, rgba(232,93,44,0.10) 0%, transparent 55%);
+}
+/* full-section stylized sand-dune background for #also-by */
+.alsoby-dunes-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+  display: block;
+}
+/* sand-drift wind: gust-like erratic round particles drifting from left to right */
+.sand-grain {
+  position: absolute;
+  top: var(--y, 50%);
+  left: 0;
+  width: calc(var(--w, 14px) * 0.6);
+  height: calc(var(--w, 14px) * 0.6);
+  background: var(--c, #d8a64a);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  /* faster: halve every particle's duration */
+  animation: sand-drift calc(var(--dur, 14s) * 0.5) cubic-bezier(0.45, 0.15, 0.55, 0.85) infinite;
+  animation-delay: var(--delay, 0s);
+  z-index: 0;
+  box-shadow: 0 0 8px var(--c, #d8a64a);
+  filter: blur(1.4px);
+  will-change: transform, opacity;
+}
+.sand-grain.dot {
+  width: calc(var(--w, 5px) * 0.8);
+  height: calc(var(--w, 5px) * 0.8);
+  filter: blur(1px);
+}
+.sand-grain.big {
+  width: calc(var(--w, 26px) * 0.55);
+  height: calc(var(--w, 26px) * 0.55);
+  filter: blur(2.2px);
+}
+@keyframes sand-drift {
+  0%   { transform: translateX(-40px) translateY(0)              rotate(0deg);                 opacity: 0; }
+  5%   { opacity: var(--max-op, 0.6); }
+  18%  { transform: translateX(18vw)  translateY(var(--vy1, -14px)) rotate(var(--r1, 4deg)); }
+  34%  { transform: translateX(36vw)  translateY(var(--vy2, 10px))  rotate(var(--r2, -5deg)); }
+  52%  { transform: translateX(54vw)  translateY(var(--vy3, -18px)) rotate(var(--r3, 3deg)); }
+  68%  { transform: translateX(70vw)  translateY(var(--vy4, 12px))  rotate(var(--r4, -3deg)); }
+  84%  { transform: translateX(86vw)  translateY(var(--vy5, -8px))  rotate(var(--r5, 2deg)); }
+  92%  { opacity: var(--max-op, 0.6); }
+  100% { transform: translateX(calc(100vw + 40px)) translateY(0)   rotate(0deg);                 opacity: 0; }
+}
+#also-by > *:not(.sand-grain):not(.alsoby-dunes-bg) { position: relative; z-index: 1; }
+
+.alsoby-cover { position: relative; display: flex; justify-content: center; align-items: center; }
+.alsoby-cover::before {
+  content: ''; position: absolute;
+  inset: 0.3rem 2.5rem -0.3rem 2.5rem;
+  border: 1px solid var(--gold);
+  z-index: 0;
+  opacity: 0.7;
+}
+/* gradiented halo behind the book */
+.alsoby-cover::after {
+  content: ''; position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 65% at 50% 50%,
+    rgba(232,93,44,0.28) 0%,
+    rgba(232,93,44,0.16) 22%,
+    rgba(216,166,74,0.10) 45%,
+    transparent 75%);
+  z-index: 0;
+  pointer-events: none;
+}
+/* decorative concentric rings + sand grains behind the book */
+.alsoby-decor {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; height: 120%;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.alsoby-cover img {
+  position: relative; z-index: 1;
+  width: 100%; max-width: 320px;
+  filter:
+    drop-shadow(0 18px 24px rgba(0,0,0,0.55))
+    drop-shadow(0 36px 56px rgba(232,93,44,0.16));
+}
+#also-by .sec-eyebrow { color: var(--gold); }
+.alsoby-quote {
+  font-family: var(--body); font-style: italic; font-weight: 400;
+  font-size: 1.05rem; color: var(--txt);
+  border-left: 2px solid var(--accent);
+  padding-left: 1.4rem;
+  margin: 1.4rem 0 1.6rem;
+  line-height: 1.65;
+}
+.alsoby-tag {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--txt-lt); margin-bottom: 1.6rem;
+}
+
+/* ─── #about (SEPIA, paper-dim panel) ────────────── */
+#about {
+  background: var(--bg-2);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4.5rem; align-items: center;
+  border-bottom: 1px solid var(--bg-3);
+  border-top: 1px solid var(--bg-3);
+  position: relative;
+  overflow: hidden;
+}
+.about-waves {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%; height: 200px;
+  z-index: 0; pointer-events: none;
+  display: block;
+  /* gentle drift on the whole stack so the sea breathes */
+  animation: about-waves-drift 12s ease-in-out infinite alternate;
+}
+@keyframes about-waves-drift {
+  from { transform: translateX(-8px); }
+  to   { transform: translateX(8px);  }
+}
+#about > *:not(.about-waves) { position: relative; z-index: 1; }
+.about-photo { position: relative; max-width: 380px; margin-left: auto; }
+.about-photo img {
+  width: 100%; display: block;
+  filter: sepia(8%) saturate(0.92);
+  border: 1px solid var(--bg-3);
+}
+.about-text p {
+  color: var(--txt-mid);
+  font-size: 1rem; line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.about-text p strong {
+  color: var(--txt); font-weight: 700;
+  background: linear-gradient(transparent 60%, rgba(216,184,122,0.5) 60%);
+  padding: 0 0.1em;
+}
+.about-text p em {
+  font-family: var(--display); font-style: italic;
+  color: var(--accent); font-weight: 700;
+}
+.about-text .sec-title { margin-bottom: 1.4rem; }
+.about-socials {
+  display: flex; gap: 0.7rem; flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+
+/* ─── FACTS BANNER (VOLCANIC, marquee) ──────────── */
+.facts {
+  background: var(--bg-2);
+  color: var(--txt);
+  display: flex;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 0;
+  position: relative;
+}
+.facts::before, .facts::after {
+  content: ''; position: absolute; top: 0; bottom: 0;
+  width: 80px; z-index: 2; pointer-events: none;
+}
+.facts::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg-2) 0%, transparent 100%);
+}
+.facts::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg-2) 0%, transparent 100%);
+}
+.facts-track {
+  display: flex; flex-shrink: 0;
+  align-items: center;
+  gap: 2.4rem;
+  white-space: nowrap;
+  padding: 1.6rem 0;
+  animation: marquee 32s linear infinite;
+}
+.facts .fact {
+  font-family: var(--display); font-style: italic; font-weight: 700;
+  font-size: clamp(1.6rem, 3.8vw, 2.8rem);
+  color: var(--txt);
+  display: inline-flex; align-items: baseline; gap: 0.4em;
+  line-height: 1;
+}
+.facts .num {
+  font-family: var(--display); font-style: italic; font-weight: 700;
+  color: var(--gold-lt);
+  font-size: 1.2em;
+  line-height: 1;
+}
+.facts .hl {
+  font-style: italic; font-weight: 700;
+  color: var(--accent);
+}
+.facts .dot {
+  color: var(--gold);
+  font-family: var(--display); font-style: normal;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1;
+}
+
+/* ─── #publishers (SEPIA) ─────────────────────────── */
+#publishers {
+  text-align: center;
+  border-bottom: 1px solid var(--bg-3);
+  background: var(--bg);
+}
+.pub-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 3rem 4rem; margin-top: 2.5rem;
+}
+.pub-grid a img {
   height: 48px; width: auto; max-width: 140px; object-fit: contain;
-  opacity: 0.75; filter: sepia(20%) saturate(0.6) brightness(0.75);
+  opacity: 0.75; filter: grayscale(60%) sepia(15%);
   transition: opacity 0.2s, filter 0.2s, transform 0.2s;
 }
-.pub-item:hover img { opacity: 1; filter: none; transform: translateY(-2px); }
-.pub-name {
-  font-family: var(--body); font-size: 0.62rem; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-lt);
-  transition: color 0.2s;
-}
-.pub-item:hover .pub-name { color: var(--terra); }
+.pub-grid a:hover img { opacity: 1; filter: none; transform: translateY(-2px); }
 
-/* ── PROJECTS ──────────────────────────────────────── */
-#projects {
-  padding: 7rem 5rem; background: var(--apricot);
-  position: relative; overflow: hidden;
+/* ─── #newsletter (VOLCANIC, envelope + Substack CTA) ─ */
+#newsletter {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+  position: relative;
 }
-#projects::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    radial-gradient(circle at 95% 5%,  rgba(232,120,90,0.12)  0%, transparent 35%),
-    radial-gradient(circle at 5%  95%, rgba(245,208,144,0.35) 0%, transparent 40%),
-    radial-gradient(circle, rgba(245,216,192,0.65) 1.5px, transparent 1.5px);
-  background-size: auto, auto, 30px 30px;
+/* faint background pattern of fine-line envelopes */
+.nl-envelopes {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
 }
-#projects > * { position: relative; z-index: 1; }
-.proj-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; }
-.proj-table th {
+.nl-side-seal {
+  position: absolute;
+  left: -2%; top: 50%;
+  transform: translateY(-50%) rotate(-14deg);
+  width: clamp(160px, 18vw, 280px);
+  height: auto;
+  opacity: 0.55;
+  z-index: 0;
+  pointer-events: none;
+  display: block;
+}
+#newsletter > *:not(.nl-envelopes):not(.nl-side-seal) { position: relative; z-index: 1; }
+/* shared marquee keyframe — used by .facts-track */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.nl-content {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  padding: 5rem 4rem;
+  align-items: center;
+  max-width: 1200px; margin: 0 auto;
+}
+.nl-visual {
+  display: flex; justify-content: center; align-items: center;
+  position: relative;
+}
+.envelope {
+  position: relative;
+  width: 100%; max-width: 480px;
+  opacity: 0.55;
+  animation: envelope-float 6s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+.nl-emoji {
+  display: block;
+  font-size: clamp(180px, 26vw, 420px);
+  line-height: 1;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+@keyframes envelope-float {
+  0%   { transform: rotate(-12deg) translateY(0)    scale(1); }
+  50%  { transform: rotate(-7deg)  translateY(-6px) scale(1.015); }
+  100% { transform: rotate(-10deg) translateY(-10px) scale(1.03); }
+}
+#newsletter:hover .envelope { animation-play-state: paused; transform: rotate(-5deg) translateY(-8px) scale(1.04); transition: transform 0.4s ease; }
+
+.nl-text .nl-tag {
   font-family: var(--body); font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-lt);
-  text-align: left; padding: 0.6rem 1rem 0.8rem 0.8rem;
-  border-bottom: 2px solid var(--apricot-dk);
-  background: var(--apricot-mid);
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
 }
-.proj-table th:first-child { border-radius: 8px 0 0 0; padding-left: 1rem; }
-.proj-table th:last-child  { border-radius: 0 8px 0 0; }
+.nl-text h2 {
+  font-family: var(--display); font-style: italic; font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.05;
+  color: var(--txt);
+  margin-bottom: 1.4rem;
+}
+.nl-text h2 em {
+  font-style: italic;
+  color: var(--accent);
+}
+.nl-text p {
+  color: var(--txt-mid);
+  margin-bottom: 1.6rem;
+  max-width: 50ch;
+  line-height: 1.7;
+}
+.nl-text p strong { color: var(--txt); font-weight: 700; }
+.nl-text .btn { margin-top: 0.4rem; }
+
+/* newsletter signup form (POSTs email to Substack subscribe page) */
+.nl-form {
+  display: flex; gap: 0.5rem;
+  max-width: 460px;
+  margin-top: 0.6rem;
+  padding: 0.4rem;
+  border: 1.5px solid var(--rule);
+  background: var(--bg-2);
+  transition: border-color 0.2s;
+}
+.nl-form:focus-within { border-color: var(--accent); box-shadow: 0 0 24px rgba(232,93,44,0.18); }
+.nl-form input[type="email"] {
+  flex: 1;
+  background: transparent; border: none; outline: none;
+  font-family: var(--body); font-size: 0.95rem;
+  color: var(--txt);
+  padding: 0.6rem 0.8rem;
+}
+.nl-form input::placeholder { color: var(--txt-lt); }
+.nl-form button {
+  font-family: var(--body); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  background-color: var(--accent); color: var(--bg);
+  background-image: linear-gradient(180deg,
+    rgba(255,255,255,0.18) 0%,
+    rgba(255,255,255,0.04) 45%,
+    rgba(0,0,0,0.06)       75%,
+    rgba(0,0,0,0.14)      100%);
+  border: none; padding: 0.65rem 1.4rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.nl-form button:hover { background-color: var(--accent-lt); transform: translateY(-1px); }
+
+/* ─── #projects (SEPIA) ──────────────────────────── */
+#projects {
+  border-bottom: 1px solid var(--bg-3);
+  background: var(--bg);
+}
+.proj-head {
+  display: flex; justify-content: space-between; align-items: end;
+  flex-wrap: wrap; gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 2px solid var(--txt);
+  position: relative;
+}
+.proj-head::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px;
+  border-bottom: 1px solid var(--txt);
+}
+.proj-head .sec-deck { margin: 0; max-width: 32ch; text-align: right; }
+.proj-table {
+  width: 100%; border-collapse: collapse;
+  font-family: var(--body);
+}
+.proj-table th {
+  font-family: var(--body); font-size: 0.66rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--txt-lt);
+  text-align: left; padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid var(--txt);
+}
 .proj-table td {
-  padding: 1rem 0.8rem; border-bottom: 1px solid var(--apricot-mid);
-  color: var(--ink-mid); font-size: 0.88rem; vertical-align: middle;
+  padding: 1.1rem 0.8rem;
+  border-bottom: 1px solid var(--bg-3);
+  vertical-align: top;
+  color: var(--txt-mid);
+  font-size: 0.9rem;
 }
 .proj-table tbody tr:last-child td { border-bottom: none; }
-.proj-table tbody tr:hover td { background: var(--peach-lt); }
-.proj-title-cell {
-  font-family: var(--display);
-  font-weight: 700; color: var(--ink); font-size: 1rem;
+.proj-title {
+  font-family: var(--display); font-style: normal; font-weight: 700;
+  color: var(--txt); font-size: 1.05rem;
   display: flex; align-items: center; gap: 0.5rem;
+  line-height: 1.3;
 }
-.proj-emoji { font-size: 1rem; flex-shrink: 0; }
-.lang-pill {
-  display: inline-block; font-family: var(--body); font-size: 0.58rem;
-  font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 0.18rem 0.6rem; border-radius: 20px; margin: 2px 2px 2px 0;
-  background: var(--apricot-mid); color: var(--ink-mid);
-  white-space: nowrap;
-}
-.badge {
+.proj-title + .proj-title { margin-top: 0.4rem; }
+.lang {
   display: inline-block; font-family: var(--body); font-size: 0.6rem;
-  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.25rem 0.8rem; border-radius: 20px;
+  font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 0.22rem 0.65rem; margin: 2px 3px 2px 0;
+  border: 1px solid var(--bg-3);
+  color: var(--txt-mid);
 }
-.badge-yes { background: var(--peach); color: var(--ink); }
-.badge-no  { background: var(--apricot-mid); color: var(--ink-lt); }
+.status {
+  display: inline-block; font-family: var(--body); font-size: 0.6rem;
+  font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 0.28rem 0.8rem;
+}
+.status-yes { background: var(--accent); color: var(--bg); }
+.status-no  { background: transparent; color: var(--txt-lt); border: 1px solid var(--bg-3); }
 
-/* ── VOLCANOES ─────────────────────────────────────── */
+/* ─── #volcanoes (VOLCANIC) ──────────────────────── */
 #volcanoes {
-  padding: 6rem 5rem; background: var(--ink);
-  text-align: center; position: relative; overflow: hidden;
+  background: var(--bg);
+  color: var(--txt);
+  text-align: center;
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--rule);
 }
 #volcanoes::before {
-  content: '';
-  position: absolute; inset: 0; pointer-events: none;
+  content: ''; position: absolute; inset: 0; pointer-events: none;
   background-image:
-    radial-gradient(circle at 50% 50%, rgba(232,120,90,0.12) 0%, transparent 55%),
-    radial-gradient(circle at 50% 50%, rgba(245,208,144,0.07) 0%, transparent 70%);
+    radial-gradient(circle at 50% 65%, rgba(216,166,74,0.18) 0%, transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(232,93,44,0.10) 0%, transparent 65%);
 }
-.vol-ring {
-  position: absolute; border-radius: 50%;
-  border: 1.5px solid rgba(245,208,144,0.12);
+#volcanoes::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(216,184,122,0.12) 0.8px, transparent 0.8px);
+  background-size: 4px 4px;
+  opacity: 0.4;
 }
-.vol-ring-1 { width: 620px; height: 620px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.vol-ring-2 { width: 460px; height: 460px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
-.vol-ring-3 { width: 300px; height: 300px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(245,208,144,0.18); }
-.vol-ring-4 { width: 160px; height: 160px; top: 50%; left: 50%; transform: translate(-50%,-50%); border-color: rgba(245,208,144,0.25); }
 .vol-inner { position: relative; z-index: 1; max-width: 48ch; margin: 0 auto; }
-.vol-inner .sec-label { color: var(--peach); }
-.vol-inner .sec-title { color: #fff; }
-.vol-inner .sec-title em { color: var(--terra); }
-.vol-inner p { color: rgba(255,245,238,0.7); font-size: 0.97rem; margin-bottom: 2rem; line-height: 1.8; }
-.btn-peach { background: var(--peach); color: var(--ink); }
-.btn-peach:hover { background: var(--peach-lt); }
+.vol-inner .sec-eyebrow { color: var(--gold-lt); }
+.vol-inner .sec-title {
+  color: var(--txt);
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 700;
+}
+.vol-inner .sec-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+/* keep .accent working too in case you ever swap em → span.accent */
+.vol-inner .sec-title .accent { color: var(--accent); font-style: italic; }
+.vol-inner p {
+  font-family: var(--body);
+  font-style: normal;
+  color: rgba(240,230,212,0.72);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin: 1.4rem 0 2rem;
+}
+.vol-svg {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  width: 100%; height: 200px;
+  z-index: 0; pointer-events: none; opacity: 0.4;
+}
+.skyline-smoke {
+  animation: skyline-smoke-drift 6s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+@keyframes skyline-smoke-drift {
+  from { opacity: 0.55; transform: translateX(-1px) skewX(-1.5deg); }
+  to   { opacity: 0.85; transform: translateX(2px)  skewX(2deg);    }
+}
 
-/* ── FOOTER ────────────────────────────────────────── */
+/* ─── FOOTER (SEPIA) ─────────────────────────────── */
 footer {
-  padding: 2.2rem 3.5rem;
-  background: var(--ink); border-top: 1px solid rgba(245,208,144,0.15);
-  display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 1rem;
+  background:
+    linear-gradient(to right,
+      rgba(240,230,212,0)    0%,
+      rgba(240,230,212,0.15) 8%,
+      rgba(240,230,212,0.55) 16%,
+      rgba(240,230,212,0.92) 24%,
+      rgba(240,230,212,1)    32%,
+      rgba(240,230,212,1)    68%,
+      rgba(240,230,212,0.92) 76%,
+      rgba(240,230,212,0.55) 84%,
+      rgba(240,230,212,0.15) 92%,
+      rgba(240,230,212,0)   100%) top / 100% 2px no-repeat,
+    radial-gradient(ellipse at 50% 0%, rgba(232,93,44,0.10) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 60%, #2a1610 100%);
+  padding: 3rem 3rem 2.2rem;
+  border-top: none;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
 }
-.footer-name {
+footer::before {
+  content: ''; position: absolute;
+  left: 0; right: 0; top: 6px;
+  height: 1px;
+  background: linear-gradient(to right,
+    rgba(240,230,212,0)    0%,
+    rgba(240,230,212,0.18) 12%,
+    rgba(240,230,212,0.55) 20%,
+    rgba(240,230,212,0.95) 28%,
+    rgba(240,230,212,1)    36%,
+    rgba(240,230,212,1)    64%,
+    rgba(240,230,212,0.95) 72%,
+    rgba(240,230,212,0.55) 80%,
+    rgba(240,230,212,0.18) 88%,
+    rgba(240,230,212,0)   100%);
+  pointer-events: none;
+}
+.foot-left {
   font-family: var(--body); font-size: 0.85rem;
-  font-weight: 400; color: var(--ink-lt);
+  color: var(--txt-lt);
+  letter-spacing: 0.04em;
 }
-.footer-links { display: flex; gap: 1.8rem; list-style: none; }
-.footer-links a {
-  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
-  color: var(--ink-lt); text-decoration: none; transition: color 0.2s;
+.foot-links {
+  display: flex; gap: 1.6rem; list-style: none;
+  justify-content: flex-end; flex-wrap: wrap;
 }
-.footer-links a:hover { color: var(--peach); }
+.foot-links a {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--txt-mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.foot-links a:hover { color: var(--accent); }
 
-/* ── ANIMATIONS ────────────────────────────────────── */
+/* ─── ANIMATIONS ─────────────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.hero-left > * { animation: fadeUp 0.55s ease both; }
-.hero-left > *:nth-child(1) { animation-delay: 0.05s; }
-.hero-left > *:nth-child(2) { animation-delay: 0.13s; }
-.hero-left > *:nth-child(3) { animation-delay: 0.21s; }
-.hero-left > *:nth-child(4) { animation-delay: 0.29s; }
-.hero-right { animation: fadeUp 0.7s 0.18s ease both; }
+.hero-inner > * { animation: fadeUp 0.6s ease both; }
+.hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-inner > *:nth-child(2) { animation-delay: 0.13s; }
+.hero-inner > *:nth-child(3) { animation-delay: 0.21s; }
+.hero-inner > *:nth-child(4) { animation-delay: 0.29s; }
+.hero-inner > *:nth-child(5) { animation-delay: 0.37s; }
 
-/* ── RESPONSIVE ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-inner > * { animation: none; }
+  .facts-track { animation: none; }
+  .lapillus { animation: none; opacity: 0; }
+  .hv,
+  .hv .crater-core,
+  .hv .smoke { animation: none; }
+  .brand-logo::before { animation: none; }
+  .skyline-smoke { animation: none; }
+  .about-waves { animation: none; }
+  .sand-grain { animation: none; opacity: 0; }
+  .envelope { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 960px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--apricot); border-bottom: 1.5px solid var(--apricot-dk); padding: 1rem 1.5rem 1.5rem; gap: 1.2rem; }
+  nav.masthead { padding: 1rem 1.2rem; grid-template-columns: 1fr auto; }
+  nav.masthead::after { left: 1.2rem; right: 1.2rem; }
+  .nav-cta { display: none; }
+  .nav-links {
+    display: none; flex-direction: column;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg); border-bottom: 2px solid var(--txt);
+    padding: 1.2rem 1.5rem 1.6rem; gap: 1.1rem;
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
   .nav-links.open { display: flex; }
-  .nav-burger { display: flex; }
+  .nav-burger { display: flex; grid-column: 2; }
+  .brand-text { font-size: 0.95rem; letter-spacing: 0; }
+  .brand-logo { width: 38px; height: 38px; }
+  .brand-logo img { height: 28px; }
 
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-blob, .hero-blob2 { display: none; }
-  .hero-left { padding: 4rem 1.5rem 2rem; }
-  .hero-right { padding: 1rem 1.5rem 0; justify-content: flex-start; }
-  .hero-photo-wrap img { max-width: 240px; border-radius: 6px; }
-  .hero-photo-wrap::before, .hero-photo-wrap::after { display: none; }
+  .hero { padding: 1.6rem 1.5rem 3rem; }
+  .hv-left   { width: clamp(140px, 30vw, 220px); }
+  .hv-center { width: clamp(180px, 38vw, 280px); bottom: -2%; }
+  .hv-right  { width: clamp(130px, 26vw, 200px); }
+  .hero-name { font-size: clamp(2.2rem, 11vw, 4rem); white-space: normal; letter-spacing: 0.05em; }
+  .hero-meta { gap: 1.2rem; font-size: 0.62rem; }
+  .hero-meta span { gap: 0.4rem; }
 
-  #books { padding: 5rem 1.5rem; }
-  .books-top { flex-direction: column; align-items: flex-start; }
-  .books-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .sec-pad { padding: 4.5rem 1.5rem; }
 
-  #featured { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 2.5rem; }
-  .feat-img img { width: 180px; }
-  .feat-img::before { width: 180px; }
+  .trilogy-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .book-cover { max-width: 130px; }
+  .formats { grid-template-columns: 1fr; gap: 1.5rem; }
 
-  #about { grid-template-columns: 1fr; padding: 5rem 1.5rem; gap: 3rem; }
-  .about-img { max-width: 320px; }
+  #also-by { grid-template-columns: 1fr; gap: 2.5rem; padding: 5rem 1.5rem; }
+  .alsoby-cover::before { display: none; }
 
-  .facts-strip { padding: 1.5rem; gap: 1.5rem; }
+  #about { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-photo { max-width: 280px; margin: 0 auto; }
 
-  #publishers, #projects, #volcanoes { padding: 5rem 1.5rem; }
-  .pub-logos { gap: 1.5rem 2.5rem; }
+  .facts-track { padding: 1.2rem 0; gap: 1.6rem; }
+  .facts::before, .facts::after { width: 40px; }
 
-  .proj-table th:last-child, .proj-table td:last-child,
-  .proj-table th:nth-child(3), .proj-table td:nth-child(3) { display: none; }
+  .pub-grid { gap: 2rem 2.5rem; }
+  .pub-grid a img { height: 38px; }
 
-  footer { padding: 1.8rem 1.5rem; }
-  .footer-links { gap: 1.2rem; }
+  .nl-content { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; text-align: center; }
+  .nl-text p { margin-left: auto; margin-right: auto; }
+  .nl-form { margin-left: auto; margin-right: auto; }
+
+  .proj-head .sec-deck { text-align: left; }
+  .proj-table th:nth-child(3),
+  .proj-table td:nth-child(3),
+  .proj-table th:nth-child(5),
+  .proj-table td:nth-child(5) { display: none; }
+
+  #volcanoes { padding: 2.5rem 1.5rem; }
+  .vol-inner p { font-size: 1.02rem; }
+
+  footer { grid-template-columns: 1fr; padding: 2.4rem 1.5rem; gap: 1.5rem; text-align: center; }
+  .foot-links { justify-content: center; }
 }
 
 @media (max-width: 520px) {
-  .books-grid { grid-template-columns: 1fr; max-width: 240px; }
-  .hero-name { font-size: 3rem; }
-  .trans-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-kicker::before, .hero-kicker::after { width: 1.5rem; }
+  .hero-rule .line { flex: 0 0 2.5rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a class="nav-logo" href="#"><img src="assets/images/Animation_Logo.gif" alt="Volcano logo">Titania Blesh</a>
+<!-- MASTHEAD / NAV (volcanic) -->
+<nav class="masthead volcanic">
+  <a class="brand" href="#">
+    <span class="brand-logo">
+      <img src="assets/images/logo-animation.gif" alt="Volcano logo">
+    </span>
+    <span class="brand-text">Titania Blesh</span>
+  </a>
   <ul class="nav-links" id="navlinks">
-    <li><a href="#books">Books</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#bestsellers">Books</a></li>
+    <li><a href="#about">The author</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#volcanoes">Volcanoes</a></li>
-    <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
   </ul>
+  <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
   <button class="nav-burger" id="burger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-blob"></div>
-  <div class="hero-blob2"></div>
-  <div class="hero-ring hero-ring-1"></div>
-  <div class="hero-ring hero-ring-2"></div>
-  <div class="hero-ring hero-ring-3"></div>
+<main>
 
-  <!-- volcano background art -->
-  <svg class="hero-volcanoes" viewBox="0 0 1400 320" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- far back: very faint large volcanoes -->
-    <g opacity="0.10" fill="#c95a3a">
-      <!-- huge volcano far left -->
-      <polygon points="30,320 260,80 490,320"/>
-      <!-- huge volcano right -->
-      <polygon points="950,320 1170,50 1390,320"/>
-    </g>
+<!-- HERO (volcanic) -->
+<section class="hero volcanic">
+  <!-- three wider-than-tall volcanoes anchored at the bottom of the hero -->
+  <div class="hero-volcanoes" aria-hidden="true">
+    <!-- left volcano -->
+    <div class="hv hv-left">
+      <svg viewBox="0 0 280 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow-left" cx="50%" cy="100%" r="60%">
+            <stop offset="0%"   stop-color="#fff5e0" stop-opacity="0.85"/>
+            <stop offset="22%"  stop-color="#f0c987" stop-opacity="0.7"/>
+            <stop offset="55%"  stop-color="#e85d2c" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#e85d2c" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="smokeBlur-left" x="-100%" y="-200%" width="300%" height="500%">
+            <feGaussianBlur stdDeviation="3.4"/>
+          </filter>
+        </defs>
+        <!-- curved volcano body (concave slopes) -->
+        <path d="M 0,140 C 28,134 56,118 78,92 Q 96,58 108,38 Q 114,30 118,30 Q 124,32 132,46 Q 148,72 172,96 C 204,118 244,134 280,140 Z"
+              fill="#1a0f0b"/>
+        <!-- lit-side highlight -->
+        <path d="M 0,140 C 28,134 56,118 78,92 Q 96,58 108,38 Q 114,30 118,30 L 113,40 Q 96,60 76,96 C 54,118 26,134 0,140 Z"
+              fill="#3a1e15" opacity="0.45"/>
+        <!-- vertical lava glow column rising from the crater -->
+        <ellipse class="lava-glow" cx="118" cy="34" rx="18" ry="38" fill="url(#glow-left)"/>
+        <!-- crater rim (inside the glow) -->
+        <ellipse cx="118" cy="35" rx="11" ry="2.2" fill="#f08855" opacity="0.85"/>
+        <!-- crater core (animated flicker) -->
+        <g class="crater-core">
+          <ellipse cx="118" cy="34" rx="7" ry="1.6" fill="#f0c987"/>
+          <ellipse cx="118" cy="33" rx="4" ry="1"   fill="#fff5e0"/>
+        </g>
+        <!-- lava streak down right slope -->
+        <path d="M 122,36 Q 128,48 132,70 Q 136,96 140,118 Q 142,132 144,140 L 130,140 Q 128,132 126,118 Q 122,96 120,70 Q 116,48 114,36 Z"
+              fill="#e85d2c" opacity="0.55"/>
+        <!-- blurred smoke puffs rising and fading -->
+        <g class="smoke" filter="url(#smokeBlur-left)">
+          <ellipse class="puff puff-a" cx="115" cy="30" rx="8"  ry="7"  fill="#cabba8"/>
+          <ellipse class="puff puff-b" cx="120" cy="30" rx="10" ry="9"  fill="#cabba8"/>
+          <ellipse class="puff puff-c" cx="116" cy="30" rx="12" ry="11" fill="#cabba8"/>
+        </g>
+      </svg>
+    </div>
 
-    <!-- mid layer: medium volcanoes, slightly more visible -->
-    <g opacity="0.17" fill="#e8785a">
-      <!-- mid left -->
-      <polygon points="0,320 155,155 310,320"/>
-      <!-- mid centre-left -->
-      <polygon points="280,320 420,180 560,320"/>
-      <!-- mid centre-right -->
-      <polygon points="820,320 980,140 1140,320"/>
-      <!-- mid right -->
-      <polygon points="1100,320 1250,170 1400,320"/>
-    </g>
+    <!-- center volcano (largest) -->
+    <div class="hv hv-center">
+      <svg viewBox="0 0 320 160" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow-center" cx="50%" cy="100%" r="62%">
+            <stop offset="0%"   stop-color="#fff5e0" stop-opacity="0.9"/>
+            <stop offset="22%"  stop-color="#f0c987" stop-opacity="0.72"/>
+            <stop offset="55%"  stop-color="#e85d2c" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#e85d2c" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="smokeBlur-center" x="-100%" y="-200%" width="300%" height="500%">
+            <feGaussianBlur stdDeviation="4"/>
+          </filter>
+        </defs>
+        <!-- curved volcano body -->
+        <path d="M 0,160 C 35,154 70,134 96,104 Q 130,58 152,28 Q 160,22 168,22 Q 176,28 188,52 Q 220,108 244,128 C 270,150 300,156 320,160 Z"
+              fill="#1a0f0b"/>
+        <!-- lit-side highlight -->
+        <path d="M 0,160 C 35,154 70,134 96,104 Q 130,58 152,28 Q 160,22 168,22 L 162,32 Q 142,58 110,108 C 80,138 40,154 0,160 Z"
+              fill="#3a1e15" opacity="0.45"/>
+        <!-- vertical lava glow column -->
+        <ellipse class="lava-glow" cx="160" cy="28" rx="22" ry="46" fill="url(#glow-center)"/>
+        <!-- crater rim -->
+        <ellipse cx="160" cy="28" rx="14" ry="2.6" fill="#f08855" opacity="0.85"/>
+        <!-- crater core (flickering) -->
+        <g class="crater-core">
+          <ellipse cx="160" cy="27" rx="9"  ry="1.9" fill="#f0c987"/>
+          <ellipse cx="160" cy="26" rx="5"  ry="1.2" fill="#fff5e0"/>
+        </g>
+        <!-- lava streak down right slope -->
+        <path d="M 166,30 Q 172,46 176,68 Q 182,98 188,128 Q 194,150 200,160 L 184,160 Q 178,150 174,128 Q 168,98 164,68 Q 158,46 154,30 Z"
+              fill="#e85d2c" opacity="0.6"/>
+        <!-- blurred smoke puffs -->
+        <g class="smoke" filter="url(#smokeBlur-center)">
+          <ellipse class="puff puff-a" cx="158" cy="22" rx="9"  ry="8"  fill="#cabba8"/>
+          <ellipse class="puff puff-b" cx="162" cy="22" rx="11" ry="10" fill="#cabba8"/>
+          <ellipse class="puff puff-c" cx="159" cy="22" rx="13" ry="12" fill="#cabba8"/>
+        </g>
+      </svg>
+    </div>
 
-    <!-- front layer: sharp, outlined, most visible -->
-    <g fill="none" stroke="#e8785a" stroke-width="1.8" stroke-linejoin="round" opacity="0.55">
-      <!-- small left -->
-      <polyline points="0,320 90,240 180,320"/>
-      <!-- tall centrepiece -->
-      <polyline points="340,320 520,100 700,320"/>
-      <!-- small beside centrepiece -->
-      <polyline points="590,320 660,210 730,320"/>
-      <!-- medium right of centre -->
-      <polyline points="800,320 920,160 1040,320"/>
-      <!-- small far right -->
-      <polyline points="1200,320 1290,235 1380,320"/>
-    </g>
-
-    <!-- eruption plumes on the front volcanoes — small smoke puffs -->
-    <g fill="none" stroke="#e8785a" stroke-width="1.4" opacity="0.4" stroke-linecap="round">
-      <!-- plume on centrepiece (peak at 520,100) -->
-      <path d="M510,95 C505,75 495,65 505,50 C515,35 525,45 518,30"/>
-      <path d="M520,90 C525,70 535,60 528,44 C521,28 510,35 515,20"/>
-      <path d="M530,96 C538,78 548,70 540,54 C532,38 520,44 526,28"/>
-      <!-- small plume on right-of-centre (peak at 920,160) -->
-      <path d="M913,156 C908,140 900,132 908,120 C916,108 924,116 918,104"/>
-      <path d="M922,153 C928,138 936,130 930,118 C924,106 914,112 918,100"/>
-    </g>
-
-    <!-- tiny lava dots near bases -->
-    <g fill="#f5d090" opacity="0.45">
-      <circle cx="520" cy="315" r="2.5"/>
-      <circle cx="498" cy="318" r="1.8"/>
-      <circle cx="544" cy="317" r="2"/>
-      <circle cx="920" cy="315" r="2.2"/>
-      <circle cx="900" cy="318" r="1.6"/>
-    </g>
-  </svg>
-  <div class="hero-left">
-    <p class="eyebrow">Sci-Fi &amp; Fantasy Writer</p>
-    <h1 class="hero-name">Titania<em>Blesh</em></h1>
-    <p class="hero-tagline">Forged in a volcano, carried across the world.</p>
-    <div class="hero-ctas">
-      <a href="#books" class="btn btn-fill">Browse the books</a>
-      <a href="#about" class="btn btn-outline">Meet Tita</a>
+    <!-- right volcano (smaller) -->
+    <div class="hv hv-right">
+      <svg viewBox="0 0 260 130" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="glow-right" cx="50%" cy="100%" r="60%">
+            <stop offset="0%"   stop-color="#fff5e0" stop-opacity="0.82"/>
+            <stop offset="22%"  stop-color="#f0c987" stop-opacity="0.65"/>
+            <stop offset="55%"  stop-color="#e85d2c" stop-opacity="0.38"/>
+            <stop offset="100%" stop-color="#e85d2c" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="smokeBlur-right" x="-100%" y="-200%" width="300%" height="500%">
+            <feGaussianBlur stdDeviation="2.8"/>
+          </filter>
+        </defs>
+        <!-- curved volcano body -->
+        <path d="M 0,130 C 28,124 60,108 86,82 Q 110,52 126,34 Q 132,30 134,30 Q 138,32 144,42 Q 162,70 184,92 C 210,114 240,124 260,130 Z"
+              fill="#1a0f0b"/>
+        <!-- lit-side highlight -->
+        <path d="M 134,30 Q 138,32 144,42 Q 162,70 184,92 C 210,114 240,124 260,130 L 250,130 Q 232,118 200,90 Q 170,60 138,38 Z"
+              fill="#3a1e15" opacity="0.45"/>
+        <!-- vertical lava glow column -->
+        <ellipse class="lava-glow" cx="132" cy="34" rx="16" ry="34" fill="url(#glow-right)"/>
+        <!-- crater rim -->
+        <ellipse cx="132" cy="35" rx="10" ry="2" fill="#f08855" opacity="0.8"/>
+        <!-- crater core -->
+        <g class="crater-core">
+          <ellipse cx="132" cy="34" rx="6" ry="1.5" fill="#f0c987"/>
+          <ellipse cx="132" cy="33" rx="3" ry="0.9" fill="#fff5e0"/>
+        </g>
+        <!-- blurred smoke puffs -->
+        <g class="smoke" filter="url(#smokeBlur-right)">
+          <ellipse class="puff puff-a" cx="130" cy="30" rx="7" ry="6"  fill="#cabba8"/>
+          <ellipse class="puff puff-b" cx="134" cy="30" rx="9" ry="8"  fill="#cabba8"/>
+          <ellipse class="puff puff-c" cx="131" cy="30" rx="11" ry="10" fill="#cabba8"/>
+        </g>
+      </svg>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-photo-wrap">
-      <img src="assets/images/FullSizeRender-981x1024.jpg" alt="Titania Blesh">
+
+  <!-- lapilli (rising volcanic particles) -->
+  <div class="lapillus"      style="left:  8%; --drift:  60px; --spin:  280deg; animation-duration: 13s;   animation-delay: 0s;"></div>
+  <div class="lapillus rock" style="left: 17%; --drift: -45px; --spin: -200deg; animation-duration: 16s;   animation-delay: 2.5s;"></div>
+  <div class="lapillus spark"style="left: 24%; --drift:  35px; --spin:  360deg; animation-duration: 11s;   animation-delay: 4s;"></div>
+  <div class="lapillus"      style="left: 33%; --drift: -55px; --spin: -320deg; animation-duration: 15s;   animation-delay: 1s;"></div>
+  <div class="lapillus rock" style="left: 42%; --drift:  70px; --spin:  240deg; animation-duration: 17s;   animation-delay: 3.5s;"></div>
+  <div class="lapillus spark"style="left: 51%; --drift: -30px; --spin: -180deg; animation-duration: 12s;   animation-delay: 5.5s;"></div>
+  <div class="lapillus"      style="left: 60%; --drift:  50px; --spin:  300deg; animation-duration: 14s;   animation-delay: 0.8s;"></div>
+  <div class="lapillus rock" style="left: 70%; --drift: -65px; --spin: -260deg; animation-duration: 18s;   animation-delay: 6s;"></div>
+  <div class="lapillus spark"style="left: 80%; --drift:  40px; --spin:  340deg; animation-duration: 11.5s; animation-delay: 2s;"></div>
+  <div class="lapillus"      style="left: 90%; --drift: -25px; --spin: -300deg; animation-duration: 15.5s; animation-delay: 4.5s;"></div>
+  <!-- second wave of 10 -->
+  <div class="lapillus rock" style="left:  3%; --drift:  40px; --spin:  220deg; animation-duration: 14s;   animation-delay: 1.2s;"></div>
+  <div class="lapillus spark"style="left: 13%; --drift:  55px; --spin: -260deg; animation-duration: 12.5s; animation-delay: 3.8s;"></div>
+  <div class="lapillus"      style="left: 20%; --drift: -50px; --spin:  340deg; animation-duration: 16.5s; animation-delay: 0.4s;"></div>
+  <div class="lapillus rock" style="left: 28%; --drift:  60px; --spin: -280deg; animation-duration: 13.5s; animation-delay: 5.2s;"></div>
+  <div class="lapillus spark"style="left: 37%; --drift: -40px; --spin:  220deg; animation-duration: 11.5s; animation-delay: 2.6s;"></div>
+  <div class="lapillus"      style="left: 46%; --drift:  45px; --spin: -340deg; animation-duration: 17.5s; animation-delay: 4.8s;"></div>
+  <div class="lapillus rock" style="left: 56%; --drift: -35px; --spin:  260deg; animation-duration: 12s;   animation-delay: 1.8s;"></div>
+  <div class="lapillus spark"style="left: 66%; --drift:  60px; --spin: -300deg; animation-duration: 14.5s; animation-delay: 6.5s;"></div>
+  <div class="lapillus"      style="left: 75%; --drift: -45px; --spin:  240deg; animation-duration: 13s;   animation-delay: 3.2s;"></div>
+  <div class="lapillus rock" style="left: 85%; --drift:  30px; --spin: -360deg; animation-duration: 15s;   animation-delay: 5.8s;"></div>
+
+  <div class="hero-inner">
+    <p class="hero-kicker">Sci-Fi &amp; Fantasy · Author</p>
+    <h1 class="hero-name"><span class="first">Titania</span><span class="last">Blesh</span></h1>
+    <div class="hero-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+    <div class="hero-meta">
+      <span>9 novels</span>
+      <span>3 countries</span>
+      <span>Italian · French · English</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#bestsellers" class="btn btn-fill">Browse the books</a>
+      <a href="#about" class="btn btn-outline">Meet Titania</a>
     </div>
   </div>
 </section>
 
-<!-- BOOKS -->
-<section id="books">
-  <div class="books-top">
-    <div>
-      <p class="sec-label">Catalogue</p>
-      <h2 class="sec-title"><em>Piratesse</em><br>del Mediterraneo</h2>
-      <p>A historical fantasy trilogy soaked in Mediterranean legend, sea-salt, and adventure. Traditionally published in Italy and France — also on audiobook.</p>
-    </div>
+<!-- #bestsellers (sepia) -->
+<section id="bestsellers" class="sec-pad">
+  <!-- stylized seagulls scattered across the upper section -->
+  <svg class="bestsellers-bg" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="gull" viewBox="0 0 24 10">
+        <path d="M 0,9 C 4,1 8,1 12,7 C 16,1 20,1 24,9" fill="none"/>
+      </symbol>
+    </defs>
+    <g fill="none" stroke="#1f1815" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.1" opacity="0.22">
+      <use href="#gull" x="80"   y="60"  width="38" height="15"/>
+      <use href="#gull" x="220"  y="100" width="26" height="11"/>
+      <use href="#gull" x="380"  y="50"  width="32" height="13"/>
+      <use href="#gull" x="540"  y="110" width="44" height="18"/>
+      <use href="#gull" x="720"  y="70"  width="28" height="12"/>
+      <use href="#gull" x="880"  y="130" width="34" height="14"/>
+      <use href="#gull" x="1040" y="80"  width="26" height="11"/>
+      <use href="#gull" x="1200" y="60"  width="48" height="20"/>
+      <use href="#gull" x="160"  y="200" width="22" height="9"/>
+      <use href="#gull" x="620"  y="220" width="30" height="12"/>
+      <use href="#gull" x="1100" y="230" width="26" height="11"/>
+      <use href="#gull" x="320"  y="180" width="24" height="10"/>
+      <use href="#gull" x="820"  y="200" width="36" height="15"/>
+      <use href="#gull" x="1280" y="180" width="22" height="9"/>
+    </g>
+  </svg>
+
+  <!-- stylized cresting waves at the bottom -->
+  <svg class="bestsellers-waves" viewBox="0 0 1400 400" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- back wave (gentle, faintest) -->
+    <path d="M 0,400
+             L 0,358
+             C 100,344 220,332 340,344
+             C 500,358 660,366 800,360
+             C 950,354 1100,360 1250,354
+             C 1320,351 1400,354 1400,354
+             L 1400,400 Z"
+          fill="#1f1815" opacity="0.07"/>
+
+    <!-- mid wave (rolling body) -->
+    <path d="M 0,400
+             L 0,308
+             C 80,250 200,222 320,242
+             C 460,266 600,300 740,310
+             C 900,322 1050,310 1180,288
+             C 1280,272 1400,278 1400,278
+             L 1400,400 Z"
+          fill="#1f1815" opacity="0.11"/>
+
+    <!-- front main cresting wave (with curling crest on the left) -->
+    <path d="M 0,400
+             L 0,256
+             C 30,176 90,84 222,76
+             C 322,70 392,140 420,220
+             C 435,260 410,290 365,283
+             C 335,279 322,260 336,240
+             Q 360,212 410,232
+             C 482,256 558,302 622,322
+             C 722,348 832,346 920,322
+             C 970,308 982,275 1022,265
+             C 1112,246 1212,290 1330,320
+             C 1370,330 1400,335 1400,335
+             L 1400,400 Z"
+          fill="#1f1815" opacity="0.18"/>
+
+    <!-- foam highlight strokes inside the front wave -->
+    <g fill="none" stroke="#f5ede0" stroke-width="3.5" stroke-linecap="round" opacity="0.55">
+      <path d="M 80,256 C 130,182 220,140 290,170"/>
+      <path d="M 100,294 C 150,228 230,202 300,222"/>
+      <path d="M 130,326 C 178,278 240,254 295,264"/>
+    </g>
+
+    <!-- secondary smaller wave crest near the right (echo of the main one) -->
+    <g fill="none" stroke="#f5ede0" stroke-width="3" stroke-linecap="round" opacity="0.40">
+      <path d="M 920,308 C 950,278 990,260 1030,265"/>
+      <path d="M 950,328 C 980,302 1015,288 1045,290"/>
+    </g>
+  </svg>
+
+  <div class="trilogy-head">
+    <p class="sec-eyebrow">Books</p>
+    <h2 class="sec-title"><span class="accent">Piratesse</span> del Mediterraneo</h2>
+    <div class="ornament"><span class="line"></span><span class="glyph">✦  ✦  ✦</span><span class="line"></span></div>
+    <p class="sec-deck">Seventeenth-century Sardinia, an all-female pirate crew, and cursed conquistador gold. A historical fantasy trilogy with captain rivalries, witch hunts, and a wicked sense of humor.<br>Traditionally published in Italy and France, also on audiobook.</p>
   </div>
 
-  <div><span class="series-pill">Main trilogy</span></div>
-  <div class="books-grid">
-    <div class="book-card">
-      <div class="book-cover">
-        <img src="assets/images/Mockup_Cannonau_small-233x300.png" alt="A Colpi di Cannonau">
-        <div class="book-hover"><a href="http://www.amazon.it/dp/B0FRXS566B" class="buy-btn" target="_blank">Buy on Amazon →</a></div>
-      </div>
+  <div class="trilogy-grid">
+    <article class="book">
+      <a class="book-cover" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank">
+        <img src="assets/images/book-a_colpi_di_cannonau.png" alt="A Colpi di Cannonau">
+      </a>
       <p class="book-title">A Colpi di Cannonau</p>
       <p class="book-sub">Historical Fantasy · Book I</p>
-    </div>
-    <div class="book-card">
-      <div class="book-cover">
-        <img src="assets/images/Mockup_Sangria_small-1-265x300.png" alt="Un Bagno di Sangria">
-        <div class="book-hover"><a href="http://www.amazon.it/dp/B0FS7KWPLT" class="buy-btn" target="_blank">Buy on Amazon →</a></div>
-      </div>
+      <a href="http://www.amazon.it/dp/B0FRXS566B" class="btn btn-accent" target="_blank">Buy on Amazon</a>
+    </article>
+    <article class="book">
+      <a class="book-cover" href="http://www.amazon.it/dp/B0FS7KWPLT" target="_blank">
+        <img src="assets/images/book-un_bagno_di_sangria.png" alt="Un Bagno di Sangria">
+      </a>
       <p class="book-title">Un Bagno di Sangria</p>
       <p class="book-sub">Historical Fantasy · Book II</p>
-    </div>
-    <div class="book-card">
-      <div class="book-cover">
-        <img src="assets/images/mockup-mirto-side-220x300.png" alt="O Mirto o Morte">
-        <div class="book-hover"><a href="http://www.amazon.it/dp/B0FS7J3QHL" class="buy-btn" target="_blank">Buy on Amazon →</a></div>
-      </div>
+      <a href="http://www.amazon.it/dp/B0FS7KWPLT" class="btn btn-accent" target="_blank">Buy on Amazon</a>
+    </article>
+    <article class="book">
+      <a class="book-cover" href="http://www.amazon.it/dp/B0FS7J3QHL" target="_blank">
+        <img src="assets/images/book-o_mirto_o_morte.png" alt="O Mirto o Morte">
+      </a>
       <p class="book-title">O Mirto o Morte</p>
       <p class="book-sub">Historical Fantasy · Book III</p>
-    </div>
+      <a href="http://www.amazon.it/dp/B0FS7J3QHL" class="btn btn-accent" target="_blank">Buy on Amazon</a>
+    </article>
   </div>
 
-  <div class="trans-band">
-    <p class="trans-band-title">Translations</p>
-    <div class="trans-grid">
-      <div class="trans-card">
-        <img src="assets/images/a_coups_de_canon_small.jpg" alt="À Coups de Canon">
-        <div class="trans-info">
-          <span class="trans-pill">French</span>
-          <p class="trans-name">À Coups de Canon</p>
-          <a href="https://www.amazon.it/coups-canon-French-Titania-Blesh-ebook/dp/B0F7GR32WW/" class="trans-link" target="_blank">Buy →</a>
-        </div>
-      </div>
-      <div class="trans-card" style="opacity:0.45; pointer-events:none;">
-        <div style="width:100%;aspect-ratio:2/3;background:var(--apricot-dk);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:0.75rem;color:var(--ink-lt);font-family:var(--body);font-weight:600;">Coming soon</span>
-        </div>
-        <div class="trans-info">
-          <span class="trans-pill">TBA</span>
-          <p class="trans-name">—</p>
-        </div>
-      </div>
-      <div class="trans-card" style="opacity:0.45; pointer-events:none;">
-        <div style="width:100%;aspect-ratio:2/3;background:var(--apricot-dk);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:0.75rem;color:var(--ink-lt);font-family:var(--body);font-weight:600;">Coming soon</span>
-        </div>
-        <div class="trans-info">
-          <span class="trans-pill">TBA</span>
-          <p class="trans-name">—</p>
+  <div class="formats">
+    <div class="format-block">
+      <p class="label">Translations</p>
+      <div class="format-list">
+        <a class="format-row" href="https://www.amazon.it/coups-canon-French-Titania-Blesh-ebook/dp/B0F7GR32WW/" target="_blank">
+          <img src="assets/images/book-a_coups_de_canon.jpg" alt="À Coups de Canon">
+          <div>
+            <div class="format-name">À Coups de Canon</div>
+            <div class="format-meta">French edition</div>
+          </div>
+          <span class="format-cta">Buy →</span>
+        </a>
+        <a class="format-row" href="https://www.amazon.it/coups-canon-French-Titania-Blesh-ebook/dp/B0F7GR32WW/" target="_blank">
+          <img src="assets/images/book-un_bain_de_sangria.jpg" alt="Un Bain de Sangria">
+          <div>
+            <div class="format-name">Un Bain de Sangria</div>
+            <div class="format-meta">French edition</div>
+          </div>
+          <span class="format-cta">Buy →</span>
+        </a>
+        <div class="format-row disabled">
+          <div class="format-placeholder"></div>
+          <div>
+            <div class="format-name">—</div>
+            <div class="format-meta">Coming soon</div>
+          </div>
+          <span class="format-cta">TBA</span>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="trans-band">
-    <p class="trans-band-title">Audiobooks</p>
-    <div class="audio-grid">
-      <a href="https://www.audible.it/pd/A-colpi-di-Cannonau-Audiolibri/B0C66JWLGS" class="audio-card" target="_blank">
-        <img src="assets/images/51AmD-WtngL._SL500_.jpg" alt="A Colpi di Cannonau Audible">
-        <div class="audio-info">
-          <p class="audio-name">A Colpi di Cannonau</p>
-          <span class="audio-cta">Listen on Audible →</span>
-        </div>
-      </a>
-      <a href="https://www.audible.it/pd/Un-bagno-di-Sangria-Audiolibri/B0CB42G2K2" class="audio-card" target="_blank">
-        <img src="assets/images/61usf6F9oCL._SL500_.jpg" alt="Un Bagno di Sangria Audible">
-        <div class="audio-info">
-          <p class="audio-name">Un Bagno di Sangria</p>
-          <span class="audio-cta">Listen on Audible →</span>
-        </div>
-      </a>
-      <div class="audio-card" style="opacity:0.45; pointer-events:none; cursor:default;">
-        <div style="width:100%;aspect-ratio:1/1;background:var(--apricot-dk);display:flex;align-items:center;justify-content:center;">
-          <span style="font-size:0.75rem;color:var(--ink-lt);font-family:var(--body);font-weight:600;">Coming soon</span>
-        </div>
-        <div class="audio-info">
-          <p class="audio-name">—</p>
-          <span class="audio-cta">TBA</span>
+    <div class="format-block">
+      <p class="label">Audiobooks</p>
+      <div class="format-list">
+        <a class="format-row audio" href="https://www.audible.it/pd/A-colpi-di-Cannonau-Audiolibri/B0C66JWLGS" target="_blank">
+          <img src="assets/images/audible-a_colpi_di_cannonau.jpg" alt="A Colpi di Cannonau on Audible">
+          <div>
+            <div class="format-name">A Colpi di Cannonau</div>
+            <div class="format-meta">Listen on Audible</div>
+          </div>
+          <span class="format-cta">Play →</span>
+        </a>
+        <a class="format-row audio" href="https://www.audible.it/pd/Un-bagno-di-Sangria-Audiolibri/B0CB42G2K2" target="_blank">
+          <img src="assets/images/audible-un_bagno_di_sangria.jpg" alt="Un Bagno di Sangria on Audible">
+          <div>
+            <div class="format-name">Un Bagno di Sangria</div>
+            <div class="format-meta">Listen on Audible</div>
+          </div>
+          <span class="format-cta">Play →</span>
+        </a>
+        <div class="format-row audio disabled">
+          <div class="format-placeholder square"></div>
+          <div>
+            <div class="format-name">—</div>
+            <div class="format-meta">Coming soon</div>
+          </div>
+          <span class="format-cta">TBA</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURED BOOK -->
-<section id="featured">
-  <!-- dune contour art -->
-  <svg class="feat-dunes" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<!-- #also-by (VOLCANIC) -->
+<section id="also-by" class="sec-pad volcanic">
+  <!-- stylized sand-dune background spanning the whole section -->
+  <svg class="alsoby-dunes-bg" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- back ridge — distant dune in shadow -->
+    <path d="M 0,310 C 180,265 320,250 480,270 C 620,285 740,260 880,272 C 1020,285 1180,275 1300,285 Q 1380,290 1400,285 L 1400,600 L 0,600 Z"
+          fill="#3a2218" opacity="0.55"/>
 
-    <!-- far right dune cluster — large sweeping mound -->
-    <g fill="none" stroke="#c95a3a" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M780,500 C820,420 870,360 950,310 C1030,260 1110,255 1200,265" stroke-width="1.1" opacity="0.10"/>
-      <path d="M800,500 C840,430 892,372 972,322 C1052,272 1128,265 1200,273" stroke-width="1.1" opacity="0.13"/>
-      <path d="M822,500 C860,440 912,384 990,336 C1068,288 1142,278 1200,284" stroke-width="1.1" opacity="0.16"/>
-      <path d="M845,500 C882,450 930,396 1006,350 C1082,304 1152,292 1200,296" stroke-width="1.2" opacity="0.19"/>
-      <path d="M870,500 C906,460 952,410 1024,366 C1096,322 1162,308 1200,310" stroke-width="1.2" opacity="0.22"/>
-      <path d="M898,500 C932,470 976,424 1044,382 C1112,340 1170,326 1200,326" stroke-width="1.2" opacity="0.25"/>
-      <path d="M928,500 C960,480 1000,440 1064,400 C1128,360 1180,344 1200,344" stroke-width="1.3" opacity="0.28"/>
-      <path d="M960,500 C990,490 1026,456 1086,418 C1146,380 1188,364 1200,362" stroke-width="1.3" opacity="0.31"/>
-      <path d="M994,500 C1020,496 1054,472 1108,438 C1162,404 1194,388 1200,382" stroke-width="1.4" opacity="0.34"/>
-      <path d="M1030,500 C1052,500 1082,490 1130,460 C1178,430 1198,416 1200,404" stroke-width="1.4" opacity="0.37"/>
-      <path d="M1068,500 C1086,500 1110,498 1152,476 C1194,454 1200,444 1200,428" stroke-width="1.5" opacity="0.38"/>
-    </g>
+    <!-- mid dune — terracotta band -->
+    <path d="M 0,400 Q 100,378 220,392 C 340,408 440,360 580,378 Q 720,398 820,388 C 940,374 1080,400 1220,418 Q 1340,428 1400,418 L 1400,600 L 0,600 Z"
+          fill="#5a2a18" opacity="0.6"/>
 
-    <!-- left dune — smaller, shallower, mostly off-left-edge -->
-    <g fill="none" stroke="#c95a3a" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M0,380 C40,340 90,305 160,295 C230,285 290,300 340,330 C390,360 410,400 420,440" stroke-width="1.0" opacity="0.09"/>
-      <path d="M0,396 C38,358 86,323 156,313 C226,303 286,316 334,346 C382,376 404,414 414,454" stroke-width="1.0" opacity="0.12"/>
-      <path d="M0,412 C36,376 82,341 150,332 C218,323 278,334 326,364 C374,394 396,430 406,468" stroke-width="1.1" opacity="0.15"/>
-      <path d="M0,428 C32,394 76,360 144,352 C212,344 272,354 318,384 C364,414 388,448 396,482" stroke-width="1.1" opacity="0.18"/>
-      <path d="M0,446 C28,414 70,381 136,374 C202,367 264,376 308,406 C352,436 378,468 384,500" stroke-width="1.2" opacity="0.21"/>
-      <path d="M0,464 C24,434 62,403 126,398 C190,393 254,400 296,430 C338,460 364,490 368,500" stroke-width="1.2" opacity="0.24"/>
-      <path d="M0,482 C18,456 52,428 114,424 C176,420 242,426 282,456 C310,478 334,498 340,500" stroke-width="1.3" opacity="0.26"/>
-    </g>
+    <!-- foreground dune crest -->
+    <path d="M 0,490 Q 110,460 230,478 C 340,492 410,452 510,464 Q 600,478 700,470 C 820,460 950,496 1080,508 Q 1220,520 1330,510 Q 1380,505 1400,510 L 1400,600 L 0,600 Z"
+          fill="#1a0d08" opacity="0.85"/>
 
-    <!-- centre-bottom scattered wind-ripple lines -->
-    <g fill="none" stroke="#c95a3a" stroke-linecap="round" opacity="0.14">
-      <path d="M380,490 C440,482 510,478 580,480 C650,482 710,486 760,490" stroke-width="0.9"/>
-      <path d="M400,500 C460,493 525,489 595,491 C665,493 718,497 762,500" stroke-width="0.9"/>
-      <path d="M355,478 C418,470 492,467 562,469 C632,471 695,475 745,480" stroke-width="0.8"/>
-    </g>
-
-    <!-- tiny sand grain dots scattered across lower portion -->
-    <g fill="#c95a3a">
-      <circle cx="460" cy="470" r="1.2" opacity="0.20"/>
-      <circle cx="530" cy="458" r="1.0" opacity="0.18"/>
-      <circle cx="610" cy="475" r="1.4" opacity="0.16"/>
-      <circle cx="680" cy="462" r="1.0" opacity="0.20"/>
-      <circle cx="740" cy="480" r="1.2" opacity="0.17"/>
-      <circle cx="500" cy="492" r="0.9" opacity="0.15"/>
-      <circle cx="640" cy="488" r="1.1" opacity="0.18"/>
-      <circle cx="700" cy="495" r="0.9" opacity="0.14"/>
-      <circle cx="430" cy="483" r="1.0" opacity="0.16"/>
+    <!-- a few fine grain specks scattered above the dunes -->
+    <g fill="#d8a64a" opacity="0.35">
+      <circle cx="280"  cy="220" r="0.9"/>
+      <circle cx="540"  cy="180" r="0.7"/>
+      <circle cx="780"  cy="240" r="0.8"/>
+      <circle cx="1080" cy="200" r="0.7"/>
+      <circle cx="1240" cy="250" r="0.9"/>
+      <circle cx="180"  cy="300" r="0.7"/>
+      <circle cx="640"  cy="320" r="0.8"/>
+      <circle cx="1020" cy="320" r="0.7"/>
     </g>
   </svg>
 
-  <div class="feat-img">
-    <img src="assets/images/mockup_2.png" alt="Echi di Sabbia e Chele Spezzate">
+  <!-- sand-drift wind: gust-blown erratic streaks drifting from left to right -->
+  <div class="sand-grain big" style="--y:  6%; --w: 22px; --c: #d8a64a; --max-op: 0.40; --dur: 17s; --delay: 0s;    --vy1: -22px; --vy2: 14px;  --vy3: -10px; --vy4: 18px;  --vy5: -6px;  --r1: 5deg;  --r2: -4deg; --r3: 6deg;  --r4: -3deg; --r5: 2deg;"></div>
+  <div class="sand-grain"     style="--y: 11%; --w: 14px; --c: #ebc77b; --max-op: 0.38; --dur: 13s; --delay: 1.5s;  --vy1:  16px; --vy2: -20px; --vy3:  8px;  --vy4: -14px; --vy5:  6px;  --r1: -6deg; --r2: 5deg;  --r3: -3deg; --r4: 4deg;  --r5: -2deg;"></div>
+  <div class="sand-grain dot" style="--y: 15%; --w: 5px;  --c: #d8a64a; --max-op: 0.46; --dur: 14s; --delay: 3.5s;  --vy1: -12px; --vy2:  18px; --vy3: -16px; --vy4:  10px; --vy5: -4px;  --r1: 0;     --r2: 0;     --r3: 0;     --r4: 0;     --r5: 0;"></div>
+  <div class="sand-grain big" style="--y: 21%; --w: 30px; --c: #d8a64a; --max-op: 0.48; --dur: 19s; --delay: 3s;    --vy1: -18px; --vy2:  22px; --vy3: -8px;  --vy4:  16px; --vy5: -10px; --r1: 3deg;  --r2: -7deg; --r3: 4deg;  --r4: -5deg; --r5: 3deg;"></div>
+  <div class="sand-grain"     style="--y: 27%; --w: 12px; --c: #d8a64a; --max-op: 0.36; --dur: 11s; --delay: 0.5s;  --vy1:  14px; --vy2: -10px; --vy3:  20px; --vy4: -8px;  --vy5:  4px;  --r1: -3deg; --r2: 6deg;  --r3: -5deg; --r4: 3deg;  --r5: -2deg;"></div>
+  <div class="sand-grain"     style="--y: 32%; --w: 18px; --c: #ebc77b; --max-op: 0.32; --dur: 15s; --delay: 4s;    --vy1: -16px; --vy2:  12px; --vy3: -22px; --vy4:  14px; --vy5: -6px;  --r1: 4deg;  --r2: -3deg; --r3: 6deg;  --r4: -4deg; --r5: 2deg;"></div>
+  <div class="sand-grain dot" style="--y: 37%; --w: 6px;  --c: #ebc77b; --max-op: 0.40; --dur: 13s; --delay: 6s;    --vy1:  20px; --vy2: -14px; --vy3:  10px; --vy4: -18px; --vy5:  8px;  --r1: 0;     --r2: 0;     --r3: 0;     --r4: 0;     --r5: 0;"></div>
+  <div class="sand-grain big" style="--y: 42%; --w: 34px; --c: #d8a64a; --max-op: 0.46; --dur: 21s; --delay: 2s;    --vy1: -24px; --vy2:  16px; --vy3: -12px; --vy4:  22px; --vy5: -8px;  --r1: 6deg;  --r2: -5deg; --r3: 8deg;  --r4: -3deg; --r5: 2deg;"></div>
+  <div class="sand-grain"     style="--y: 48%; --w: 16px; --c: #d8a64a; --max-op: 0.42; --dur: 14s; --delay: 5s;    --vy1:  18px; --vy2: -22px; --vy3:  10px; --vy4: -16px; --vy5:  6px;  --r1: -4deg; --r2: 5deg;  --r3: -7deg; --r4: 4deg;  --r5: -2deg;"></div>
+  <div class="sand-grain"     style="--y: 53%; --w: 20px; --c: #ebc77b; --max-op: 0.34; --dur: 18s; --delay: 1s;    --vy1: -20px; --vy2:  14px; --vy3: -16px; --vy4:  20px; --vy5: -8px;  --r1: 5deg;  --r2: -3deg; --r3: 4deg;  --r4: -6deg; --r5: 3deg;"></div>
+  <div class="sand-grain dot" style="--y: 57%; --w: 4.5px;--c: #d8a64a; --max-op: 0.42; --dur: 12s; --delay: 4.5s;  --vy1: -10px; --vy2:  18px; --vy3: -14px; --vy4:  8px;  --vy5: -2px;  --r1: 0;     --r2: 0;     --r3: 0;     --r4: 0;     --r5: 0;"></div>
+  <div class="sand-grain"     style="--y: 62%; --w: 16px; --c: #d8a64a; --max-op: 0.46; --dur: 16s; --delay: 7s;    --vy1: -16px; --vy2:  20px; --vy3: -10px; --vy4:  14px; --vy5: -4px;  --r1: -2deg; --r2: 6deg;  --r3: -3deg; --r4: 4deg;  --r5: -2deg;"></div>
+  <div class="sand-grain big" style="--y: 67%; --w: 28px; --c: #d8a64a; --max-op: 0.50; --dur: 20s; --delay: 2.5s;  --vy1:  22px; --vy2: -18px; --vy3:  16px; --vy4: -22px; --vy5:  6px;  --r1: -5deg; --r2: 7deg;  --r3: -4deg; --r4: 6deg;  --r5: -3deg;"></div>
+  <div class="sand-grain"     style="--y: 72%; --w: 14px; --c: #ebc77b; --max-op: 0.36; --dur: 12s; --delay: 0s;    --vy1:  14px; --vy2: -8px;  --vy3:  18px; --vy4: -12px; --vy5:  4px;  --r1: 4deg;  --r2: -3deg; --r3: 5deg;  --r4: -2deg; --r5: 1deg;"></div>
+  <div class="sand-grain dot" style="--y: 76%; --w: 5px;  --c: #d8a64a; --max-op: 0.46; --dur: 14s; --delay: 3s;    --vy1: -16px; --vy2:  20px; --vy3: -8px;  --vy4:  14px; --vy5: -4px;  --r1: 0;     --r2: 0;     --r3: 0;     --r4: 0;     --r5: 0;"></div>
+  <div class="sand-grain"     style="--y: 80%; --w: 18px; --c: #d8a64a; --max-op: 0.48; --dur: 17s; --delay: 5.5s;  --vy1: -22px; --vy2:  14px; --vy3: -18px; --vy4:  20px; --vy5: -8px;  --r1: 6deg;  --r2: -4deg; --r3: 5deg;  --r4: -3deg; --r5: 2deg;"></div>
+  <div class="sand-grain"     style="--y: 85%; --w: 12px; --c: #d8a64a; --max-op: 0.40; --dur: 11s; --delay: 1s;    --vy1:  16px; --vy2: -20px; --vy3:  10px; --vy4: -14px; --vy5:  6px;  --r1: -3deg; --r2: 5deg;  --r3: -7deg; --r4: 4deg;  --r5: -2deg;"></div>
+  <div class="sand-grain big" style="--y: 89%; --w: 32px; --c: #ebc77b; --max-op: 0.40; --dur: 22s; --delay: 4s;    --vy1: -24px; --vy2:  18px; --vy3: -14px; --vy4:  22px; --vy5: -10px; --r1: 4deg;  --r2: -6deg; --r3: 7deg;  --r4: -4deg; --r5: 3deg;"></div>
+  <div class="sand-grain dot" style="--y: 93%; --w: 4.5px;--c: #d8a64a; --max-op: 0.50; --dur: 13s; --delay: 6.5s;  --vy1: -12px; --vy2:  16px; --vy3: -10px; --vy4:  14px; --vy5: -4px;  --r1: 0;     --r2: 0;     --r3: 0;     --r4: 0;     --r5: 0;"></div>
+  <div class="sand-grain"     style="--y: 96%; --w: 14px; --c: #d8a64a; --max-op: 0.46; --dur: 14s; --delay: 2s;    --vy1: -18px; --vy2:  12px; --vy3: -16px; --vy4:  10px; --vy5: -4px;  --r1: 5deg;  --r2: -3deg; --r3: 4deg;  --r4: -5deg; --r5: 2deg;"></div>
+
+  <div class="alsoby-cover">
+    <!-- decorative concentric rings + sand grains behind the book -->
+    <svg class="alsoby-decor" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="none" stroke="#d8a64a" stroke-width="1" opacity="0.55" stroke-linecap="round">
+        <!-- tilted concentric sand-dune contour rings -->
+        <ellipse cx="200" cy="200" rx="180" ry="40" transform="rotate(-15 200 200)"/>
+        <ellipse cx="200" cy="200" rx="155" ry="30" transform="rotate(-15 200 200)"/>
+        <ellipse cx="200" cy="200" rx="130" ry="22" transform="rotate(-15 200 200)"/>
+      </g>
+      <g fill="#d8a64a" opacity="0.65">
+        <circle cx="60"  cy="180" r="2"/>
+        <circle cx="80"  cy="220" r="1.5"/>
+        <circle cx="110" cy="260" r="2"/>
+        <circle cx="320" cy="170" r="1.8"/>
+        <circle cx="340" cy="220" r="2"/>
+        <circle cx="290" cy="280" r="1.5"/>
+      </g>
+    </svg>
+    <img src="assets/images/book-echi_di_sabbia_e_chele_spezzate.png" alt="Echi di Sabbia e Chele Spezzate">
   </div>
-  <div>
-    <p class="sec-label">Also by Titania Blesh</p>
-    <h2 class="sec-title"><em>Echi di Sabbia</em><br>e Chele Spezzate</h2>
-    <blockquote class="feat-quote">Lei desidera solo evitare la guerra. Diventare cerebrale è il suo sogno. Lui ha un unico obiettivo: essere il migliore. E la nuova aspirante cerebrale è il suo incubo.</blockquote>
-    <p class="feat-sub">YA Fantasy · Italian only</p>
-    <a href="https://www.amazon.it/Sabbia-Chele-Spezzate-Titania-Blesh-ebook/dp/B0DPTHHLT9" class="btn btn-fill" target="_blank">Buy on Amazon →</a>
+  <div class="alsoby-text">
+    <p class="sec-eyebrow">Also by Titania Blesh</p>
+    <h2 class="sec-title"><span class="accent">Echi di Sabbia</span><br>e Chele Spezzate</h2>
+    <blockquote class="alsoby-quote">Lei desidera solo evitare la guerra. Diventare cerebrale è il suo sogno.<br>Lui ha un unico obiettivo: essere il migliore.<br>E la nuova aspirante cerebrale è il suo incubo.</blockquote>
+    <p class="alsoby-tag">Neuroscience Romantasy · Spice Level 🌶️/5 · Italian only</p>
+    <a href="https://www.amazon.it/Sabbia-Chele-Spezzate-Titania-Blesh-ebook/dp/B0DPTHHLT9" class="btn btn-accent" target="_blank">Buy on Amazon</a>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-img">
-    <img src="assets/images/FullSizeRender-981x1024.jpg" alt="Titania Blesh author photo">
+<!-- #about (sepia) -->
+<section id="about" class="sec-pad">
+  <!-- stylized sea waves rising from the bottom edge -->
+  <svg class="about-waves" viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke="#1f1815" stroke-linecap="round">
+      <!-- back: small ripples, faintest -->
+      <path d="M -40,40 c 90,-6 150,-6 240,0 s 150,6 240,0 s 150,-6 240,0 s 150,6 240,0 s 150,-6 240,0 s 150,6 240,0 s 150,-6 240,0"
+            stroke-width="1" opacity="0.06"/>
+      <!-- mid-back: slightly bigger, slightly darker -->
+      <path d="M -60,80 c 110,-10 170,-10 280,0 s 170,10 280,0 s 170,-10 280,0 s 170,10 280,0 s 170,-10 280,0 s 170,10 280,0"
+            stroke-width="1" opacity="0.09"/>
+      <!-- mid: medium ripple -->
+      <path d="M -50,124 c 90,-14 130,-14 220,0 s 130,14 220,0 s 130,-14 220,0 s 130,14 220,0 s 130,-14 220,0 s 130,14 220,0 s 130,-14 220,0"
+            stroke-width="1" opacity="0.12"/>
+      <!-- front: largest crest, just below the photo/text baseline -->
+      <path d="M -70,170 c 100,-18 160,-18 260,0 s 160,18 260,0 s 160,-18 260,0 s 160,18 260,0 s 160,-18 260,0 s 160,18 260,0 s 160,-18 260,0"
+            stroke-width="1" opacity="0.16"/>
+      <!-- a couple of tiny seafoam dots on the front crest -->
+    </g>
+    <g fill="#1f1815" opacity="0.18">
+      <circle cx="320" cy="168" r="1.2"/>
+      <circle cx="710" cy="170" r="1.4"/>
+      <circle cx="1080" cy="167" r="1.1"/>
+      <circle cx="1280" cy="170" r="1.3"/>
+    </g>
+  </svg>
+  <div class="about-photo">
+    <img src="assets/images/photo-titania.jpg" alt="Titania Blesh author photo">
   </div>
   <div class="about-text">
-    <p class="sec-label">The author</p>
-    <h2 class="sec-title">Hey,<br>I'm <em>Tita.</em></h2>
-    <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada — and also on <strong>Proxima Centauri b</strong>, though you'll know for sure only in 4.25 light-years.</p>
+    <p class="sec-eyebrow">The author</p>
+    <h2 class="sec-title">Hey, I'm <span class="accent">Tita.</span></h2>
+    <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada — and also on <em>Proxima Centauri b</em>, though you'll know for sure only in 4.25 light-years.</p>
     <p>I love astronomy, volcanoes, handstands, and my dog Newt. My life goal is to climb every volcano on Earth and Olympus Mons on Mars.</p>
-    <p>Come say hello:</p>
     <div class="about-socials">
       <a href="https://www.instagram.com/titaniablesh/" class="btn btn-fill" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@titaniablesh" class="btn btn-outline" target="_blank">TikTok</a>
-      <a href="titaniablesh_volcanoes.html" class="btn btn-outline" target="_blank">🌋 Climb with me</a>
+      <a href="titaniablesh_volcanoes.html" class="btn btn-gold" target="_blank">🌋 Climb with me</a>
     </div>
   </div>
 </section>
 
-<!-- FUN FACTS STRIP -->
-<div class="facts-strip">
-  <div class="fact"><span class="fact-dot"></span>Traditionally published in 3 countries</div>
-  <div class="fact"><span class="fact-dot"></span>9 completed novels</div>
-  <div class="fact"><span class="fact-dot"></span>Sci-fi | Fantasy | Romantasy</div>
-  <div class="fact"><span class="fact-dot"></span>Adult | YA</div>
+<!-- FACTS BANNER (VOLCANIC, marquee) -->
+<div class="facts volcanic" aria-label="At a glance">
+  <div class="facts-track" aria-hidden="true">
+    <!-- group 1 -->
+    <span class="fact"><span class="num">3</span> <em class="hl">countries</em> published</span>
+    <span class="dot">✦</span>
+    <span class="fact"><span class="num">9</span> <em class="hl">completed</em> novels</span>
+    <span class="dot">✦</span>
+    <span class="fact">Sci-fi · <em class="hl">Fantasy</em> · Romantasy</span>
+    <span class="dot">✦</span>
+    <span class="fact"><em class="hl">Adult</em> &amp; YA</span>
+    <span class="dot">✦</span>
+    <!-- group 2 (duplicate for seamless loop) -->
+    <span class="fact"><span class="num">3</span> <em class="hl">countries</em> published</span>
+    <span class="dot">✦</span>
+    <span class="fact"><span class="num">9</span> <em class="hl">completed</em> novels</span>
+    <span class="dot">✦</span>
+    <span class="fact">Sci-fi · <em class="hl">Fantasy</em> · Romantasy</span>
+    <span class="dot">✦</span>
+    <span class="fact"><em class="hl">Adult</em> &amp; YA</span>
+    <span class="dot">✦</span>
+  </div>
 </div>
 
-<!-- PUBLISHERS -->
-<section id="publishers">
-  <p class="sec-label">Published with</p>
-  <div class="pub-logos">
-    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" class="pub-item" target="_blank">
-      <img src="assets/images/hikaya.png" alt="Hikaya">
-    </a>
-    <a href="https://www.acheron.it/" class="pub-item" target="_blank">
-      <img src="assets/images/Acheron_Logo_Black-150x150.png" alt="Acheron Books">
-    </a>
-    <a href="https://www.lumien.it/" class="pub-item" target="_blank">
-      <img src="assets/images/logo-lumien-mondi-oltre-i-libri-head_invert.png" alt="Lumien">
-    </a>
-    <a href="http://www.dark-zone.it/" class="pub-item" target="_blank">
-      <img src="assets/images/103637136_288834252503190_1611508653666004182_n-150x150.png" alt="Dark Zone Edizioni">
-    </a>
-    <a href="https://www.mirrorworldpublishing.com/" class="pub-item" target="_blank">
-      <img src="assets/images/mirror_world_publishing-1024x961.webp" alt="Mirror World Publishing">
-    </a>
+<!-- #publishers (sepia) -->
+<section id="publishers" class="sec-pad">
+  <p class="sec-eyebrow">Published with</p>
+  <div class="ornament"><span class="line"></span><span class="glyph">✦</span><span class="line"></span></div>
+  <div class="pub-grid">
+    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" target="_blank"><img src="assets/images/publisher-hikaya.png" alt="Hikaya"></a>
+    <a href="https://www.acheron.it/" target="_blank"><img src="assets/images/publisher-acheron.png" alt="Acheron Books"></a>
+    <a href="https://www.lumien.it/" target="_blank"><img src="assets/images/publisher-lumien.png" alt="Lumien"></a>
+    <a href="http://www.dark-zone.it/" target="_blank"><img src="assets/images/publisher-dark_zone.png" alt="Dark Zone Edizioni"></a>
+    <a href="https://www.mirrorworldpublishing.com/" target="_blank"><img src="assets/images/publisher-mirror_world.webp" alt="Mirror World Publishing"></a>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <p class="sec-label">Full catalogue</p>
-  <h2 class="sec-title"><em>Projects</em></h2>
+<!-- #newsletter (VOLCANIC) -->
+<section id="newsletter" class="volcanic">
+  <!-- super-minimal background of fine-line envelopes -->
+  <svg class="nl-envelopes" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="envIcon" viewBox="0 0 60 40">
+        <rect x="0.5" y="0.5" width="59" height="39"/>
+        <path d="M 0.5,0.5 L 30,22 L 59.5,0.5"/>
+      </symbol>
+    </defs>
+    <g fill="none" stroke="#ebc77b" stroke-width="0.25" stroke-linejoin="round" opacity="0.22">
+      <use href="#envIcon" x="40"   y="20"  width="280" height="187" transform="rotate(-22 180 114)"/>
+      <use href="#envIcon" x="720"  y="0"   width="320" height="213" transform="rotate(-8 880 107)"/>
+      <use href="#envIcon" x="60"   y="340" width="320" height="213" transform="rotate(20 220 447)"/>
+      <use href="#envIcon" x="520"  y="400" width="260" height="173" transform="rotate(-25 650 487)"/>
+      <use href="#envIcon" x="1260" y="430" width="240" height="160" transform="rotate(22 1380 510)"/>
+    </g>
+  </svg>
+  <!-- larger envelope_seal as a decorative side element on the far left -->
+  <img class="nl-side-seal" src="assets/images/envelope_seal.svg" aria-hidden="" alt="">
+
+  <div class="nl-content">
+    <div class="nl-visual">
+      <div class="envelope" aria-hidden="true">
+        <span class="nl-emoji">💌</span>
+      </div>
+    </div>
+    <div class="nl-text">
+      <p class="nl-tag">Stay in the loop</p>
+      <h2>Subscribe to my <em>newsletter</em></h2>
+      <p>Get notified about new releases, book signings events, conferences, and volcano expeditions.</p>
+      <p>No spam, I promise.</p>
+      <form class="nl-form"
+            action="https://titaniablesh.substack.com/about"
+            method="get"
+            target="_blank" rel="noopener">
+        <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- #projects (sepia) -->
+<section id="projects" class="sec-pad">
+  <div class="proj-head">
+    <div>
+      <p class="sec-eyebrow">Full catalogue</p>
+      <h2 class="sec-title">My <span class="accent">Projects</span></h2>
+    </div>
+    <p class="sec-deck">Everything written, everything published, and everything still waiting for the right home.</p>
+  </div>
   <table class="proj-table">
     <thead>
       <tr>
@@ -909,75 +1808,121 @@ footer {
     <tbody>
       <tr>
         <td>
-          <div class="proj-title-cell"><span class="proj-emoji">⚔️</span>A Colpi di Cannonau</div>
-          <div class="proj-title-cell" style="margin-top:0.3rem;"><span class="proj-emoji">🍷</span>Un Bagno di Sangria</div>
-          <div class="proj-title-cell" style="margin-top:0.3rem;"><span class="proj-emoji">🌿</span>O Mirto o Morte</div>
+          <div class="proj-title">⚔️ A Colpi di Cannonau</div>
+          <div class="proj-title">🍷 Un Bagno di Sangria</div>
+          <div class="proj-title">🌿 O Mirto o Morte</div>
         </td>
         <td>Historical Fantasy</td>
-        <td><span class="lang-pill">Italian</span><span class="lang-pill">French</span></td>
-        <td><span class="badge badge-yes">Published</span></td>
-        <td style="font-size:0.82rem;">Author<br><span style="color:var(--ink-lt);font-size:0.75rem;">(excl. French rights)</span></td>
+        <td><span class="lang">Italian</span><span class="lang">French</span></td>
+        <td><span class="status status-yes">Published</span></td>
+        <td>Author<br><span style="color:var(--txt-lt);font-size:0.78rem;">(excl. French rights)</span></td>
       </tr>
       <tr>
-        <td><div class="proj-title-cell"><span class="proj-emoji">🦀</span>Echi di Sabbia e Chele Spezzate</div></td>
+        <td><div class="proj-title">🦀 Echi di Sabbia e Chele Spezzate</div></td>
         <td>YA Fantasy</td>
-        <td><span class="lang-pill">Italian</span></td>
-        <td><span class="badge badge-yes">Published</span></td>
-        <td style="font-size:0.82rem;">Author</td>
+        <td><span class="lang">Italian</span></td>
+        <td><span class="status status-yes">Published</span></td>
+        <td>Author</td>
       </tr>
       <tr>
-        <td><div class="proj-title-cell"><span class="proj-emoji">🚀</span>Neomentis</div></td>
+        <td><div class="proj-title">🚀 Neomentis</div></td>
         <td>YA Sci-Fi</td>
-        <td><span class="lang-pill">Italian</span><span class="lang-pill">English</span></td>
-        <td><span class="badge badge-no">Unpublished</span></td>
-        <td style="font-size:0.82rem;">Author</td>
+        <td><span class="lang">Italian</span><span class="lang">English</span></td>
+        <td><span class="status status-no">Unpublished</span></td>
+        <td>Author</td>
       </tr>
       <tr>
-        <td><div class="proj-title-cell"><span class="proj-emoji">🪐</span>Xeroton</div></td>
+        <td><div class="proj-title">🪐 Xeroton</div></td>
         <td>Adult Sci-Fi</td>
-        <td><span class="lang-pill">English</span></td>
-        <td><span class="badge badge-no">Unpublished</span></td>
-        <td style="font-size:0.82rem;">Author</td>
+        <td><span class="lang">English</span></td>
+        <td><span class="status status-no">Unpublished</span></td>
+        <td>Author</td>
       </tr>
       <tr>
-        <td><div class="proj-title-cell"><span class="proj-emoji">🏛️</span>Ataraxia</div></td>
+        <td><div class="proj-title">🏛️ Ataraxia</div></td>
         <td>Historical Fantasy</td>
-        <td><span class="lang-pill">English</span></td>
-        <td><span class="badge badge-no">Unpublished</span></td>
-        <td style="font-size:0.82rem;">Author</td>
+        <td><span class="lang">English</span></td>
+        <td><span class="status status-no">Unpublished</span></td>
+        <td>Author</td>
       </tr>
       <tr>
         <td>
-          <div class="proj-title-cell"><span class="proj-emoji">🌋</span>Volcanomancer I</div>
-          <div class="proj-title-cell" style="margin-top:0.3rem;"><span class="proj-emoji">🌋</span>Volcanomancer II</div>
+          <div class="proj-title">🌋 Volcanomancer I</div>
+          <div class="proj-title">🌋 Volcanomancer II</div>
         </td>
         <td>YA Fantasy</td>
-        <td><span class="lang-pill">English</span></td>
-        <td><span class="badge badge-no">Unpublished</span></td>
-        <td style="font-size:0.82rem;">Author</td>
+        <td><span class="lang">English</span></td>
+        <td><span class="status status-no">Unpublished</span></td>
+        <td>Author</td>
       </tr>
     </tbody>
   </table>
 </section>
 
-<!-- VOLCANOES -->
-<section id="volcanoes">
-  <div class="vol-ring vol-ring-1"></div>
-  <div class="vol-ring vol-ring-2"></div>
-  <div class="vol-ring vol-ring-3"></div>
-  <div class="vol-ring vol-ring-4"></div>
+<!-- #volcanoes (VOLCANIC) -->
+<section id="volcanoes" class="volcanic">
+  <svg class="vol-svg" viewBox="0 0 1400 200" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- ridgeline -->
+    <g fill="none" stroke="#ebc77b" stroke-width="1.4" stroke-linejoin="round" opacity="0.5">
+      <polyline points="0,200 110,150 220,200"/>
+      <polyline points="200,200 360,60 520,200"/>
+      <polyline points="480,200 580,130 680,200"/>
+      <polyline points="660,200 820,80 980,200"/>
+      <polyline points="950,200 1080,140 1210,200"/>
+      <polyline points="1180,200 1290,150 1400,200"/>
+    </g>
+
+    <!-- glowing dots at the bases (lava traces) -->
+    <g fill="#ebc77b" opacity="0.6">
+      <circle cx="360" cy="195" r="2"/>
+      <circle cx="820" cy="195" r="2.5"/>
+      <circle cx="350" cy="198" r="1.4"/>
+      <circle cx="830" cy="198" r="1.6"/>
+    </g>
+
+    <!-- smoke plumes from the tallest peaks -->
+    <g class="skyline-smoke" fill="none" stroke="#ebc77b" stroke-width="0.9" stroke-linecap="round" opacity="0.6">
+      <!-- peak 2 (apex 360,60) - three rising wisps -->
+      <path d="M 357,58 C 353,48 363,40 358,30 C 353,20 360,14 356,4"/>
+      <path d="M 363,57 C 368,47 360,39 366,29 C 372,19 365,13 370,5"/>
+      <path d="M 360,55 C 358,46 366,38 361,28 C 356,18 364,12 360,2"/>
+      <!-- peak 4 (apex 820,80) - two wisps -->
+      <path d="M 818,78 C 814,68 824,60 818,50 C 812,40 820,34 816,24"/>
+      <path d="M 822,77 C 828,67 820,59 826,49 C 832,39 824,33 830,23"/>
+      <!-- peak 3 (apex 580,130) - small short wisp -->
+      <path d="M 580,128 C 577,120 584,114 579,106 C 574,98 580,92 577,86"/>
+      <!-- peak 5 (apex 1080,140) - small wisp -->
+      <path d="M 1078,138 C 1075,130 1083,124 1078,116 C 1073,108 1080,102 1077,94"/>
+    </g>
+  </svg>
+  <!-- drifting lapilli -->
+  <div class="lapillus"       style="left:  6%; --drift:  50px; --spin:  280deg; animation-duration: 13s; animation-delay: 0s;"></div>
+  <div class="lapillus rock"  style="left: 14%; --drift: -35px; --spin: -200deg; animation-duration: 16s; animation-delay: 2.5s;"></div>
+  <div class="lapillus spark" style="left: 22%; --drift:  40px; --spin:  360deg; animation-duration: 11s; animation-delay: 4s;"></div>
+  <div class="lapillus"       style="left: 30%; --drift: -55px; --spin: -320deg; animation-duration: 15s; animation-delay: 1s;"></div>
+  <div class="lapillus rock"  style="left: 38%; --drift:  60px; --spin:  240deg; animation-duration: 17s; animation-delay: 3.5s;"></div>
+  <div class="lapillus spark" style="left: 46%; --drift: -30px; --spin: -180deg; animation-duration: 12s; animation-delay: 5.5s;"></div>
+  <div class="lapillus"       style="left: 54%; --drift:  45px; --spin:  300deg; animation-duration: 14s; animation-delay: 0.8s;"></div>
+  <div class="lapillus rock"  style="left: 62%; --drift: -50px; --spin: -260deg; animation-duration: 18s; animation-delay: 6s;"></div>
+  <div class="lapillus spark" style="left: 70%; --drift:  35px; --spin:  340deg; animation-duration: 11.5s; animation-delay: 2s;"></div>
+  <div class="lapillus"       style="left: 78%; --drift: -25px; --spin: -300deg; animation-duration: 15.5s; animation-delay: 4.5s;"></div>
+  <div class="lapillus rock"  style="left: 86%; --drift:  40px; --spin:  220deg; animation-duration: 13.5s; animation-delay: 1.5s;"></div>
+  <div class="lapillus spark" style="left: 94%; --drift: -45px; --spin: -240deg; animation-duration: 12.5s; animation-delay: 3s;"></div>
+
   <div class="vol-inner">
-    <p class="sec-label">A personal obsession</p>
+    <p class="sec-eyebrow">A personal obsession</p>
     <h2 class="sec-title">Why 🌋 <em>volcanoes?</em></h2>
     <p>I'm utterly, uncontrollably fascinated by volcanoes. I have recurrent dreams of burning alive in a molten lava flow, and I wouldn't have it any other way.</p>
-    <a href="titaniablesh_volcanoes.html" class="btn btn-peach" target="_blank">Explore my craters collection →</a>
+    <a href="titaniablesh_volcanoes.html" class="btn btn-gold" target="_blank">Explore my craters collection →</a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p class="footer-name">© Titania Blesh</p>
-  <ul class="footer-links">
+</main>
+
+<!-- FOOTER (volcanic) -->
+<footer class="volcanic">
+  <p class="foot-left">© 2026 Titania Blesh</p>
+  <ul class="foot-links">
     <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
     <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
     <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
@@ -986,10 +1931,12 @@ footer {
 </footer>
 
 <script>
+  // mobile burger
   const burger = document.getElementById('burger');
-  const nav = document.getElementById('navlinks');
-  burger.addEventListener('click', () => nav.classList.toggle('open'));
-  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
 </script>
 </body>
 </html>
