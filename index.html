@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Titania Blesh — Sci-Fi & Fantasy Writer</title>
+<title>Titania Blesh · Sci-Fi & Fantasy Writer</title>
 <link rel="icon" type="image/png" href="assets/images/favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
@@ -62,7 +62,11 @@
   --gold-lt:   #ebc77b;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  /* keep anchor-scrolled sections clear of the sticky navbar (~86px desktop, ~70px mobile) plus a small buffer */
+  scroll-padding-top: 6rem;
+}
 
 body {
   background: var(--bg);
@@ -831,17 +835,30 @@ section { position: relative; }
 }
 
 .nl-content {
-  display: flex; flex-wrap: wrap;
-  align-items: center; justify-content: space-between;
-  gap: 1.6rem 2.4rem;
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   padding: 1.6rem 3rem;
   max-width: 1200px; margin: 0 auto;
+  text-align: center;
 }
-.nl-text { display: flex; align-items: baseline; gap: 1rem 1.4rem; flex-wrap: wrap; }
+.nl-text {
+  display: flex; flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  max-width: 60ch;
+}
+.nl-text-row {
+  display: flex; align-items: baseline;
+  gap: 1rem 1.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .nl-text .nl-tag {
   font-family: var(--body); font-size: 0.66rem; font-weight: 700;
   letter-spacing: 0.32em; text-transform: uppercase;
   color: var(--accent);
+  margin: 0;
 }
 .nl-text h2 {
   font-family: var(--display); font-style: italic; font-weight: 700;
@@ -853,6 +870,12 @@ section { position: relative; }
 .nl-text h2 em {
   font-style: italic;
   color: var(--accent);
+}
+.nl-desc {
+  font-family: var(--body); font-size: 0.82rem;
+  color: var(--txt-mid);
+  line-height: 1.5;
+  margin: 0;
 }
 .nl-icon {
   display: inline-block;
@@ -1083,64 +1106,149 @@ section { position: relative; }
   .quotes-arrow { width: 32px; height: 32px; font-size: 1rem; }
 }
 
-/* ─── #projects (SEPIA) ──────────────────────────── */
+/* ─── #projects (SEPIA, card grid) ────────────────── */
 #projects {
   border-bottom: 1px solid var(--bg-3);
-  background: var(--bg);
+  position: relative;
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(184,138,58,0.13) 0%, transparent 70%),
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(122,46,46,0.07) 0%, transparent 75%),
+    var(--bg);
 }
 .proj-head {
   display: flex; justify-content: space-between; align-items: end;
   flex-wrap: wrap; gap: 1.5rem;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.6rem;
-  border-bottom: 2px solid var(--txt);
+  margin-bottom: 2rem;
+  padding-bottom: 1.4rem;
   position: relative;
 }
+/* tapered hairline that fades at both ends — softer and warmer than a hard rule */
 .proj-head::after {
-  content: ''; position: absolute; left: 0; right: 0; bottom: -6px;
-  border-bottom: 1px solid var(--txt);
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: linear-gradient(to right,
+    rgba(184,138,58,0)    0%,
+    rgba(184,138,58,0.45) 14%,
+    rgba(184,138,58,0.80) 38%,
+    rgba(184,138,58,0.80) 62%,
+    rgba(184,138,58,0.45) 86%,
+    rgba(184,138,58,0)   100%);
+}
+/* small fleuron centered on the rule, with a notch through the line */
+.proj-head::before {
+  content: '❧';
+  position: absolute;
+  bottom: -0.62em;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: 1.05rem;
+  line-height: 1;
+  padding: 0 0.55rem;
+  background:
+    radial-gradient(ellipse 55% 80% at 50% 50%, rgba(245,237,224,1) 0%, rgba(245,237,224,1) 60%, rgba(245,237,224,0) 100%);
+  z-index: 1;
 }
 .proj-head .sec-deck { margin: 0; max-width: 32ch; text-align: right; }
-.proj-table {
-  width: 100%; border-collapse: collapse;
-  font-family: var(--body);
+
+.proj-grid {
+  list-style: none; padding: 0; margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  gap: 1.4rem;
 }
-.proj-table th {
-  font-family: var(--body); font-size: 0.66rem; font-weight: 700;
-  letter-spacing: 0.22em; text-transform: uppercase;
+.proj-card {
+  display: flex; flex-direction: column;
+  padding: 1.3rem 1.4rem 1.4rem;
+  background: var(--bg-2);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--gold-lt);
+  position: relative;
+  transition: border-color 0.2s, transform 0.18s, box-shadow 0.2s;
+}
+.proj-card.published { border-top-color: var(--accent); }
+.proj-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(31,24,21,0.12);
+  border-color: var(--gold);
+}
+.proj-card.published:hover { border-color: var(--accent); }
+
+.proj-card-top {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
+}
+.proj-card-genre {
+  font-family: var(--body); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.26em; text-transform: uppercase;
   color: var(--txt-lt);
-  text-align: left; padding: 0.6rem 0.8rem;
-  border-bottom: 1px solid var(--txt);
 }
-.proj-table td {
-  padding: 1.1rem 0.8rem;
-  border-bottom: 1px solid var(--bg-3);
-  vertical-align: top;
-  color: var(--txt-mid);
-  font-size: 0.9rem;
+.proj-card-spice {
+  font-style: normal;
+  font-size: 0.85rem; line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
-.proj-table tbody tr:last-child td { border-bottom: none; }
-.proj-title {
+.proj-card-spice-fade { opacity: 0.22; }
+/* half-chili: left half full opacity, right half masked down to the same fade as unfilled chilies */
+.proj-card-spice-half {
+  -webkit-mask: linear-gradient(to right, #000 50%, rgba(0,0,0,0.22) 50%);
+          mask: linear-gradient(to right, #000 50%, rgba(0,0,0,0.22) 50%);
+  display: inline-block;
+}
+
+.proj-card-titles { margin-bottom: 1.1rem; }
+.proj-card-book {
+  display: flex; align-items: baseline; gap: 0.6rem;
+  line-height: 1.25;
+}
+.proj-card-book + .proj-card-book { margin-top: 0.2rem; }
+.proj-card-emoji {
+  font-style: normal;
+  font-size: 1rem;
+  flex: 0 0 1.5em;
+}
+.proj-card-name {
   font-family: var(--display); font-style: normal; font-weight: 700;
-  color: var(--txt); font-size: 1.05rem;
-  display: flex; align-items: center; gap: 0.5rem;
-  line-height: 1.3;
+  font-size: 1.12rem;
+  color: var(--txt);
 }
-.proj-title + .proj-title { margin-top: 0.4rem; }
-.lang {
-  display: inline-block; font-family: var(--body); font-size: 0.6rem;
-  font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-  padding: 0.22rem 0.65rem; margin: 2px 3px 2px 0;
-  border: 1px solid var(--bg-3);
-  color: var(--txt-mid);
+.proj-card-meta {
+  margin-top: auto;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule);
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 0.4rem 0.8rem;
+  font-family: var(--body); font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
 }
-.status {
-  display: inline-block; font-family: var(--body); font-size: 0.6rem;
-  font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 0.28rem 0.8rem;
+.proj-card-langs { color: var(--txt-mid); }
+.proj-card-status { display: inline-flex; align-items: center; gap: 0.45rem; }
+.proj-card-status::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
 }
-.status-yes { background: var(--accent); color: var(--bg); }
-.status-no  { background: transparent; color: var(--txt-lt); border: 1px solid var(--bg-3); }
+.proj-card-status.published { color: var(--accent); }
+.proj-card-status.unpublished { color: var(--txt-lt); }
+.proj-card-rights {
+  margin-top: 0.55rem;
+  font-family: var(--body); font-size: 0.72rem; font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--txt-lt);
+  line-height: 1.45;
+}
+.proj-card-rights em {
+  font-style: italic;
+  opacity: 0.85;
+}
 
 /* ─── #volcanoes (VOLCANIC) ──────────────────────── */
 #volcanoes {
@@ -1330,15 +1438,13 @@ footer::before {
   .pub-grid { gap: 2rem 2.5rem; }
   .pub-grid a img { height: 38px; }
 
-  .nl-content { flex-direction: column; align-items: stretch; gap: 1rem; padding: 1.4rem 1.5rem; text-align: center; }
-  .nl-text { justify-content: center; }
+  .nl-content { padding: 1.4rem 1.5rem; }
   .nl-form { margin-left: auto; margin-right: auto; }
 
   .proj-head .sec-deck { text-align: left; }
-  .proj-table th:nth-child(3),
-  .proj-table td:nth-child(3),
-  .proj-table th:nth-child(5),
-  .proj-table td:nth-child(5) { display: none; }
+  .proj-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .proj-card { padding: 1.1rem 1.2rem 1.2rem; }
+  .proj-card-name { font-size: 1.05rem; }
 
   #volcanoes { padding: 2.5rem 1.5rem; }
   .vol-inner p { font-size: 1.02rem; }
@@ -1350,6 +1456,7 @@ footer::before {
 @media (max-width: 520px) {
   .hero-kicker::before, .hero-kicker::after { width: 1.5rem; }
   .hero-rule .line { flex: 0 0 2.5rem; }
+  .proj-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -1366,9 +1473,11 @@ footer::before {
   <ul class="nav-links" id="navlinks">
     <li><a href="#bestsellers">Books</a></li>
     <li><a href="#about">The author</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#volcanoes">Volcanoes</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#quotes">Reviews</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="volcanoes.html">Volcanoes</a></li>
   </ul>
   <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
   <button class="nav-burger" id="burger" aria-label="Toggle menu">
@@ -1647,9 +1756,9 @@ footer::before {
     </article>
     <article class="book">
       <a class="book-cover" href="http://www.amazon.it/dp/B0FS7J3QHL" target="_blank">
-        <img src="assets/images/book-o_mirto_o_morte.png" alt="O Mirto o Morte">
+        <img src="assets/images/book-o_mirto_o_morte.png" alt="O Mirto o Morte!">
       </a>
-      <p class="book-title">O Mirto o Morte</p>
+      <p class="book-title">O Mirto o Morte!</p>
       <p class="book-sub">Historical Fantasy · Book III</p>
       <a href="http://www.amazon.it/dp/B0FS7J3QHL" class="btn btn-accent" target="_blank">Buy on Amazon</a>
     </article>
@@ -1896,8 +2005,11 @@ footer::before {
   </svg>
   <div class="nl-content">
     <div class="nl-text">
-      <p class="nl-tag">Stay in the loop</p>
-      <h2><span class="nl-icon">💌</span>Subscribe to my <em>newsletter</em></h2>
+      <div class="nl-text-row">
+        <p class="nl-tag">Stay in the loop</p>
+        <h2><span class="nl-icon">💌</span>Subscribe to my <em>spam-free newsletter</em></h2>
+      </div>
+      <p class="nl-desc">Get notified of new book releases, signing events, conferences, and volcano expeditions.</p>
     </div>
     <form class="nl-form"
           action="https://titaniablesh.substack.com/about"
@@ -2000,73 +2112,99 @@ footer::before {
 <section id="projects" class="sec-pad">
   <div class="proj-head">
     <div>
-      <p class="sec-eyebrow">Full catalogue</p>
       <h2 class="sec-title">My <span class="accent">Projects</span></h2>
     </div>
     <p class="sec-deck">Everything written, everything published, and everything still waiting for the right home.</p>
   </div>
-  <table class="proj-table">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Language</th>
-        <th>Status</th>
-        <th>Rights</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          <div class="proj-title">⚔️ A Colpi di Cannonau</div>
-          <div class="proj-title">🍷 Un Bagno di Sangria</div>
-          <div class="proj-title">🌿 O Mirto o Morte</div>
-        </td>
-        <td>Historical Fantasy</td>
-        <td><span class="lang">Italian</span><span class="lang">French</span></td>
-        <td><span class="status status-yes">Published</span></td>
-        <td>Author<br><span style="color:var(--txt-lt);font-size:0.78rem;">(excl. French rights)</span></td>
-      </tr>
-      <tr>
-        <td><div class="proj-title">🦀 Echi di Sabbia e Chele Spezzate</div></td>
-        <td>YA Fantasy</td>
-        <td><span class="lang">Italian</span></td>
-        <td><span class="status status-yes">Published</span></td>
-        <td>Author</td>
-      </tr>
-      <tr>
-        <td><div class="proj-title">🚀 Neomentis</div></td>
-        <td>YA Sci-Fi</td>
-        <td><span class="lang">Italian</span><span class="lang">English</span></td>
-        <td><span class="status status-no">Unpublished</span></td>
-        <td>Author</td>
-      </tr>
-      <tr>
-        <td><div class="proj-title">🪐 Xeroton</div></td>
-        <td>Adult Sci-Fi</td>
-        <td><span class="lang">English</span></td>
-        <td><span class="status status-no">Unpublished</span></td>
-        <td>Author</td>
-      </tr>
-      <tr>
-        <td><div class="proj-title">🏛️ Ataraxia</div></td>
-        <td>Historical Fantasy</td>
-        <td><span class="lang">English</span></td>
-        <td><span class="status status-no">Unpublished</span></td>
-        <td>Author</td>
-      </tr>
-      <tr>
-        <td>
-          <div class="proj-title">🌋 Volcanomancer I</div>
-          <div class="proj-title">🌋 Volcanomancer II</div>
-        </td>
-        <td>YA Fantasy</td>
-        <td><span class="lang">English</span></td>
-        <td><span class="status status-no">Unpublished</span></td>
-        <td>Author</td>
-      </tr>
-    </tbody>
-  </table>
+  <ul class="proj-grid">
+    <li class="proj-card published">
+      <div class="proj-card-top">
+        <p class="proj-card-genre">Adult Historical Fantasy</p>
+        <span class="proj-card-spice" aria-label="Spice rating: 1.5 out of 5">🌶️<span class="proj-card-spice-half">🌶️</span><span class="proj-card-spice-fade">🌶️🌶️🌶️</span></span>
+      </div>
+      <div class="proj-card-titles">
+        <div class="proj-card-book"><span class="proj-card-emoji">💥</span><span class="proj-card-name">A Colpi di Cannonau</span></div>
+        <div class="proj-card-book"><span class="proj-card-emoji">🍷</span><span class="proj-card-name">Un Bagno di Sangria</span></div>
+        <div class="proj-card-book"><span class="proj-card-emoji">🔥</span><span class="proj-card-name">O Mirto o Morte!</span></div>
+      </div>
+      <div class="proj-card-meta">
+        <span class="proj-card-langs">Italian, French</span>
+        <span class="proj-card-status published">Published</span>
+      </div>
+      <p class="proj-card-rights">All rights belong to the author <em>(excl. French rights)</em></p>
+    </li>
+    <li class="proj-card published">
+      <div class="proj-card-top">
+        <p class="proj-card-genre">YA Fantasy</p>
+        <span class="proj-card-spice" aria-label="Spice rating: 2 out of 5">🌶️🌶️<span class="proj-card-spice-fade">🌶️🌶️🌶️</span></span>
+      </div>
+      <div class="proj-card-titles">
+        <div class="proj-card-book"><span class="proj-card-emoji">🦀</span><span class="proj-card-name">Echi di Sabbia e Chele Spezzate</span></div>
+      </div>
+      <div class="proj-card-meta">
+        <span class="proj-card-langs">Italian</span>
+        <span class="proj-card-status published">Published</span>
+      </div>
+      <p class="proj-card-rights">All rights belong to the author</p>
+    </li>
+    <li class="proj-card unpublished">
+      <div class="proj-card-top">
+        <p class="proj-card-genre">YA Sci-Fi</p>
+        <span class="proj-card-spice" aria-label="Spice rating: 1 out of 5">🌶️<span class="proj-card-spice-fade">🌶️🌶️🌶️🌶️</span></span>
+      </div>
+      <div class="proj-card-titles">
+        <div class="proj-card-book"><span class="proj-card-emoji">👽</span><span class="proj-card-name">Neomentis</span></div>
+      </div>
+      <div class="proj-card-meta">
+        <span class="proj-card-langs">Italian, English</span>
+        <span class="proj-card-status unpublished">Unpublished</span>
+      </div>
+      <p class="proj-card-rights">All rights belong to the author</p>
+    </li>
+    <li class="proj-card unpublished">
+      <div class="proj-card-top">
+        <p class="proj-card-genre">Adult Sci-Fi</p>
+        <span class="proj-card-spice" aria-label="Spice rating: 3 out of 5">🌶️🌶️🌶️<span class="proj-card-spice-fade">🌶️🌶️</span></span>
+      </div>
+      <div class="proj-card-titles">
+        <div class="proj-card-book"><span class="proj-card-emoji">☢️</span><span class="proj-card-name">Xeroton</span></div>
+      </div>
+      <div class="proj-card-meta">
+        <span class="proj-card-langs">English</span>
+        <span class="proj-card-status unpublished">Unpublished</span>
+      </div>
+      <p class="proj-card-rights">All rights belong to the author</p>
+    </li>
+    <li class="proj-card unpublished">
+      <div class="proj-card-top">
+        <p class="proj-card-genre">Adult Historical Fantasy</p>
+        <span class="proj-card-spice" aria-label="Spice rating: 5 out of 5">🌶️🌶️🌶️🌶️🌶️</span>
+      </div>
+      <div class="proj-card-titles">
+        <div class="proj-card-book"><span class="proj-card-emoji">🏛️</span><span class="proj-card-name">Ataraxia</span></div>
+      </div>
+      <div class="proj-card-meta">
+        <span class="proj-card-langs">English</span>
+        <span class="proj-card-status unpublished">Unpublished</span>
+      </div>
+      <p class="proj-card-rights">All rights belong to the author</p>
+    </li>
+    <li class="proj-card unpublished">
+      <div class="proj-card-top">
+        <p class="proj-card-genre">YA Fantasy</p>
+        <span class="proj-card-spice" aria-label="Spice rating: 3.5 out of 5">🌶️🌶️🌶️<span class="proj-card-spice-half">🌶️</span><span class="proj-card-spice-fade">🌶️</span></span>
+      </div>
+      <div class="proj-card-titles">
+        <div class="proj-card-book"><span class="proj-card-emoji">🌋</span><span class="proj-card-name">Volcanomancer I</span></div>
+        <div class="proj-card-book"><span class="proj-card-emoji">🌋</span><span class="proj-card-name">Volcanomancer II</span></div>
+      </div>
+      <div class="proj-card-meta">
+        <span class="proj-card-langs">English</span>
+        <span class="proj-card-status unpublished">Unpublished</span>
+      </div>
+      <p class="proj-card-rights">All rights belong to the author</p>
+    </li>
+  </ul>
 </section>
 
 <!-- #volcanoes (VOLCANIC) -->
@@ -2135,7 +2273,6 @@ footer::before {
   <ul class="foot-links">
     <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
     <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
-    <li><a href="https://titaniablesh.com/?page_id=32" target="_blank">Blog</a></li>
     <li><a href="#">Top ↑</a></li>
   </ul>
 </footer>
