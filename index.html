@@ -108,11 +108,6 @@ nav.masthead {
   letter-spacing: 0.18em; text-transform: uppercase;
   text-decoration: none;
   background-color: var(--accent); color: var(--bg);
-  background-image: linear-gradient(180deg,
-    rgba(255,255,255,0.18) 0%,
-    rgba(255,255,255,0.04) 45%,
-    rgba(0,0,0,0.06)       75%,
-    rgba(0,0,0,0.14)      100%);
   border: 1.5px solid var(--accent);
   padding: 0.55rem 1.1rem;
   transition: background 0.2s, color 0.2s, transform 0.15s, border-color 0.2s;
@@ -120,7 +115,6 @@ nav.masthead {
 }
 .nav-cta:hover {
   background-color: transparent; color: var(--accent);
-  background-image: none;
   transform: translateY(-1px);
 }
 nav.masthead::after {
@@ -406,16 +400,6 @@ nav.masthead::after {
   border-radius: 0;
 }
 .btn:hover { transform: translateY(-1px); }
-/* subtle highlight→shadow overlay for all filled rectangular buttons */
-.btn-fill,
-.btn-accent,
-.btn-gold {
-  background-image: linear-gradient(180deg,
-    rgba(255,255,255,0.18) 0%,
-    rgba(255,255,255,0.04) 45%,
-    rgba(0,0,0,0.06)       75%,
-    rgba(0,0,0,0.14)      100%);
-}
 .btn-fill   { background-color: var(--txt); color: var(--bg); border-color: var(--txt); }
 .btn-fill:hover { background-color: var(--accent); border-color: var(--accent); }
 .btn-outline { background: transparent; color: var(--txt); border-color: var(--txt); }
@@ -938,16 +922,204 @@ section { position: relative; }
   font-family: var(--body); font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   background-color: var(--accent); color: var(--bg);
-  background-image: linear-gradient(180deg,
-    rgba(255,255,255,0.18) 0%,
-    rgba(255,255,255,0.04) 45%,
-    rgba(0,0,0,0.06)       75%,
-    rgba(0,0,0,0.14)      100%);
   border: none; padding: 0.65rem 1.4rem;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
 .nl-form button:hover { background-color: var(--accent-lt); transform: translateY(-1px); }
+
+/* ─── #events (SEPIA, thin horizontal scroll) ────── */
+#events {
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--bg-3);
+  padding: 2.6rem 0 2.8rem;
+  position: relative;
+}
+.events-head {
+  max-width: 1200px; margin: 0 auto 1.4rem;
+  padding: 0 3rem;
+}
+.events-head .sec-eyebrow { margin-bottom: 0.4rem; }
+.events-head h2 {
+  font-family: var(--display); font-style: italic; font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: var(--txt); line-height: 1.1;
+}
+.events-head h2 .accent { color: var(--accent); }
+.events-track {
+  display: flex; gap: 1rem;
+  overflow-x: auto;
+  padding: 0.4rem 3rem 1.2rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+  -webkit-overflow-scrolling: touch;
+}
+.events-track::-webkit-scrollbar { height: 6px; }
+.events-track::-webkit-scrollbar-track { background: transparent; }
+.events-track::-webkit-scrollbar-thumb { background: var(--accent-lt); border-radius: 3px; }
+/* center cards when they fit, fall back to flex-start when they overflow (so leftmost card stays reachable on narrow screens) */
+.events-track > :first-child { margin-inline-start: auto; }
+.events-track > :last-child { margin-inline-end: auto; }
+.event-card {
+  flex: 0 0 320px;
+  scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: 0.35rem;
+  padding: 1rem 1.2rem 1.05rem;
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  text-decoration: none; color: var(--txt);
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.event-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(31,24,21,0.10);
+}
+.event-date {
+  font-family: var(--body); font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--accent);
+}
+.event-name {
+  font-family: var(--display); font-style: italic; font-weight: 700;
+  font-size: 1.15rem; line-height: 1.2;
+  color: var(--txt);
+}
+.event-cta {
+  margin-top: 0.3rem;
+  font-family: var(--body); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--txt-lt);
+}
+@media (max-width: 768px) {
+  .events-head, .events-track { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .event-card { flex-basis: 260px; }
+}
+
+/* ─── #quotes (VOLCANIC, reader endorsements carousel) ── */
+#quotes {
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 5rem 3rem 5.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.quotes-cover {
+  display: block;
+  margin: 0 auto 1.6rem;
+  width: clamp(220px, 28vw, 340px);
+  height: auto;
+  filter: drop-shadow(4px 8px 14px rgba(0,0,0,0.45));
+}
+.quotes-eyebrow {
+  font-family: var(--body); font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.7rem;
+}
+.quotes-title {
+  font-family: var(--display); font-style: italic; font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--txt); margin-bottom: 2rem;
+}
+.quotes-title .accent { color: var(--accent); }
+.quotes-stage {
+  position: relative;
+  max-width: 860px; margin: 0 auto;
+  min-height: 260px;
+  padding: 0 3.2rem;       /* room for prev/next arrows on either side */
+}
+.quote {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 1.2rem;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+.quote.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.quote blockquote {
+  font-family: var(--display); font-style: italic; font-weight: 400;
+  font-size: clamp(1rem, 1.55vw, 1.18rem);
+  line-height: 1.65;
+  color: var(--txt-mid);
+  max-width: 64ch;
+  position: relative;
+  padding: 0 1.6rem;
+}
+.quote blockquote::before,
+.quote blockquote::after {
+  font-family: var(--display); font-weight: 700; font-style: normal;
+  color: var(--accent); opacity: 0.55;
+  font-size: 2.6rem;
+  line-height: 1;
+  position: absolute;
+}
+.quote blockquote::before { content: '\201C'; left: -0.1rem; top: -0.4rem; }
+.quote blockquote::after  { content: '\201D'; right: -0.1rem; bottom: -1rem; }
+/* highlighter accent for key phrases inside quotes */
+.qmark {
+  background: linear-gradient(transparent 60%, rgba(216,166,74,0.32) 60%);
+  color: var(--txt);
+  padding: 0 0.08em;
+}
+/* "Amazon review" caption below each quote */
+.quote-source {
+  font-family: var(--body); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--txt-lt);
+  font-style: normal;
+}
+/* manual prev/next arrows */
+.quotes-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1.5px solid var(--rule);
+  color: var(--txt-mid);
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  border-radius: 50%;
+  z-index: 2;
+  transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.quotes-arrow:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(232,93,44,0.08);
+}
+.quotes-arrow.prev { left: 0; }
+.quotes-arrow.next { right: 0; }
+.quotes-dots {
+  display: flex; justify-content: center; gap: 0.6rem;
+  margin-top: 2rem;
+}
+.quotes-dot {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--rule);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s;
+}
+.quotes-dot:hover { background: var(--accent-lt); }
+.quotes-dot.active { background: var(--accent); transform: scale(1.25); }
+@media (max-width: 768px) {
+  #quotes { padding: 4rem 1.5rem 4.5rem; }
+  .quotes-cover { width: 65%; max-width: 260px; }
+  .quotes-stage { min-height: 380px; padding: 0 2.4rem; }
+  .quotes-arrow { width: 32px; height: 32px; font-size: 1rem; }
+}
 
 /* ─── #projects (SEPIA) ──────────────────────────── */
 #projects {
@@ -1786,6 +1958,74 @@ footer::before {
   </div>
 </section>
 
+<!-- #events (sepia) -->
+<section id="events">
+  <div class="events-head">
+    <p class="sec-eyebrow">Where to find me</p>
+    <h2>Upcoming <span class="accent">events</span></h2>
+  </div>
+  <div class="events-track" role="list">
+    <a class="event-card" role="listitem" href="https://www.imaginales.fr/invites/?saison=2026" target="_blank" rel="noopener">
+      <span class="event-date">28–31 May 2026</span>
+      <span class="event-name">Les Imaginales</span>
+      <span class="event-cta">imaginales.fr →</span>
+    </a>
+    <a class="event-card" role="listitem" href="https://intergalactiques.net/" target="_blank" rel="noopener">
+      <span class="event-date">5–7 June 2026</span>
+      <span class="event-name">Les Intergalactiques</span>
+      <span class="event-cta">intergalactiques.net →</span>
+    </a>
+    <a class="event-card" role="listitem" href="https://www.etrange-grande.fr/" target="_blank" rel="noopener">
+      <span class="event-date">19–20 Sept 2026</span>
+      <span class="event-name">Étrange Grande</span>
+      <span class="event-cta">etrange-grande.fr →</span>
+    </a>
+  </div>
+</section>
+
+<!-- #quotes (volcanic) -->
+<section id="quotes" class="volcanic">
+  <img class="quotes-cover" src="assets/images/book-trilogy.png" alt="The Cannonau trilogy">
+  <p class="quotes-eyebrow">What readers say</p>
+  <h2 class="quotes-title">From the <span class="accent">reviews</span></h2>
+  <div class="quotes-stage" aria-live="polite">
+    <button class="quotes-arrow prev" type="button" aria-label="Previous quote">‹</button>
+    <button class="quotes-arrow next" type="button" aria-label="Next quote">›</button>
+    <div class="quote active">
+      <blockquote><span class="qmark">Brilliant, funny, gripping.</span> Behind every character there's serious study, care, and depth. You fall for the protagonist from the very first page. <span class="qmark">One of the best examples of Italian fantasy</span> I've ever read!</blockquote>
+      <span class="quote-source">Amazon review</span>
+    </div>
+    <div class="quote">
+      <blockquote>This book is a <span class="qmark">stroke of genius</span>! Pirates, fantasy, charismatic characters, so much spirit in the lead, Fiammetta. I adored her madly. Plot twists planted with care and a gripping story that keeps you on a knife's edge. I found it funny and irreverent even when it tackles burning subjects, interesting and original. I read it with so much pleasure. <span class="qmark">The prose flows beautifully</span>, the ending was a bombshell that left me completely satisfied. I can't wait to read the next one.</blockquote>
+      <span class="quote-source">Amazon review</span>
+    </div>
+    <div class="quote">
+      <blockquote><span class="qmark">Surprise and wonder</span> reading this book, the first of three! It literally made me dream, got me on edge in places, and somehow even <span class="qmark">moved me to tears</span> at times… Anyway, straight on to Un Bagno di Sangria!</blockquote>
+      <span class="quote-source">Amazon review</span>
+    </div>
+    <div class="quote">
+      <blockquote>If I could give it <span class="qmark">10 stars</span>, I would. I loved the entire trilogy from beginning to end, <span class="qmark">devoured the books in a matter of days</span>, perpetually torn between “I don't want it to end” and “I have to know how it finishes.”</blockquote>
+      <span class="quote-source">Amazon review</span>
+    </div>
+    <div class="quote">
+      <blockquote>Of all the Italian fantasy authors, Titania Blesh is <span class="qmark">hands down one of my favorites</span>, one of those writers I'd <span class="qmark">never tire of reading</span>.</blockquote>
+      <span class="quote-source">Amazon review</span>
+    </div>
+    <div class="quote">
+      <blockquote><span class="qmark">Ragtag pirates</span>, creative insults, brilliant old women, repressed inquisitors, disastrous plans, pyrotechnic explosions, evocative settings, Spanish chorizo… and last but not least, a protagonist who is, to put it mildly, <span class="qmark">one of a kind</span>, and one I never get tired of.</blockquote>
+      <span class="quote-source">Amazon review</span>
+    </div>
+  </div>
+  <div class="quotes-dots" role="tablist" aria-label="Reader endorsements">
+    <button class="quotes-dot active" type="button" aria-label="Quote 1" data-idx="0"></button>
+    <button class="quotes-dot" type="button" aria-label="Quote 2" data-idx="1"></button>
+    <button class="quotes-dot" type="button" aria-label="Quote 3" data-idx="2"></button>
+    <button class="quotes-dot" type="button" aria-label="Quote 4" data-idx="3"></button>
+    <button class="quotes-dot" type="button" aria-label="Quote 5" data-idx="4"></button>
+    <button class="quotes-dot" type="button" aria-label="Quote 6" data-idx="5"></button>
+  </div>
+</section>
+
 <!-- #projects (sepia) -->
 <section id="projects" class="sec-pad">
   <div class="proj-head">
@@ -1937,6 +2177,43 @@ footer::before {
   burger.addEventListener('click', () => navlinks.classList.toggle('open'));
   navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
 
+  // reader-quotes carousel — auto-rotate with clickable dots, pause on hover
+  (function () {
+    const stage = document.querySelector('.quotes-stage');
+    if (!stage) return;
+    const slides = Array.from(stage.querySelectorAll('.quote'));
+    const dots = Array.from(document.querySelectorAll('.quotes-dot'));
+    if (!slides.length || !dots.length) return;
+    let i = 0;
+    let timer;
+    function show(n) {
+      slides[i].classList.remove('active');
+      dots[i].classList.remove('active');
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add('active');
+      dots[i].classList.add('active');
+    }
+    function start() { stop(); timer = setInterval(() => show(i + 1), 7000); }
+    function stop() { if (timer) clearInterval(timer); }
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        show(parseInt(dot.dataset.idx, 10));
+        start();
+      });
+    });
+    const prev = document.querySelector('.quotes-arrow.prev');
+    const next = document.querySelector('.quotes-arrow.next');
+    if (prev) prev.addEventListener('click', () => { show(i - 1); start(); });
+    if (next) next.addEventListener('click', () => { show(i + 1); start(); });
+    const sec = document.getElementById('quotes');
+    sec.addEventListener('mouseenter', stop);
+    sec.addEventListener('mouseleave', start);
+    // pause when tab loses focus, resume when it regains
+    document.addEventListener('visibilitychange', () => {
+      document.hidden ? stop() : start();
+    });
+    start();
+  })();
 </script>
 </body>
 </html>
