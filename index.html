@@ -105,7 +105,16 @@ nav.masthead {
   background-repeat: no-repeat;
   border-bottom: none;
 }
-.brand { grid-column: 1; }
+.brand-col { grid-column: 1; display: flex; flex-direction: column; gap: 0.15rem; }
+.brand-sub {
+  font-family: var(--body); font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--txt-mid); text-decoration: none;
+  padding-left: calc(44px + 0.7rem);
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.brand-sub:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .nav-cta {
   grid-column: 3;
   font-family: var(--body); font-size: 0.7rem; font-weight: 700;
@@ -1739,12 +1748,15 @@ footer::before {
 
 <!-- MASTHEAD / NAV (volcanic) -->
 <nav class="masthead volcanic">
-  <a class="brand" href="#">
-    <span class="brand-logo">
-      <img src="assets/images/logo-animation.gif" alt="Volcano logo">
-    </span>
-    <span class="brand-text">Titania Blesh</span>
-  </a>
+  <div class="brand-col">
+    <a class="brand" href="#">
+      <span class="brand-logo">
+        <img src="assets/images/logo-animation.gif" alt="Volcano logo">
+      </span>
+      <span class="brand-text">Titania Blesh</span>
+    </a>
+    <a class="brand-sub" href="volcanoes.html">Volcanoes</a>
+  </div>
   <ul class="nav-links" id="navlinks">
     <li><a href="#bestsellers">Books</a></li>
     <li><a href="#about">The author</a></li>
@@ -1752,7 +1764,6 @@ footer::before {
     <li><a href="#events">Events</a></li>
     <li><a href="#quotes">Reviews</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="volcanoes.html">Volcanoes</a></li>
     <li><a href="rights.html">Rights</a></li>
   </ul>
   <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
