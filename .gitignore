@@ -2,3 +2,4 @@
 
 # AI-generated drafts (not for publication)
 blog/drafts/
+.fuse_hidden*
