@@ -191,6 +191,19 @@ main { padding: 0; }
   padding: 5rem 3rem 3rem;
   border-bottom: 1px solid var(--rule);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.rights-header > :not(svg) {
+  position: relative;
+  z-index: 1;
+}
+.header-volcanoes-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 .rights-header .eyebrow {
   font-family: var(--body); font-size: 0.78rem; font-weight: 700;
@@ -270,11 +283,23 @@ main { padding: 0; }
   font-size: clamp(1.15rem, 2vw, 1.4rem);
   line-height: 1.5; color: var(--txt);
   font-style: italic;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.9rem;
 }
 .lead-pitch .pitch-line strong {
   font-style: normal; color: var(--accent);
   font-weight: 700;
+}
+.lead-pitch .comp-tag {
+  font-family: var(--body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--txt-mid);
+  margin-bottom: 1.6rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.lead-pitch .comp-tag em {
+  font-style: italic; color: var(--accent); font-weight: 700;
 }
 .lead-pitch .premise {
   font-size: 1rem; color: var(--txt-mid);
@@ -381,11 +406,12 @@ main { padding: 0; }
   color: var(--txt-mid); line-height: 1.65;
 }
 
-/* CTA row for downloads */
+/* CTA row */
 .lead-ctas {
   display: flex; flex-wrap: wrap; gap: 0.8rem;
   margin-top: 2.2rem;
   justify-content: center;
+  align-items: stretch;
 }
 .btn {
   font-family: var(--body); font-size: 0.74rem; font-weight: 700;
@@ -395,6 +421,12 @@ main { padding: 0; }
   transition: background 0.2s, color 0.2s, transform 0.15s;
   white-space: nowrap;
   border: 1.5px solid var(--accent);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.35;
 }
 .btn-fill { background: var(--accent); color: var(--bg); }
 .btn-fill:hover { background: transparent; color: var(--accent); transform: translateY(-1px); }
@@ -476,7 +508,7 @@ main { padding: 0; }
 /* ─── MANUSCRIPTS GRID ───────────────────────────── */
 .ms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.4rem;
 }
 .ms-card {
@@ -570,7 +602,39 @@ main { padding: 0; }
   font-style: italic; color: var(--accent); font-weight: 700;
 }
 
+/* ─── MANUSCRIPTS BG ─────────────────────────────── */
+#manuscripts {
+  position: relative;
+  overflow: hidden;
+}
+#manuscripts > :not(svg) {
+  position: relative;
+  z-index: 1;
+}
+.manuscripts-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
 /* ─── PRESS QUOTES ───────────────────────────────── */
+#press {
+  position: relative;
+  overflow: hidden;
+}
+#press > :not(svg) {
+  position: relative;
+  z-index: 1;
+}
+.press-stars-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
 .press-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -624,8 +688,21 @@ main { padding: 0; }
 
 /* ─── CONTACT (volcanic) ─────────────────────────── */
 .contact-section {
-  padding: 5rem 3rem;
+  padding: 6rem 3rem 5rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-section > :not(svg) {
+  position: relative;
+  z-index: 1;
+}
+.contact-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 .contact-section .sec-eyebrow {
   color: var(--gold); margin-bottom: 1rem;
@@ -633,11 +710,22 @@ main { padding: 0; }
 .contact-section h2 {
   font-family: var(--display); font-weight: 700;
   font-size: clamp(1.8rem, 3vw, 2.4rem);
-  color: var(--txt); margin-bottom: 1rem;
+  color: #fff; margin-bottom: 1rem;
 }
-.contact-section h2 .accent { color: var(--accent); }
+.contact-section h2 .accent { color: var(--accent); font-style: italic; }
+.contact-section .ornament {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.8rem; margin: 1.6rem auto 1.6rem;
+  color: var(--gold);
+}
+.contact-section .ornament .line {
+  height: 1px; width: 70px; background: var(--rule);
+}
+.contact-section .ornament .glyph {
+  font-size: 0.9rem; letter-spacing: 0.4em; color: var(--gold);
+}
 .contact-section .sec-deck {
-  max-width: 660px; margin: 0 auto 2rem;
+  max-width: 660px; margin: 0 auto 2.2rem;
   color: var(--txt-mid); font-size: 1.02rem;
 }
 .contact-card {
@@ -776,6 +864,7 @@ footer::before {
   .r-section { padding: 3rem 1.4rem; }
   .lead-pitch { padding: 1.8rem 1.4rem; }
   .lead-grid { grid-template-columns: 1fr; }
+  .ms-grid { grid-template-columns: 1fr; }
   .comps-list li { grid-template-columns: 1fr; gap: 0.4rem; }
   .author-block { grid-template-columns: 1fr; }
   .author-photo { max-width: 240px; margin: 0 auto; }
@@ -786,7 +875,7 @@ footer::before {
 </head>
 <body>
 
-<nav class="masthead">
+<nav class="masthead volcanic">
   <a class="brand" href="index.html">
     <span class="brand-logo">
       <img src="assets/images/logo-animation.gif" alt="Volcano logo">
@@ -794,14 +883,13 @@ footer::before {
     <span class="brand-text">Titania Blesh</span>
   </a>
   <ul class="nav-links" id="navlinks">
-    <li><a href="index.html#bestsellers">Books</a></li>
-    <li><a href="index.html#about">The author</a></li>
-    <li><a href="index.html#newsletter">Newsletter</a></li>
-    <li><a href="index.html#events">Events</a></li>
-    <li><a href="index.html#projects">Projects</a></li>
-    <li><a href="rights.html" class="active">Rights</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#lead">Trilogy</a></li>
+    <li><a href="#backlist">Backlist</a></li>
+    <li><a href="#manuscripts">Manuscripts</a></li>
+    <li><a href="#press">Press</a></li>
   </ul>
-  <a class="nav-cta" href="#contact">Inquire</a>
+  <a class="nav-cta" href="#contact">Contact</a>
   <button class="nav-burger" id="burger" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -810,7 +898,64 @@ footer::before {
 <main>
 
 <!-- ─── HEADER ───────────────────────────────────── -->
-<section class="rights-header">
+<section class="rights-header volcanic">
+  <svg class="header-volcanoes-bg" viewBox="0 0 1400 500" preserveAspectRatio="xMidYEnd slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+
+      <!-- Far distant range -->
+      <g stroke="#c5b89d" stroke-width="0.7" opacity="0.16">
+        <path d="M 60,470 C 110,464 160,442 220,400 L 240,400 C 300,442 350,464 400,470"/>
+        <path d="M 380,470 C 410,466 440,452 470,425 L 484,425 C 514,452 544,466 574,470"/>
+        <path d="M 1080,470 C 1110,466 1140,450 1170,418 L 1184,418 C 1214,450 1244,466 1274,470"/>
+      </g>
+
+      <!-- Mid-range volcano with smoke (left) -->
+      <g stroke="#d8a64a" stroke-width="1" opacity="0.22">
+        <path d="M 130,480 C 190,470 250,420 330,310 L 360,310 C 440,420 500,470 560,480"/>
+        <path d="M 330,310 L 360,310" stroke-width="0.85"/>
+        <path d="M 340,302 C 332,278 354,258 340,228 C 330,202 354,184 346,158" stroke-width="0.7" opacity="0.65"/>
+        <path d="M 354,302 C 362,280 348,260 366,234" stroke-width="0.6" opacity="0.45"/>
+      </g>
+
+      <!-- Mid-range volcano (center) -->
+      <g stroke="#c5b89d" stroke-width="0.85" opacity="0.20">
+        <path d="M 660,470 C 700,463 740,432 790,378 L 808,378 C 858,432 898,463 938,470"/>
+        <path d="M 790,378 L 808,378" stroke-width="0.7"/>
+        <path d="M 796,372 C 791,355 805,343 798,322" stroke-width="0.6" opacity="0.55"/>
+      </g>
+
+      <!-- Foreground volcano with lava (right) -->
+      <g stroke="#d8a64a" stroke-width="1.1" opacity="0.24">
+        <path d="M 940,485 C 1000,475 1060,425 1140,300 L 1170,300 C 1250,425 1310,475 1380,485"/>
+        <path d="M 1140,300 L 1170,300" stroke-width="0.95"/>
+        <path d="M 1148,302 C 1140,278 1156,260 1148,232" stroke-width="0.6" opacity="0.55"/>
+      </g>
+      <!-- Lava streak in ember -->
+      <path d="M 1158,304 C 1163,348 1172,400 1184,452" fill="none" stroke="#e85d2c" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+
+      <!-- Tiny distant peaks (upper area) -->
+      <g stroke="#c5b89d" stroke-width="0.6" opacity="0.13">
+        <path d="M 200,170 C 215,166 230,154 246,134 L 256,134 C 272,154 287,166 302,170"/>
+        <path d="M 1080,150 C 1098,145 1115,130 1132,106 L 1142,106 C 1158,130 1175,145 1192,150"/>
+      </g>
+
+      <!-- Drifting ash specks -->
+      <g fill="#d8a64a" stroke="none" opacity="0.45">
+        <circle cx="220" cy="70" r="0.8"/>
+        <circle cx="420" cy="50" r="0.6"/>
+        <circle cx="560" cy="90" r="0.7"/>
+        <circle cx="700" cy="60" r="0.6"/>
+        <circle cx="860" cy="80" r="0.7"/>
+        <circle cx="1020" cy="50" r="0.6"/>
+        <circle cx="1180" cy="80" r="0.7"/>
+        <circle cx="320" cy="220" r="0.5"/>
+        <circle cx="640" cy="240" r="0.5"/>
+        <circle cx="900" cy="170" r="0.55"/>
+        <circle cx="1100" cy="220" r="0.6"/>
+      </g>
+
+    </g>
+  </svg>
   <p class="eyebrow">For editors, agents & scouts</p>
   <h1>Foreign <span class="accent">Rights</span> &amp; Submissions</h1>
   <p class="author-line">Titania Blesh · Italian SFF author</p>
@@ -831,13 +976,19 @@ footer::before {
 
     <div class="lead-pitch">
       <p class="pitch-line">
-        <strong>The Adventures of Amina al-Sirafi</strong> meets <strong>The Blacktongue Thief</strong>, set in 17<sup>th</sup>-century Spanish-occupied Sardinia: a one-eyed peasant captain, an all-female crew, and a six-year-old witch who can see cursed conquistador gold.
+        <strong>She</strong> is a Sardinian fisherwoman who dreams of stealing a galleon, becoming a pirate, and escaping a violent husband. <strong>He</strong> is the Grand Inquisitor of the Crown of Spain. And women like her, he burns alive.
+      </p>
+      <p class="comp-tag">
+        <em>The Adventures of Amina al-Sirafi</em> meets <em>The Bone Ships</em>, for readers who loved the heist-and-found-family fantasy of <em>The Lies of Locke Lamora</em>.
       </p>
       <p class="premise">
-        Sabbianera, 1600s. Fiammetta, a one-eyed peasant woman trapped in a brutal marriage, has spent three years secretly buying and restoring a galleon hidden behind the witch-rocks of a Sardinian cove. Her crew is the women her village dismissed: a quartermaster who reads, a sailor who can rig a ship in her sleep, and Stellina Frangipane – the noble's six-year-old daughter, who emits a faint blue glow whenever she's near the cursed Spanish doubloons forged from New World gold. Their target: the lost treasure of the legendary pirate Calogero Sauro, buried on a forgotten island. Their problem: Stellina's father has just promised her in marriage to a Spanish-collaborator noble who's heard about the gold. They have one week.
+        In 1630s Sardinia, being a witch is a death sentence. So is not being one, and acting like one. Fiammetta should have just kept quiet and obeyed, like all the other women on her dismal island. Instead, for years, she has been preparing her escape: a galleon bought in secret from a Genoese merchant, a crew of battered wives, and the wild dream of becoming the most feared pirate captain in the Mediterranean.
       </p>
       <p class="premise">
-        Across three books the trilogy widens from comic-bawdy first-person picaresque into a dual-POV historical fantasy in the register-shifting tradition of Joe Abercrombie's <em>First Law</em> – Fiammetta's irreverent voice sits alongside darker chapters as the Inquisition closes in and the magical economy of Spanish gold reveals its cost. Folkloric-Catholic soft magic; female-led; slow-burn romance arc; voice-forward; commercial.
+        When Stellina, a little girl possessed by a Zipa spirit, promises to lead her to the buried treasure of a legendary Sardinian pirate, Fiammetta thinks she has found her chance. But Ambrosio, the brooding witch-hunter of the Holy Inquisition, is on the girl's trail too. Now Fiammetta and her ragtag crew have one choice: reach the treasure before the Spaniards do, or pay with their freedom and their blood.
+      </p>
+      <p class="premise">
+        Across three books the trilogy widens from comic-bawdy first-person picaresque into a dual-POV historical fantasy in the register-shifting tradition of Joe Abercrombie's <em>First Law</em>. Fiammetta's irreverent voice sits alongside darker chapters as the Inquisition closes in, the magical economy of Spanish gold reveals its cost, and the trilogy's feminist undertones and depictions of gender violence sharpen into focus.
       </p>
 
       <div class="rights-panel">
@@ -876,28 +1027,6 @@ footer::before {
         </div>
       </div>
 
-      <div class="comps">
-        <h3>Comparable titles</h3>
-        <ul class="comps-list">
-          <li>
-            <span class="comp-title"><em>The Adventures of Amina al-Sirafi</em><span class="comp-author">Shannon Chakraborty · Harper Voyager · 2023</span></span>
-            <span class="comp-rationale">Headline comp. Female pirate captain, all-female crew, supernatural treasure heist, bawdy first-person voice, non-Anglo coastal setting. The premise overlap is the closest on the current market – Mediterranean instead of Indian Ocean.</span>
-          </li>
-          <li>
-            <span class="comp-title"><em>The Blacktongue Thief</em><span class="comp-author">Christopher Buehlman · Tor · 2021</span></span>
-            <span class="comp-rationale">Voice and tonal comp. First-person picaresque, profane, comic-dark, voice-forward fantasy heist – Fiammetta's register lives in this neighborhood.</span>
-          </li>
-          <li>
-            <span class="comp-title"><em>The Lies of Locke Lamora</em><span class="comp-author">Scott Lynch · Bantam · 2006</span></span>
-            <span class="comp-rationale">In the lineage of. Mediterranean-coded fantasy heist with found family – the canonical reference for this structural register, though the trilogy uses an actual Sardinian setting and a female-led crew.</span>
-          </li>
-          <li>
-            <span class="comp-title"><em>Spinning Silver</em><span class="comp-author">Naomi Novik · Del Rey · 2018</span></span>
-            <span class="comp-rationale">Folkloric-Catholic magic in a non-Anglo peasant economic-survival setting. A female protagonist who outwits powerful men through cunning rather than swordplay.</span>
-          </li>
-        </ul>
-      </div>
-
       <div class="lead-ctas">
         <a class="btn btn-fill" href="#contact">Request the rights guide</a>
         <a class="btn btn-outline btn-disabled" href="#">English sample chapter (PDF)<br><span class="btn-note">in preparation</span></a>
@@ -915,21 +1044,21 @@ footer::before {
 
     <div class="work-card">
       <div class="work-card-head">
-        <span class="work-card-title">Echi di Sabbia e Chele Spezzate</span>
+        <span class="work-card-title">Echoes of Sand and Shattered Claws</span>
         <span class="work-card-genre">YA Fantasy / Romantasy-adjacent</span>
         <span class="work-card-spec">~110,000 words</span>
       </div>
-      <p class="work-card-recognition">★ Trofeo Cassiopea 2022, winner – Italy's adult-SF award (the novel was originally published as <em>Chelabron</em> before retitling).</p>
+      <p class="work-card-recognition">★ Trofeo Cassiopea 2022, winner · Italy's SF award. Italian title: <em>Echi di Sabbia e Chele Spezzate</em> (originally <em>Chelabron</em>).</p>
       <p class="work-card-logline">
-        <span class="placeholder">[Logline placeholder – please supply ~50-word logline. Suggested elements: protagonist, central conflict, hook, what makes it unusual. Example structure: "A young aspiring [X] in a world of [Y] must [conflict], even as [stakes/twist]."]</span>
+        Niniin wants to study at the Cerebrum to escape the fate of becoming an ordinary soldier, but Sandros, the most experienced <em>cerebrale</em> at controlling the giant Red Crab, isn't pleased to have her there. She'll endure his ruthless teachings to learn the secrets of the arthropod brain and protect the city built upon its carapace.
       </p>
       <dl class="work-card-meta">
-        <dt>Publisher (IT)</dt><dd>Dark Zone Edizioni · 2021</dd>
+        <dt>Original publisher</dt><dd>Dark Zone Edizioni (2021); rights reverted to author</dd>
         <dt>English rights</dt><dd><span class="available">Available</span></dd>
         <dt>French rights</dt><dd><span class="available">Available</span></dd>
         <dt>Audio rights</dt><dd><span class="available">Available</span></dd>
-        <dt>Translations to date</dt><dd>None – Italian only</dd>
-        <dt>Comp suggestions</dt><dd><span class="placeholder">[Comps TBC – likely <em>The Cruel Prince</em> or <em>An Ember in the Ashes</em> register]</span></dd>
+        <dt>Translations to date</dt><dd>None · Italian only</dd>
+        <dt>Comp suggestions</dt><dd>For fans of <em>Fourth Wing</em> and <em>An Ember in the Ashes</em>: a violent world where your career depends on bonding with a giant creature.</dd>
       </dl>
     </div>
   </div>
@@ -937,11 +1066,112 @@ footer::before {
 
 <!-- ─── UNPUBLISHED MANUSCRIPTS ───────────────────── -->
 <section class="r-section" id="manuscripts">
+  <svg class="manuscripts-bg" viewBox="0 0 1400 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Open books / manuscript shapes -->
+    <g fill="none" stroke="#b88a3a" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.8" opacity="0.20">
+      <!-- Book 1 (top left) -->
+      <g transform="translate(120,140) rotate(-12) scale(1.3)">
+        <path d="M -45,-25 L 0,-15 L 45,-25"/>
+        <path d="M -45,25 L 0,15 L 45,25"/>
+        <path d="M -45,-25 L -45,25"/>
+        <path d="M 45,-25 L 45,25"/>
+        <path d="M 0,-15 L 0,15"/>
+        <path d="M -38,-12 L -10,-8" stroke-width="0.4"/>
+        <path d="M -38,-4 L -10,-1" stroke-width="0.4"/>
+        <path d="M -38,4 L -10,7" stroke-width="0.4"/>
+        <path d="M 10,-8 L 38,-12" stroke-width="0.4"/>
+        <path d="M 10,-1 L 38,-4" stroke-width="0.4"/>
+        <path d="M 10,7 L 38,4" stroke-width="0.4"/>
+      </g>
+      <!-- Book 2 (top right, larger) -->
+      <g transform="translate(1240,180) rotate(8) scale(1.5)">
+        <path d="M -45,-25 L 0,-15 L 45,-25"/>
+        <path d="M -45,25 L 0,15 L 45,25"/>
+        <path d="M -45,-25 L -45,25"/>
+        <path d="M 45,-25 L 45,25"/>
+        <path d="M 0,-15 L 0,15"/>
+        <path d="M -38,-12 L -10,-8" stroke-width="0.4"/>
+        <path d="M -38,-4 L -10,-1" stroke-width="0.4"/>
+        <path d="M -38,4 L -10,7" stroke-width="0.4"/>
+        <path d="M 10,-8 L 38,-12" stroke-width="0.4"/>
+        <path d="M 10,-1 L 38,-4" stroke-width="0.4"/>
+        <path d="M 10,7 L 38,4" stroke-width="0.4"/>
+      </g>
+      <!-- Book 3 (bottom left) -->
+      <g transform="translate(220,740) rotate(15) scale(0.95)">
+        <path d="M -45,-25 L 0,-15 L 45,-25"/>
+        <path d="M -45,25 L 0,15 L 45,25"/>
+        <path d="M -45,-25 L -45,25"/>
+        <path d="M 45,-25 L 45,25"/>
+        <path d="M 0,-15 L 0,15"/>
+        <path d="M -38,-8 L -10,-4" stroke-width="0.4"/>
+        <path d="M -38,4 L -10,7" stroke-width="0.4"/>
+        <path d="M 10,-4 L 38,-8" stroke-width="0.4"/>
+      </g>
+      <!-- Book 4 (bottom right) -->
+      <g transform="translate(1280,770) rotate(-8) scale(1.1)">
+        <path d="M -45,-25 L 0,-15 L 45,-25"/>
+        <path d="M -45,25 L 0,15 L 45,25"/>
+        <path d="M -45,-25 L -45,25"/>
+        <path d="M 45,-25 L 45,25"/>
+        <path d="M 0,-15 L 0,15"/>
+        <path d="M -38,-12 L -10,-8" stroke-width="0.4"/>
+        <path d="M -38,4 L -10,7" stroke-width="0.4"/>
+        <path d="M 10,-1 L 38,-4" stroke-width="0.4"/>
+      </g>
+      <!-- Book 5 (middle, small/distant) -->
+      <g transform="translate(700,420) rotate(-3) scale(0.7)" opacity="0.65">
+        <path d="M -45,-25 L 0,-15 L 45,-25"/>
+        <path d="M -45,25 L 0,15 L 45,25"/>
+        <path d="M -45,-25 L -45,25"/>
+        <path d="M 45,-25 L 45,25"/>
+        <path d="M 0,-15 L 0,15"/>
+      </g>
+    </g>
+
+    <!-- Stacked manuscript pages (tilted) -->
+    <g fill="none" stroke="#b88a3a" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.18">
+      <g transform="translate(900,90) rotate(-7)">
+        <rect x="-20" y="-28" width="40" height="56"/>
+        <rect x="-17" y="-24" width="40" height="56"/>
+        <rect x="-14" y="-20" width="40" height="56"/>
+      </g>
+      <g transform="translate(450,840) rotate(12)">
+        <rect x="-20" y="-28" width="40" height="56"/>
+        <rect x="-15" y="-22" width="40" height="56"/>
+      </g>
+      <g transform="translate(1080,520) rotate(20)">
+        <rect x="-18" y="-25" width="36" height="50"/>
+        <rect x="-13" y="-19" width="36" height="50"/>
+      </g>
+    </g>
+
+    <!-- Folded page corners -->
+    <g fill="none" stroke="#b88a3a" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round" opacity="0.22">
+      <path d="M 580,180 l 18,0 l 0,22 l -9,5 l -9,-5 z M 589,202 l 0,5 l 5,0"/>
+      <path d="M 380,580 l 16,0 l 0,20 l -8,4 l -8,-4 z M 388,600 l 0,4 l 4,0"/>
+      <path d="M 1140,300 l 16,0 l 0,20 l -8,4 l -8,-4 z M 1148,320 l 0,4 l 4,0"/>
+    </g>
+
+    <!-- Ink specks / dots -->
+    <g fill="#b88a3a" stroke="none" opacity="0.4">
+      <circle cx="320" cy="60" r="0.7"/>
+      <circle cx="500" cy="320" r="0.6"/>
+      <circle cx="780" cy="120" r="0.7"/>
+      <circle cx="980" cy="280" r="0.6"/>
+      <circle cx="160" cy="380" r="0.7"/>
+      <circle cx="1300" cy="450" r="0.6"/>
+      <circle cx="600" cy="680" r="0.7"/>
+      <circle cx="900" cy="800" r="0.6"/>
+      <circle cx="240" cy="500" r="0.7"/>
+      <circle cx="1180" cy="660" r="0.55"/>
+    </g>
+  </svg>
   <div class="r-inner">
     <p class="sec-eyebrow">Manuscripts · Available for first publication</p>
     <h2>Completed manuscripts seeking a publisher</h2>
     <p class="sec-deck">
-      Five completed novels across YA and adult, sci-fi and fantasy. Three are already drafted in English (no translation friction). All rights with the author. Full manuscripts and detailed pitch packages available on request.
+      Five completed novels across YA and adult, sci-fi and fantasy. Full manuscripts and detailed pitch packages available on request.
     </p>
 
     <div class="ms-grid">
@@ -953,9 +1183,6 @@ footer::before {
             <p class="ms-card-genre">YA Sci-Fi</p>
           </div>
         </div>
-        <p class="ms-card-logline">
-          <span class="placeholder">[Logline placeholder – what's the premise of <em>Neomentis</em>? Roughly 40–60 words. The title suggests cognition / new mind / neural – please confirm.]</span>
-        </p>
         <dl class="ms-card-meta">
           <dt>Word count</dt><dd>~115,000</dd>
           <dt>Drafted in</dt><dd>Italian + English</dd>
@@ -971,9 +1198,6 @@ footer::before {
             <p class="ms-card-genre">Adult Sci-Fi</p>
           </div>
         </div>
-        <p class="ms-card-logline">
-          <span class="placeholder">[Logline placeholder – what's the premise of <em>Xeroton</em>? Roughly 40–60 words. The title evokes Greek "xeros" (dry) – desert / post-arid SF? Please confirm.]</span>
-        </p>
         <dl class="ms-card-meta">
           <dt>Word count</dt><dd>~120,000</dd>
           <dt>Drafted in</dt><dd>English</dd>
@@ -1004,16 +1228,15 @@ footer::before {
         <div class="ms-card-top">
           <div>
             <p class="ms-card-title">Volcanomancer</p>
-            <p class="ms-card-genre">YA Romantasy · Series (2 books completed)</p>
+            <p class="ms-card-genre">YA Romantasy · Series</p>
           </div>
         </div>
-        <p class="ms-card-logline">
-          <span class="placeholder">[Logline placeholder – what's the premise of the <em>Volcanomancer</em> series? Roughly 40–60 words. Title clearly evokes volcano-magic – your personal-brand thread of volcano-obsession. Please confirm protagonist, central conflict, and how the books relate.]</span>
-        </p>
         <dl class="ms-card-meta">
-          <dt>Word counts</dt><dd>Book I: ~110,000 / Book II: ~140,000</dd>
+          <dt>Book I</dt><dd><em>Stoneshard</em> · ~110,000 words</dd>
+          <dt>Book II</dt><dd><em>Gaslight</em> · ~140,000 words</dd>
+          <dt>Book III</dt><dd><em>Ashfall</em> · in progress</dd>
           <dt>Drafted in</dt><dd>English</dd>
-          <dt>Status</dt><dd>Two books completed; series ongoing</dd>
+          <dt>Status</dt><dd>Two books completed; third in progress</dd>
           <dt>Rights</dt><dd><span class="available">All available</span></dd>
         </dl>
       </article>
@@ -1027,14 +1250,13 @@ footer::before {
   <div class="r-inner">
     <p class="sec-eyebrow">Recognition</p>
     <h2>Awards &amp; honors</h2>
-    <p class="sec-deck">Italy's twin annual awards for adult fantasy and adult science fiction, both administered by Associazione Culturale Deep Space One and presented at DeepCon in Fiuggi.</p>
 
     <ul class="awards-list">
       <li>
         <span class="award-year">2022</span>
         <div class="award-body">
           <p class="award-name">Trofeo Cassiopea, winner</p>
-          <p class="award-detail">Italy's adult science-fiction award – for <em>Echi di Sabbia e Chele Spezzate</em> (originally published as <em>Chelabron</em>), Dark Zone Edizioni.</p>
+          <p class="award-detail">Italy's adult science-fiction award – for <em>Echoes of Sand and Shattered Claws</em> (Italian: <em>Echi di Sabbia e Chele Spezzate</em>, originally <em>Chelabron</em>), Dark Zone Edizioni.</p>
         </div>
       </li>
       <li>
@@ -1057,10 +1279,44 @@ footer::before {
 
 <!-- ─── PRESS QUOTES ─────────────────────────────── -->
 <section class="r-section" id="press">
+  <svg class="press-stars-bg" viewBox="0 0 1400 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Outline stars near header / top -->
+    <g fill="none" stroke="#b88a3a" stroke-width="0.7" stroke-linejoin="round" stroke-linecap="round" opacity="0.30">
+      <g transform="translate(180,90) scale(1.4)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(1220,80) scale(1.6)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(420,160) scale(1.0)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(980,140) scale(1.2)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(700,60) scale(0.85)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(280,260) scale(0.7)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(1100,240) scale(0.8)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(560,220) scale(0.6)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(840,300) scale(0.9)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+    </g>
+    <!-- Filled smaller stars scattered (lower half) -->
+    <g fill="#d8b87a" stroke="none" opacity="0.45">
+      <g transform="translate(620,460) scale(0.6)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(1180,520) scale(0.7)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(120,580) scale(0.55)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(900,680) scale(0.5)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(450,720) scale(0.45)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+    </g>
+    <!-- Tiny dots scattered -->
+    <g fill="#b88a3a" stroke="none" opacity="0.5">
+      <circle cx="80" cy="200" r="0.8"/>
+      <circle cx="1320" cy="350" r="0.7"/>
+      <circle cx="650" cy="380" r="0.6"/>
+      <circle cx="380" cy="500" r="0.7"/>
+      <circle cx="1080" cy="410" r="0.8"/>
+      <circle cx="240" cy="700" r="0.6"/>
+      <circle cx="780" cy="540" r="0.7"/>
+      <circle cx="1230" cy="640" r="0.6"/>
+      <circle cx="100" cy="380" r="0.7"/>
+    </g>
+  </svg>
   <div class="r-inner">
     <p class="sec-eyebrow">Selected press &amp; reviews</p>
-    <h2>What Italian critics have said</h2>
-    <p class="sec-deck">Translated excerpts from independent Italian SFF and book-review outlets. Full reviews are available in the rights guide on request.</p>
+    <h2>What critics have said</h2>
+    <p class="sec-deck">Translated excerpts from independent SFF and book-review outlets in Italy and France.</p>
 
     <div class="press-list">
       <div class="press-card">
@@ -1090,6 +1346,20 @@ footer::before {
         </blockquote>
         <span class="source">Moedisia</span>
         <span class="source-meta">Sephira Riva · 15 April 2022 · critical analysis of <em>A Colpi di Cannonau</em> · translated from Italian</span>
+      </div>
+      <div class="press-card">
+        <blockquote>
+          “Dusts off pirate fiction with a tragicomic treasure hunt full of twists.”
+        </blockquote>
+        <span class="source">Les Mille Mondes</span>
+        <span class="source-meta">Alex · 4 June 2025 · review of <em>À Coups de Canon</em> · translated from French</span>
+      </div>
+      <div class="press-card">
+        <blockquote>
+          “Recalls the powerful grotesquerie of Italian social cinema.”
+        </blockquote>
+        <span class="source">Le Nocher des Livres</span>
+        <span class="source-meta">8 January 2026 · review of <em>À Coups de Canon</em> · translated from French</span>
       </div>
     </div>
   </div>
@@ -1126,12 +1396,55 @@ footer::before {
 
 <!-- ─── CONTACT (volcanic) ───────────────────────── -->
 <section class="contact-section volcanic" id="contact">
+  <svg class="contact-bg" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="envIcon" viewBox="0 0 60 40">
+        <rect x="0.5" y="0.5" width="59" height="39"/>
+        <path d="M 0.5,0.5 L 30,22 L 59.5,0.5"/>
+        <circle cx="48" cy="32" r="3"/>
+      </symbol>
+    </defs>
+
+    <!-- Envelopes scattered, fine lines -->
+    <g fill="none" stroke="#d8a64a" stroke-width="0.3" stroke-linejoin="round" stroke-linecap="round" opacity="0.22">
+      <use href="#envIcon" x="40"   y="60"  width="220" height="147" transform="rotate(-18 150 134)"/>
+      <use href="#envIcon" x="1140" y="40"  width="240" height="160" transform="rotate(14 1260 120)"/>
+      <use href="#envIcon" x="80"   y="380" width="280" height="187" transform="rotate(22 220 474)"/>
+      <use href="#envIcon" x="1080" y="400" width="260" height="173" transform="rotate(-12 1210 487)"/>
+      <use href="#envIcon" x="600"  y="0"   width="180" height="120" transform="rotate(-8 690 60)"/>
+      <use href="#envIcon" x="500"  y="490" width="200" height="133" transform="rotate(15 600 557)"/>
+    </g>
+
+    <!-- Decorative four-point stars -->
+    <g fill="#ebc77b" stroke="none" opacity="0.5">
+      <g transform="translate(220,220) scale(1.2)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(1180,280) scale(0.9)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(900,120) scale(0.7)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(380,430) scale(0.85)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(1020,500) scale(1.1)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(160,460) scale(0.6)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(780,380) scale(0.7)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+      <g transform="translate(1280,160) scale(0.85)"><path d="M 0,-12 Q 2,-2 12,0 Q 2,2 0,12 Q -2,2 -12,0 Q -2,-2 0,-12 Z"/></g>
+    </g>
+
+    <!-- Tiny scattered dots -->
+    <g fill="#d8a64a" stroke="none" opacity="0.4">
+      <circle cx="120" cy="100" r="0.7"/>
+      <circle cx="560" cy="180" r="0.6"/>
+      <circle cx="820" cy="240" r="0.7"/>
+      <circle cx="1160" cy="380" r="0.6"/>
+      <circle cx="280" cy="540" r="0.7"/>
+      <circle cx="700" cy="580" r="0.5"/>
+      <circle cx="940" cy="420" r="0.6"/>
+    </g>
+  </svg>
   <p class="sec-eyebrow">Rights inquiries</p>
   <h2>Get in <span class="accent">touch</span></h2>
-  <p class="sec-deck">For foreign-rights enquiries, agent representation, manuscript requests, or any of the assets above – reach out directly. Replies usually within a few business days.</p>
+  <div class="ornament"><span class="line"></span><span class="glyph">✦</span><span class="line"></span></div>
+  <p class="sec-deck">For foreign-rights enquiries, agent representation, manuscript requests, or any of the assets above. Replies usually within a few business days.</p>
   <div class="contact-card">
     <p class="label">Direct contact</p>
-    <a class="email" href="mailto:titaniablesh@gmail.com">titaniablesh@gmail.com</a>
+    <a class="email" href="mailto:titania.blesh@gmail.com">titania.blesh@gmail.com</a>
     <p class="note">
       <strong>Currently seeking:</strong> literary-agent representation for English-language deals; acquiring editors at indie and mid-size SFF imprints; foreign-rights buyers for territories beyond France and Italy.
     </p>
@@ -1139,10 +1452,9 @@ footer::before {
 </section>
 
 <!-- ─── FOOTER ───────────────────────────────────── -->
-<footer>
-  <p class="foot-left">© 2026 Titania Blesh · All rights reserved</p>
+<footer class="volcanic">
+  <p class="foot-left">© 2026 Titania Blesh</p>
   <ul class="foot-links">
-    <li><a href="index.html">Home</a></li>
     <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
     <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
     <li><a href="blog/index.html">Blog</a></li>
