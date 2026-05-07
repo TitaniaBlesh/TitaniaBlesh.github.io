@@ -20,7 +20,7 @@
    ───────────────────────────────────────────────────────── */
 
 :root {
-  /* SEPIA palette — page default */
+  /* SEPIA palette – page default */
   --bg:         #f5ede0;
   --bg-2:       #ece2cf;
   --bg-3:       #ddd0b6;
@@ -42,7 +42,7 @@
   --body:       'Nunito', system-ui, -apple-system, sans-serif;
 }
 
-/* VOLCANIC palette — scoped to .volcanic sections */
+/* VOLCANIC palette – scoped to .volcanic sections */
 .volcanic {
   --bg:        #0d0908;
   --bg-2:      #14110f;
@@ -263,7 +263,7 @@ nav.masthead::after {
   from { opacity: 0.85; transform: scale(1); }
   to   { opacity: 1;    transform: scale(1.08); }
 }
-/* vertical lava glow column (replaces flat UFO ellipse) — gentle pulse */
+/* vertical lava glow column (replaces flat UFO ellipse) – gentle pulse */
 .hv .lava-glow {
   animation: lava-glow-pulse 3.5s ease-in-out infinite alternate;
   transform-origin: center bottom;
@@ -848,7 +848,7 @@ section { position: relative; }
   display: block;
 }
 #newsletter > *:not(.nl-envelopes) { position: relative; z-index: 1; }
-/* shared marquee keyframe — used by .facts-track */
+/* shared marquee keyframe – used by .facts-track */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -1142,7 +1142,7 @@ section { position: relative; }
   padding-bottom: 1.4rem;
   position: relative;
 }
-/* tapered hairline that fades at both ends — softer and warmer than a hard rule */
+/* tapered hairline that fades at both ends – softer and warmer than a hard rule */
 .proj-head::after {
   content: '';
   position: absolute;
@@ -1563,7 +1563,7 @@ footer::before {
 }
 .nl-modal h2 em {
   font-style: italic;
-  color: #e85d2c;             /* ember accent — keeps the volcanic brand */
+  color: #e85d2c;             /* ember accent – keeps the volcanic brand */
 }
 .nl-modal-desc {
   font-family: 'Nunito', system-ui, sans-serif;
@@ -1635,7 +1635,8 @@ footer::before {
   "inLanguage": "it-IT",
   "author": {
     "@type": "Person",
-    "name": "Titania Blesh"
+    "name": "Titania Blesh",
+    "url": "https://titaniablesh.github.io"
   }
 }
 </script>
@@ -1645,12 +1646,14 @@ footer::before {
   "@type": "Person",
   "name": "Titania Blesh",
   "url": "https://titaniablesh.github.io",
-  "description": "Titania Blesh è un'autrice italiana di narrativa fantasy e fantascienza. Pubblica romanzi in italiano e in francese ed è autrice del blog 'Appunti di Scrittura', dedicato alla narratologia e alla scrittura creativa di genere.",
+  "description": "Titania Blesh è un'autrice italiana di narrativa fantasy e fantascienza. Ha pubblicato la trilogia fantasy storica adulta 'A Colpi di Cannonau' (tre volumi: A Colpi di Cannonau, Un Bagno di Sangria, O Mirto o Morte!) disponibile in italiano e francese, e il romanzo YA fantasy 'Echi di Sabbia e Chele Spezzate'. Cura il blog 'Appunti di Scrittura' dedicato alla narratologia e alla scrittura creativa di genere.",
   "jobTitle": "Autrice di narrativa fantasy e fantascienza",
   "knowsAbout": [
     "Fantasy italiano",
-    "Fantascienza italiana",
+    "Fantasy storico",
+    "YA Fantasy",
     "Romantasy",
+    "Fantascienza italiana",
     "Scrittura creativa",
     "Worldbuilding",
     "Sistemi di magia",
@@ -1669,15 +1672,47 @@ footer::before {
       "url": "https://www.amazon.it/dp/B0FRXS566B",
       "genre": "Fantasy storico adulto",
       "inLanguage": "it",
+      "isPartOf": {
+        "@type": "BookSeries",
+        "name": "A Colpi di Cannonau"
+      },
       "author": {
         "@type": "Person",
         "name": "Titania Blesh"
       },
-      "publisher": {
+      "description": "Primo volume della trilogia fantasy storica adulta ambientata in Sardegna. Disponibile in italiano e in francese."
+    },
+    {
+      "@type": "Book",
+      "name": "Un Bagno di Sangria",
+      "url": "https://www.amazon.it/dp/B0FS7KWPLT",
+      "genre": "Fantasy storico adulto",
+      "inLanguage": "it",
+      "isPartOf": {
+        "@type": "BookSeries",
+        "name": "A Colpi di Cannonau"
+      },
+      "author": {
         "@type": "Person",
         "name": "Titania Blesh"
       },
-      "description": "Trilogia fantasy storica adulta ambientata in Sardegna. Primo volume della serie A Colpi di Cannonau di Titania Blesh."
+      "description": "Secondo volume della trilogia A Colpi di Cannonau di Titania Blesh."
+    },
+    {
+      "@type": "Book",
+      "name": "O Mirto o Morte!",
+      "url": "https://www.amazon.it/dp/B0FS7J3QHL",
+      "genre": "Fantasy storico adulto",
+      "inLanguage": "it",
+      "isPartOf": {
+        "@type": "BookSeries",
+        "name": "A Colpi di Cannonau"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Titania Blesh"
+      },
+      "description": "Terzo e ultimo volume della trilogia A Colpi di Cannonau di Titania Blesh."
     },
     {
       "@type": "Book",
@@ -1686,10 +1721,6 @@ footer::before {
       "genre": "YA Fantasy, Romantasy",
       "inLanguage": "it",
       "author": {
-        "@type": "Person",
-        "name": "Titania Blesh"
-      },
-      "publisher": {
         "@type": "Person",
         "name": "Titania Blesh"
       },
@@ -2026,7 +2057,7 @@ footer::before {
         <div class="format-row disabled">
           <div class="format-placeholder"></div>
           <div>
-            <div class="format-name">—</div>
+            <div class="format-name"> – </div>
             <div class="format-meta">Coming soon</div>
           </div>
           <span class="format-cta">TBA</span>
@@ -2055,7 +2086,7 @@ footer::before {
         <div class="format-row audio disabled">
           <div class="format-placeholder square"></div>
           <div>
-            <div class="format-name">—</div>
+            <div class="format-name"> – </div>
             <div class="format-meta">Coming soon</div>
           </div>
           <span class="format-cta">TBA</span>
@@ -2069,11 +2100,11 @@ footer::before {
 <section id="also-by" class="sec-pad volcanic">
   <!-- stylized sand-dune background spanning the whole section -->
   <svg class="alsoby-dunes-bg" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <!-- back ridge — distant dune in shadow -->
+    <!-- back ridge – distant dune in shadow -->
     <path d="M 0,310 C 180,265 320,250 480,270 C 620,285 740,260 880,272 C 1020,285 1180,275 1300,285 Q 1380,290 1400,285 L 1400,600 L 0,600 Z"
           fill="#3a2218" opacity="0.55"/>
 
-    <!-- mid dune — terracotta band -->
+    <!-- mid dune – terracotta band -->
     <path d="M 0,400 Q 100,378 220,392 C 340,408 440,360 580,378 Q 720,398 820,388 C 940,374 1080,400 1220,418 Q 1340,428 1400,418 L 1400,600 L 0,600 Z"
           fill="#5a2a18" opacity="0.6"/>
 
@@ -2177,7 +2208,7 @@ footer::before {
   <div class="about-text">
     <p class="sec-eyebrow">The author</p>
     <h2 class="sec-title">Hey, I'm <span class="accent">Tita.</span></h2>
-    <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada — and also on <em>Proxima Centauri b</em>, though you'll know for sure only in 4.25 light-years.</p>
+    <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada – and also on <em>Proxima Centauri b</em>, though you'll know for sure only in 4.25 light-years.</p>
     <p>I love astronomy, volcanoes, handstands, and my dog Newt. My life goal is to climb every volcano on Earth and Olympus Mons on Mars.</p>
     <div class="about-awards">
       <p class="sec-eyebrow">Recognition</p>
@@ -2548,7 +2579,7 @@ footer::before {
   burger.addEventListener('click', () => navlinks.classList.toggle('open'));
   navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
 
-  // reader-quotes carousel — auto-rotate with clickable dots, pause on hover
+  // reader-quotes carousel – auto-rotate with clickable dots, pause on hover
   (function () {
     const stage = document.querySelector('.quotes-stage');
     if (!stage) return;
@@ -2586,7 +2617,7 @@ footer::before {
     start();
   })();
 
-  // newsletter signup modal — first-visit popup; dismissal persisted in localStorage
+  // newsletter signup modal – first-visit popup; dismissal persisted in localStorage
   (function () {
     const modal = document.getElementById('nl-modal');
     if (!modal) return;
