@@ -734,6 +734,26 @@ section { position: relative; }
   color: var(--accent); font-weight: 700;
 }
 .about-text .sec-title { margin-bottom: 1.4rem; }
+.about-awards {
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule);
+}
+.about-awards .sec-eyebrow { margin-bottom: 0.7rem; }
+.about-awards p {
+  color: var(--txt-mid);
+  font-size: 0.95rem; line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+.about-awards p:last-child { margin-bottom: 0; }
+.about-awards p strong {
+  color: var(--txt); font-weight: 700;
+  background: none; padding: 0;
+}
+.about-awards p em {
+  font-family: var(--body); font-style: italic;
+  color: var(--txt-mid); font-weight: 400;
+}
 .about-socials {
   display: flex; gap: 0.7rem; flex-wrap: wrap;
   margin-top: 1.6rem;
@@ -1604,6 +1624,80 @@ footer::before {
   .nl-modal-card { transition: none; transform: none; }
 }
 </style>
+<meta name="keywords" content="Titania Blesh, fantasy italiano, scrittrice fantasy italiana, A Colpi di Cannonau, Echi di Sabbia e Chele Spezzate, romantasy italiano, fantascienza italiana, narrativa fantasy italiana, libri fantasy italiani">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Titania Blesh",
+  "url": "https://titaniablesh.github.io",
+  "description": "Sito ufficiale di Titania Blesh, autrice italiana di narrativa fantasy e fantascienza.",
+  "inLanguage": "it-IT",
+  "author": {
+    "@type": "Person",
+    "name": "Titania Blesh"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Titania Blesh",
+  "url": "https://titaniablesh.github.io",
+  "description": "Titania Blesh è un'autrice italiana di narrativa fantasy e fantascienza. Pubblica romanzi in italiano e in francese ed è autrice del blog 'Appunti di Scrittura', dedicato alla narratologia e alla scrittura creativa di genere.",
+  "jobTitle": "Autrice di narrativa fantasy e fantascienza",
+  "knowsAbout": [
+    "Fantasy italiano",
+    "Fantascienza italiana",
+    "Romantasy",
+    "Scrittura creativa",
+    "Worldbuilding",
+    "Sistemi di magia",
+    "Narrativa di genere",
+    "Narratologia"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/titaniablesh/",
+    "https://www.tiktok.com/@titaniablesh",
+    "https://www.amazon.it/kindle-dbs/entity/author/B00KFODOV8"
+  ],
+  "author": [
+    {
+      "@type": "Book",
+      "name": "A Colpi di Cannonau",
+      "url": "https://www.amazon.it/dp/B0FRXS566B",
+      "genre": "Fantasy storico adulto",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "name": "Titania Blesh"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Titania Blesh"
+      },
+      "description": "Trilogia fantasy storica adulta ambientata in Sardegna. Primo volume della serie A Colpi di Cannonau di Titania Blesh."
+    },
+    {
+      "@type": "Book",
+      "name": "Echi di Sabbia e Chele Spezzate",
+      "url": "https://www.amazon.it/Sabbia-Chele-Spezzate-Titania-Blesh-ebook/dp/B0DPTHHLT9",
+      "genre": "YA Fantasy, Romantasy",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "name": "Titania Blesh"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Titania Blesh"
+      },
+      "description": "Romanzo YA fantasy di Titania Blesh. Neuroscience romantasy in italiano."
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1786,8 +1880,8 @@ footer::before {
     <div class="hero-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
     <div class="hero-meta">
       <span>9 novels</span>
-      <span>3 countries</span>
       <span>Italian · French · English</span>
+      <span>Cittadella 2021 finalist · Cassiopea 2022 winner</span>
     </div>
     <div class="hero-ctas">
       <a href="#bestsellers" class="btn btn-fill">Browse the books</a>
@@ -2085,6 +2179,11 @@ footer::before {
     <h2 class="sec-title">Hey, I'm <span class="accent">Tita.</span></h2>
     <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada — and also on <em>Proxima Centauri b</em>, though you'll know for sure only in 4.25 light-years.</p>
     <p>I love astronomy, volcanoes, handstands, and my dog Newt. My life goal is to climb every volcano on Earth and Olympus Mons on Mars.</p>
+    <div class="about-awards">
+      <p class="sec-eyebrow">Recognition</p>
+      <p><strong>Trofeo Cittadella 2021</strong>, finalist <span aria-hidden="true">·</span> <em>A Colpi di Cannonau</em> (Acheron Books)</p>
+      <p><strong>Trofeo Cassiopea 2022</strong>, winner <span aria-hidden="true">·</span> <em>Echi di Sabbia e Chele Spezzate</em>, previously <em>Chelabron</em> (Dark Zone Edizioni)</p>
+    </div>
     <div class="about-socials">
       <a href="https://www.instagram.com/titaniablesh/" class="btn btn-fill" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@titaniablesh" class="btn btn-outline" target="_blank">TikTok</a>
