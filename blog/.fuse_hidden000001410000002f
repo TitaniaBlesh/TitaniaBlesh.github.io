@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pianificazione della Trama · Titania Blesh</title>
+<meta name="description" content="Pianificazione, ancora pianificazione! Nell’ultimo articolo ho parlato della pianificazione generale di un romanzo. Qui vorrei entrare nello specifico della…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pianificazione della Trama">
+<meta property="og:description" content="Pianificazione, ancora pianificazione! Nell’ultimo articolo ho parlato della pianificazione generale di un romanzo. Qui vorrei entrare nello specifico della…">
+<meta property="og:image" content="https://titaniablesh.github.io/assets/images/blog/2020/08/photo-10.png">
+<meta property="og:url" content="https://titaniablesh.github.io/blog/pianificazione-della-trama.html">
+<meta property="og:site_name" content="Titania Blesh">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pianificazione della Trama">
+<meta name="twitter:description" content="Pianificazione, ancora pianificazione! Nell’ultimo articolo ho parlato della pianificazione generale di un romanzo. Qui vorrei entrare nello specifico della…">
+<meta name="twitter:image" content="https://titaniablesh.github.io/assets/images/blog/2020/08/photo-10.png">
+<meta name="author" content="Titania Blesh">
+<link rel="canonical" href="https://titaniablesh.github.io/blog/pianificazione-della-trama.html">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="blog.css">
+<meta name="keywords" content="scalettare la trama, outline trama, strutturare una storia, tecniche di pianificazione, struttura narrativa, trama romanzo, pianificare un romanzo, scalettatura, outlining, come scrivere un romanzo, tecniche di scrittura, Titania Blesh, scrittrice fantasy italiana, fantasy italiano, A Colpi di Cannonau, Echi di Sabbia e Chele Spezzate, blog scrittura creativa, narrativa fantasy italiana">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Pianificazione della Trama",
+  "description": "Pianificazione, ancora pianificazione! Nell’ultimo articolo ho parlato della pianificazione generale di un romanzo. Qui vorrei entrare nello specifico della…",
+  "image": "https://titaniablesh.github.io/assets/images/blog/2020/08/photo-10.png",
+  "url": "https://titaniablesh.github.io/blog/pianificazione-della-trama.html",
+  "datePublished": "2020-08-12",
+  "inLanguage": "it-IT",
+  "keywords": "scalettare la trama, outline trama, strutturare una storia, tecniche di pianificazione, struttura narrativa, trama romanzo, pianificare un romanzo, scalettatura, outlining, come scrivere un romanzo, tecniche di scrittura, Titania Blesh, scrittrice fantasy italiana, fantasy italiano, A Colpi di Cannonau, Echi di Sabbia e Chele Spezzate, blog scrittura creativa, narrativa fantasy italiana",
+  "author": {
+    "@type": "Person",
+    "name": "Titania Blesh",
+    "url": "https://titaniablesh.github.io",
+    "jobTitle": "Autrice di narrativa fantasy e fantascienza",
+    "sameAs": [
+      "https://www.instagram.com/titaniablesh/",
+      "https://www.tiktok.com/@titaniablesh",
+      "https://www.amazon.it/kindle-dbs/entity/author/B00KFODOV8"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Titania Blesh",
+    "url": "https://titaniablesh.github.io"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://titaniablesh.github.io/blog/pianificazione-della-trama.html"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Appunti di Scrittura — Titania Blesh",
+    "url": "https://titaniablesh.github.io/blog/",
+    "description": "Blog di scrittura creativa sulla narrativa fantasy e fantascienza italiana: tecniche narrative, worldbuilding, sistemi di magia e consigli per scrittori."
+  }
+}
+</script>
+</head>
+<body>
+<nav class="masthead volcanic">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo">
+      <img src="../assets/images/logo-animation.gif" alt="Volcano logo">
+    </span>
+    <span class="brand-text">Titania Blesh</span>
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="../index.html#bestsellers">Books</a></li>
+    <li><a href="../index.html#about">The author</a></li>
+    <li><a href="index.html" class="current">Blog</a></li>
+    <li><a href="../volcanoes.html">Volcanoes</a></li>
+  </ul>
+  <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="top">
+
+<article class="post">
+  <header class="post-header">
+    <p class="post-cat">Struttura Narrativa</p>
+    <h1 class="post-title">Pianificazione della Trama</h1>
+    <p class="post-date">12 agosto 2020</p>
+    <div class="post-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+  </header>
+
+  <div class="post-body">
+<p><img width="663" height="441" src="../assets/images/blog/2020/08/photo-10.png" alt="Trama pianificata passo per passo" loading="lazy"></p> <blockquote> <h6><span class="section-emoji">🌋</span> Pianificazione, ancora pianificazione!</h6></blockquote> <p><span class="drop-cap">N</span>ell’ultimo articolo ho parlato della pianificazione generale di un romanzo. Qui vorrei entrare nello specifico della trama e della sua <b>scalettatura</b>. O meglio, la sua <b><i>outline</i></b>.</p> <p>Ovviamente non è indispensabile seguire passo per passo tutti i miei appunti (non lo faccio nemmeno io!), ma li trovo molto comodi come guida generale, o come ancora di salvataggio per quando “mi perdo per strada”.</p> <p>“Scalettare” con cognizione di causa ti aiuterà a perdere meno tempo durante la prima stesura, che è notoriamente la parte più atroce per quasi tutti gli scrittori professionisti.</p> <h6><b><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"></b><strong><em>Attenzione</em><em>: scrivere una scaletta richiede tempo.&nbsp;</em></strong></h6> <p><strong>Pianificare non è un lavoro da mezza giornata</strong>. Potresti aver bisogno di dormirci sopra varie notti, fare brainstorming, camminate o docce interminabili, spostare su e giù le idee e buttare nella spazzatura valanghe di ottimi spunti.&nbsp;</p> <p>Si parla di settimane, forse mesi, fino a quando non riesci ad avere ogni elemento al suo posto, ogni evento chiaro in testa, e la giusta sequenza con cui impostarli.<br>
+A volte potrebbero venirti idee migliori nel corso della prima stesura o revisione.<br>
+A volte la scaletta può fallire e dovrai riscrivere tutto.</p> <p>Ma si tratta sempre di un’arma in più… se può essere di consolazione.</p> <h6><b><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Trama e Struttura</b></h6> <p><strong>Trama e intreccio</strong>&nbsp;sono la serie di eventi che costituiscono la nostra storia, l’ordine in cui si svolgono e come si intersecano tra di loro.</p> <p>La <strong>struttura</strong> è la gabbia in cui è contenuta la trama. Nella struttura sono evidenziati elementi cruciali come l’incidente scatenante, il conflitto, il climax, la risoluzione…</p> <p>La trama è unica in ogni storia, mentre scopriremo che la struttura ha elementi comuni che traggono fonti da <b>alcuni modelli prestabiliti</b>.<br>
+Conoscerli e saperli applicare in ogni situazione ci garantirà quella consapevolezza indispensabile per sviluppare storie migliori.</p> <p>Che lo vogliamo o no, la struttura della trama è sempre presente, un po’ come l’aria che respiriamo. Può essere contorta e piena di errori di ritmo. Può essere invisibile ai nostri occhi, possiamo esserne inconsapevoli. Ma esiste. Tanto vale imparare a conoscerla in modo profondo.</p> <blockquote> <p>Come diceva Sun Tzu: "Se conosci il nemico e te stesso, la tua vittoria è sicura."</p></blockquote> <p>Se riusciamo a lavorare in armonia con tutto ciò che la costituisce, riusciremo anche a portare la nostra storia a un livello superiore.</p> <h6><b><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> L’Arco Narrativo</b></h6> <p>L’arco narrativo è composto da alcuni punti chiave:</p> <ul> <li><b>Esposizione</b>: l’inizio della storia, l’introduzione del mondo, dei protagonisti e del loro desiderio.</li> <li><b>Crescendo</b>: una serie di eventi che complicano la vita del protagonista, che lo portano ad affrontare nuove situazioni e introducono tensione.</li> <li><b>Climax</b>: tutti gli avvenimenti e le peripezie precedenti ci portano qui: il momento critico dove il protagonista si troverà ad affrontare il pericolo più temuto e dovrà fare una scelta che lo cambierà per sempre.</li> <li><b>Risoluzione</b>: tutti gli eventi trovano la loro conclusione, ogni problema è risolto (o no, a seconda della storia), e tutti i fili sparsi della trama si congiungono in modo soddisfacente.</li></ul> <h6><b><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Le Strutture Narrative</b></h6> <p>Negli articoli precedenti abbiamo parlato di come pianificare un romanzo a grandi linee, di come tracciare una storia con un inizio, una fine e un conflitto nel mezzo. Questo arco narrativo è più che sufficiente, per gli Esploramondi, a stendere le basi di uno schema che li guiderà nella prima bozza.</p> <p>Ma noi chi siamo? Pianificastorie!<br>
+E cosa facciamo? Piangiamo per mesi su una outline prima di metterci al lavoro!<br>
+<em>Sì, i Pianificastorie hanno bisogno di una scaletta ben precisa.</em></p> <p>E l’elemento di cui abbiamo bisogno è la <strong>struttura narrativa</strong>.<br>
+Esistono vari modelli di struttura narrativa e, come sempre, non ce n’è uno giusto o uno sbagliato, solo quello con cui ci troviamo meglio. Allo stesso modo, nessuna di queste strutture è da seguire alla lettera. Vogliono semplicemente essere una guida, un punto di riferimento per aiutarci in una pianificazione più efficace, senza voler "soffocare la nostra creatività" (come molti scrittori alle prime armi temono che accada).</p> <h6><span class="section-emoji">✏️</span> Alcuni esempi di strutture narrative:</h6> <ul> <li><strong><a href="tecniche-di-pianificazione-il-viaggio-delleroe.html" target="_blank" rel="noopener noreferrer">Il Viaggio dell’Eroe&nbsp;</a></strong></li> <li><strong>La Struttura a Tre Atti</strong></li> <li><a href="tecniche-di-pianificazione-i-battiti-della-storia.html" target="_blank" rel="noopener noreferrer"><b>I Battiti della Storia</b></a></li> <li><strong>Try/Fail Cycle</strong></li></ul> <p>Le strutture narrative sono tantissime e, per quanto apparentemente diverse, il loro nocciolo è spesso lo stesso.&nbsp;</p> <p>Nei prossimi articoli le analizzerò una per una.</p> <p>Per migliorare la mia tecnica di scrittura, le ho sperimentate un po’ tutte, cercando quella che più mi fa sentire a mio agio.&nbsp;</p> <p>Per esempio, con <a href="https://www.amazon.it/colpi-Cannonau-Titania-Blesh/dp/8832198355/ref=sr_1_1?dchild=1&amp;qid=1598528068&amp;refinements=p_27%3ATitania+Blesh&amp;s=books&amp;sr=1-1"><i>A Colpi di Cannonau</i></a>, ancora non avevo testato molte strutture narrative, così ho usato un semplice <b>Try/Fail Cycle</b>. Eppure, per chi ha letto il romanzo, sarà facile individuare molti elementi del Viaggio dell’Eroe nella linea narrativa di Fiammetta.</p> <p>Al contrario, con <i>Neomentis</i> ho tentato una <strong>Struttura a</strong> <strong>Tre Atti</strong>, e nel <i>nuovo romanzo in uscita con Dark Zone </i>ho sperimentato i <strong>Sette Punti</strong>.</p> <p>Qualunque sia il metodo di preferenza, tutti gli schemi hanno la stessa radice: una serie di elementi che costituiscono la trama e che sono imprescindibili per una buona narrazione.</p> <p>Poco a poco li vedremo tutti!</p>
+  </div>
+
+  <footer class="post-footer">
+    <p class="back-link"><a href="index.html">← Torna all'indice del blog</a></p>
+  </footer>
+</article>
+
+<nav class="post-nav">
+    <a class="nav-prev" href="pianificare-un-romanzo.html"><span class="nav-arrow">←</span><span class="nav-label">Articolo precedente</span><span class="nav-title">Pianificare un Romanzo</span></a>
+    <a class="nav-next" href="consolidare-la-grande-idea.html"><span class="nav-arrow">→</span><span class="nav-label">Articolo successivo</span><span class="nav-title">Consolidare la Grande Idea</span></a>
+</nav>
+
+</main>
+<footer class="volcanic">
+  <p class="foot-left">© 2026 Titania Blesh</p>
+  <ul class="foot-links">
+    <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
+    <li><a href="#top">Top ↑</a></li>
+  </ul>
+</footer>
+<script>
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  if (burger && navlinks) {
+    burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+  }
+</script>
+</body></html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esploramondi e Pianificastorie · Titania Blesh</title>
+<meta name="description" content="Plotter &amp; Pantser , Outliner &amp; Discovery Writer … In inglese ci sono vari modi per definire questi due approcci alla scrittura. A me piace usare i termini…">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Esploramondi e Pianificastorie">
+<meta property="og:description" content="Plotter &amp; Pantser , Outliner &amp; Discovery Writer … In inglese ci sono vari modi per definire questi due approcci alla scrittura. A me piace usare i ter…">
+<meta property="og:image" content="https://titaniablesh.github.io/assets/images/blog/2020/07/fiction-5.jpg">
+<meta property="og:url" content="https://titaniablesh.github.io/blog/esploramondi-e-pianificastorie.html">
+<meta property="og:site_name" content="Titania Blesh">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Esploramondi e Pianificastorie">
+<meta name="twitter:description" content="Plotter &amp; Pantser , Outliner &amp; Discovery Writer … In inglese ci sono vari modi per definire questi due approcci alla scrittura. A me piace usare i ter…">
+<meta name="twitter:image" content="https://titaniablesh.github.io/assets/images/blog/2020/07/fiction-5.jpg">
+<meta name="author" content="Titania Blesh">
+<link rel="canonical" href="https://titaniablesh.github.io/blog/esploramondi-e-pianificastorie.html">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="blog.css">
+<meta name="keywords" content="plotter pantser, outliner discovery writer, esploramondi pianificastorie, stile di scrittura, struttura narrativa, trama romanzo, pianificare un romanzo, scalettatura, outlining, come scrivere un romanzo, tecniche di scrittura, Titania Blesh, scrittrice fantasy italiana, fantasy italiano, A Colpi di Cannonau, Echi di Sabbia e Chele Spezzate, blog scrittura creativa, narrativa fantasy italiana">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Esploramondi e Pianificastorie",
+  "description": "Plotter &amp; Pantser , Outliner &amp; Discovery Writer … In inglese ci sono vari modi per definire questi due approcci alla scrittura. A me piace usare i termini…",
+  "image": "https://titaniablesh.github.io/assets/images/blog/2020/07/fiction-5.jpg",
+  "url": "https://titaniablesh.github.io/blog/esploramondi-e-pianificastorie.html",
+  "datePublished": "2020-07-21",
+  "inLanguage": "it-IT",
+  "keywords": "plotter pantser, outliner discovery writer, esploramondi pianificastorie, stile di scrittura, struttura narrativa, trama romanzo, pianificare un romanzo, scalettatura, outlining, come scrivere un romanzo, tecniche di scrittura, Titania Blesh, scrittrice fantasy italiana, fantasy italiano, A Colpi di Cannonau, Echi di Sabbia e Chele Spezzate, blog scrittura creativa, narrativa fantasy italiana",
+  "author": {
+    "@type": "Person",
+    "name": "Titania Blesh",
+    "url": "https://titaniablesh.github.io",
+    "jobTitle": "Autrice di narrativa fantasy e fantascienza",
+    "sameAs": [
+      "https://www.instagram.com/titaniablesh/",
+      "https://www.tiktok.com/@titaniablesh",
+      "https://www.amazon.it/kindle-dbs/entity/author/B00KFODOV8"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Titania Blesh",
+    "url": "https://titaniablesh.github.io"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://titaniablesh.github.io/blog/esploramondi-e-pianificastorie.html"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "name": "Appunti di Scrittura — Titania Blesh",
+    "url": "https://titaniablesh.github.io/blog/",
+    "description": "Blog di scrittura creativa sulla narrativa fantasy e fantascienza italiana: tecniche narrative, worldbuilding, sistemi di magia e consigli per scrittori."
+  }
+}
+</script>
+</head>
+<body>
+<nav class="masthead volcanic">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo">
+      <img src="../assets/images/logo-animation.gif" alt="Volcano logo">
+    </span>
+    <span class="brand-text">Titania Blesh</span>
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="../index.html#bestsellers">Books</a></li>
+    <li><a href="../index.html#about">The author</a></li>
+    <li><a href="index.html" class="current">Blog</a></li>
+    <li><a href="../volcanoes.html">Volcanoes</a></li>
+  </ul>
+  <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="top">
+
+<article class="post">
+  <header class="post-header">
+    <p class="post-cat">Struttura Narrativa</p>
+    <h1 class="post-title">Esploramondi e Pianificastorie</h1>
+    <p class="post-date">21 luglio 2020</p>
+    <div class="post-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+  </header>
+
+  <div class="post-body">
+<p><img width="663" height="373" src="../assets/images/blog/2020/07/fiction-5.jpg" alt="Scaffale con libri fantasy e di narrativa" loading="lazy">											</p> <p><em>Plotter &amp; Pantser</em>, <em>Outliner &amp; Discovery Writer</em>… <br>In inglese ci sono vari modi per definire questi due approcci alla scrittura.</p> <p>A me piace usare i termini <b>Esploramondi </b>&amp; <strong>Pianificastorie</strong>.</p> <h4>Esploramondi</h4> <p>Un Esploramondi inizia dal nulla, o da una semplice idea. Non sa bene cosa succederà nella sua storia né come andrà a finire. Si lascia guidare dai suoi personaggi, che spesso agiscono di testa propria. Esplora la storia mano a mano che la scrive. Può sapere qual è il punto di destinazione, ma nel mezzo c’è l’ignoto e l’avventura.</p> <h6><span class="section-emoji">🌋</span> PRO:</h6> <p><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Scrivere improvvisando è <strong>esaltante</strong>, divertente, liberatorio. Quasi una droga, in alcuni momenti.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Improvvisare crea personaggi indipendenti, che si sviluppano in modo autonomo e a volte imprevisto.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Un Esploramondi è libero, <strong>flessibile</strong>, può portare la storia dove gli pare. Se non gli piace un personaggio, può ucciderlo, se non gli piace la trama, può muoverla verso un’altra direzione.</p> <h6><span class="section-emoji">🌋</span> CONTRO:</h6> <p><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Altissimo rischio di buttare centinaia di migliaia di parole in una prima bozza piena di <strong>buchi di trama</strong>.<br><img style="font-style: italic;" src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Senza una conoscenza approfondita della struttura narrativa, è davvero difficile improvvisare i battiti della storia senza averla pianificata in anticipo. Per non parlare dei colpi di scena o della tessitura di un’intreccio complesso. Questo porta a...<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Molte, <strong>troppe riscritture e revisioni</strong>. E quando diventano <em>troppe</em>, è davvero demoralizzante.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Rischio di “rimanere bloccati”. Spesso un’indescrivibile “paura”, una resistenza, ci blocca (succede a tutti e questa paura assume forme diverse, ne parlerò in un altro articolo). Una <strong>scaletta</strong> può rivelarsi un’ancora di salvezza in un momento di paralisi. Senza, è più facile lasciarsi prendere dal terrore di non farcela... il risultato? Gli Esploramondi tendono ad abbandonare il progetto e a buttarsi su una nuova idea, lasciando una strage di romanzi incompiuti alle proprie spalle.</p> <h4>Pianificastorie</h4> <p>Un <b>Pianificastorie</b> è chi inizia a scrivere la prima bozza conoscendo la storia nei minimi dettagli. Ha tutto pronto: l’ambientazione, la trama, i personaggi, i twist e persino le singole scene. Quando inizia la scrittura vera e propria, cerca di trasformare la scaletta in una prosa già buona, lasciandosi sostenere da una griglia sicura.</p> <h6><span class="section-emoji">🌋</span> <b>PRO:</b></h6> <p><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Niente “blocco dello scrittore”: non ti puoi bloccare se sai già cosa scrivere! <br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> L’ispirazione non esiste. C’è solo la <strong>voglia di lavorare sodo</strong>.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Il Pianificastorie sa cosa succederà prima ancora di scriverlo.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Grazie a questa conoscenza, macina le parole molto più in fretta.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> La prima bozza non necessita di riscrittura completa, ma solo qualche aggiustamento.</p> <h6><span class="section-emoji">🌋</span> <b>CONTRO:</b></h6> <p><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> ... Nessuno! Ah... e d’accordo, non tutti la pensano così:<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Pianificare non è facile. Bisogna <strong>studiare la struttura narrativa</strong>, essere grandi lettori, conoscere quello che funziona e quello che non funziona.<em> (In realtà questo vale anche per gli Esploramondi professionisti!)</em><br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Pianificare richiede lunghi tempi di preparazione, soprattutto se non si è esperti. Per esempio, io non riesco a dedicare così tante ore al brainstorming come alla scrittura: dopo alcune ore, la mia mente non riesce più a collegare idee o a ragionare con lucidità.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Pianificare <strong>non è sempre infallibile</strong>. Mi è capitato fin troppo spesso di mettere in dubbio le mie scalette a metà dell’opera, trovando falle anche gravi che all’inizio non ero riuscita a visualizzare nel complesso.<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Si dice che i personaggi perdano “colore” a causa della <strong>mancanza di spontaneità</strong> (a questo non credo molto: se il personaggio è ben costruito, la scaletta non lo intrappola, ma gli permette di esprimersi al meglio).<br><img src="../assets/images/blog/2020/07/volcano_bullet-e1594035605298.png" alt="" width="20" height="15" loading="lazy"> Il Pianificastorie è <strong>incatenato dai suoi piani</strong> e, se vuole modificare qualcosa, rischia di dover cambiare tutta la scaletta.</p> <h4> </h4> <h6><span class="section-emoji">🌋</span> <strong><em>Esploramondi e Pianificastorie, quindi.</em></strong></h6> <p>Non esiste un <strong>metodo corretto</strong> e un <strong>metodo sbagliato</strong>. Entrambi hanno pregi e difetti, la scelta è solo dello scrittore. Qualunque tecnica tu preferisca, se ti permette di concludere il libro e avere in mano un’opera di cui sei fiero e che rispetta le caratteristiche dello storytelling moderno, è la tecnica vincente.<br><br>Sulla bilancia puoi mettere tutti gli elementi significativi per te. Preferisci goderti il “viaggio”? Forse sei un Esploramondi. Vuoi completare il libro a tutti i costi, nella maniera più rapida e indolore possibile, anche a costo di soffrire e sudare durante quelle settimane di scrittura? Forse sei un Pianificastorie.</p> <p>Molti degli scrittori più prolifici al mondo sono <strong>Pianificastorie</strong> (Brandon Sanderson, giusto per fare un nome <i>a caso</i>, oppure J.K. Rowling), ma ci sono casi di <strong>Esploramondi</strong> famosi, come Stephen King, che non ne fa un mistero nel suo libro <i>On Writing</i>.</p> <blockquote> <blockquote class="pullquote"><p>Nessuno dei due metodi è sbagliato ma, se sei Esploramondi, ti consiglio di provare - solo una volta - a pianificare. Solo una volta. Potrebbe cambiarti la vita.</p></blockquote> </blockquote> <h6><span class="section-emoji">🎯</span> <strong>Conclusione</strong></h6> <p>Come in ogni situazione, nessuno è Pianificastorie o Esploramondi <strong>al 100%</strong>.<br>Credo che <strong>tutti nasciamo Esploramondi</strong>. Io stessa sono stata Esploramondi per molti anni. Ho sempre improvvisato, fin dai tempi in cui mandavo i miei robottini all’avventura e li facevo combattere in epici scontri mortali, fin da quando raccontavo storie ai miei orsacchiotti o m’inventavo un’avventura nei boschi di casa. L’idea mi esplodeva nella mente e dovevo sputarla fuori, buttarla su carta, lasciarla sbocciare per conto suo e seguirla a bocca aperta e in totale ammirazione.</p> <p>Ho scritto i miei primi dieci romanzi così.<br><em>Se sentite odore di bruciato, sapete che fine hanno fatto.</em></p> <p>Nonostante sia nata Esploramondi, non è la tecnica che funziona <em>per me</em>.<br>La transizione verso una mentalità da Pianificastorie è ancora in corso, mi sto migliorando giorno dopo giorno, sto acquistando velocità e maggior concentrazione, ma è comunque un percorso lungo e difficile (e un percorso che non ho seguito da sola).<br>Così <strong>ho studiato</strong>, provato e riprovato, sbagliato, riprovato ancora.</p> <p>E, meraviglia delle meraviglie, non ho mai dovuto fare una seconda riscrittura completa di <a href="https://www.amazon.it/colpi-Cannonau-Titania-Blesh/dp/8832198355/ref=sr_1_1?dchild=1&amp;qid=1598365070&amp;refinements=p_27%3ATitania+Blesh&amp;s=books&amp;sr=1-1"><i>A Colpi di Cannonau</i></a>!</p> <blockquote class="pullquote"><p>Quindi, detto questo, che cosa sei? E che cosa hai deciso di essere?</p></blockquote> <p><strong><em>Sei Esploramondi?</em></strong></p> <p><em><strong>O Pianificastorie?</strong></em></p>
+  </div>
+
+  <footer class="post-footer">
+    <p class="back-link"><a href="index.html">← Torna all'indice del blog</a></p>
+  </footer>
+</article>
+
+<nav class="post-nav">
+    <a class="nav-prev" href="idee-stimolate.html"><span class="nav-arrow">←</span><span class="nav-label">Articolo precedente</span><span class="nav-title">Idee Stimolate</span></a>
+    <a class="nav-next" href="la-prima-bozza.html"><span class="nav-arrow">→</span><span class="nav-label">Articolo successivo</span><span class="nav-title">La Prima Bozza</span></a>
+</nav>
+
+</main>
+<footer class="volcanic">
+  <p class="foot-left">© 2026 Titania Blesh</p>
+  <ul class="foot-links">
+    <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
+    <li><a href="#top">Top ↑</a></li>
+  </ul>
+</footer>
+<script>
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  if (burger && navlinks) {
+    burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+  }
+</script>
+</body></html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · Titania Blesh</title>
+<meta name="description" content="Appunti, esperienze e tecniche di scrittura – narrativa di genere, fantasy, fantascienza.">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="stylesheet" href="blog.css">
+<meta name="keywords" content="scrittura creativa, fantasy italiano, fantascienza italiana, worldbuilding, sistemi di magia, struttura narrativa, come scrivere un romanzo, blog scrittura, Titania Blesh, narrativa fantasy italiana">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Appunti di Scrittura – Titania Blesh",
+  "description": "Blog di scrittura creativa sulla narrativa fantasy e fantascienza italiana: tecniche narrative, worldbuilding, sistemi di magia, struttura della trama, revisione e pubblicazione.",
+  "url": "https://titaniablesh.github.io/blog/",
+  "inLanguage": "it-IT",
+  "author": {
+    "@type": "Person",
+    "name": "Titania Blesh",
+    "url": "https://titaniablesh.github.io"
+  },
+  "keywords": "scrittura creativa, fantasy italiano, fantascienza italiana, worldbuilding, sistemi di magia, struttura narrativa, come scrivere un romanzo, narratologia, Titania Blesh"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Titania Blesh",
+  "url": "https://titaniablesh.github.io",
+  "description": "Titania Blesh è un'autrice italiana di narrativa fantasy e fantascienza. Ha pubblicato la trilogia 'A Colpi di Cannonau' (fantasy storico adulto, disponibile in italiano e francese) e il romanzo YA 'Echi di Sabbia e Chele Spezzate'. Cura un blog di scrittura creativa dedicato a narrativa di genere, worldbuilding e tecniche narrative.",
+  "jobTitle": "Autrice di narrativa fantasy e fantascienza",
+  "knowsAbout": [
+    "Fantasy italiano",
+    "Fantascienza italiana",
+    "Scrittura creativa",
+    "Worldbuilding",
+    "Sistemi di magia",
+    "Struttura narrativa",
+    "Narratologia"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/titaniablesh/",
+    "https://www.tiktok.com/@titaniablesh",
+    "https://www.amazon.it/kindle-dbs/entity/author/B00KFODOV8"
+  ],
+  "hasCredential": "Autrice pubblicata in Italia e Francia"
+}
+</script>
+</head>
+<body>
+<nav class="masthead volcanic">
+  <a class="brand" href="../index.html">
+    <span class="brand-logo">
+      <img src="../assets/images/logo-animation.gif" alt="Volcano logo">
+    </span>
+    <span class="brand-text">Titania Blesh</span>
+  </a>
+  <ul class="nav-links" id="navlinks">
+    <li><a href="../index.html#bestsellers">Books</a></li>
+    <li><a href="../index.html#about">The author</a></li>
+    <li><a href="index.html" class="current">Blog</a></li>
+    <li><a href="../volcanoes.html">Volcanoes</a></li>
+  </ul>
+  <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
+  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main id="top">
+
+<header class="blog-hero">
+  <p class="hero-eyebrow">Il blog</p>
+  <h1 class="hero-title">Appunti di <em>scrittura</em></h1>
+  <div class="hero-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
+  <blockquote class="hero-quote">
+    <p><em>Writing is not about inspiration.<br>
+    Writing is not about ideas.<br>
+    Writing is not about luck.<br>
+    Writing is about skill.</em></p>
+    <cite> – Brandon Sanderson</cite>
+  </blockquote>
+  <div class="hero-prose">
+    <p>Un tempo ero convinta che la scrittura fosse un talento innato, una vocazione, la chiamata dell'ispirazione. Tutte doti che io non ho mai avuto.</p>
+    <p><strong>Scrivere è molto di più</strong>: è studio, dedizione, sacrificio, forza di volontà. È seguire delle regole. Quando ho iniziato a <em>studiare</em>, è cambiato tutto. E ho trovato un editore. Beh, più di uno.</p>
+    <p>Questo blog vuole essere un archivio di tutto quello che ho imparato sulla scrittura, dalle conoscenze generali alle mie esperienze e disavventure personali. È un modo per avere tutti i miei appunti in un'unica raccolta ordinata e di condividerli con chi ha piacere di leggerli e di imparare insieme a me, giorno dopo giorno.</p>
+  </div>
+  <a class="hero-cta" href="#recent">Vai all'ultimo articolo ↓</a>
+</header>
+
+<section class="cat-grid">
+  <h2 class="section-eyebrow">Indice degli articoli</h2>
+  <div class="cat-block">
+    <h2 class="cat-title">Generale</h2>
+    <ul class="cat-list">
+      <li><a href="numero-di-parole-battute-cartelle.html">Numero di Parole, Battute, Cartelle</a></li>
+      <li><a href="narrativa-di-genere.html">Cos&#x27;è la narrativa di genere?</a></li>
+      <li><a href="narrativa-di-fantascienza-e-sottogeneri.html">Narrativa di Fantascienza e Sottogeneri</a></li>
+      <li><a href="romanzo-novella-racconto.html">Romanzo, Novella, Racconto...</a></li>
+      <li><a href="narrativa-fantasy-e-sottogeneri.html">Narrativa Fantasy e Sottogeneri</a></li>
+    </ul>
+  </div>
+  <div class="cat-block">
+    <h2 class="cat-title">Struttura narrativa e trama</h2>
+    <ul class="cat-list">
+      <li><a href="idee-esplosive.html">Idee Esplosive - Scrivere senza lasciarsi trascinare</a></li>
+      <li><a href="idee-stimolate.html">Idee Stimolate</a></li>
+      <li><a href="esploramondi-e-pianificastorie.html">Esploramondi e Pianificastorie</a></li>
+      <li><a href="pianificare-un-romanzo.html">Pianificare un Romanzo</a></li>
+      <li><a href="pianificazione-della-trama.html">Pianificazione della Trama</a></li>
+      <li><a href="consolidare-la-grande-idea.html">Consolidare la Grande Idea</a></li>
+      <li><a href="tecniche-di-pianificazione-il-viaggio-delleroe.html">Tecniche di Pianificazione: Il Viaggio dell&#x27;Eroe</a></li>
+      <li><a href="tecniche-di-pianificazione-i-battiti-della-storia.html">Tecniche di Pianificazione: I Battiti della Storia</a></li>
+      <li><a href="la-nemesi-dello-scrittore-la-parte-centrale.html">La nemesi dello scrittore: la parte centrale</a></li>
+      <li><a href="scalettare-al-contrario-reverse-outlining.html">Scalettare al Contrario - Reverse Outlining</a></li>
+    </ul>
+  </div>
+  <div class="cat-block">
+    <h2 class="cat-title">Worldbuilding</h2>
+    <ul class="cat-list">
+      <li><a href="i-quattro-sistemi-di-magia-hard-soft-razionale-e-irrazionale.html">I quattro Sistemi di Magia - HARD, SOFT, RAZIONALE e IRRAZIONALE</a></li>
+      <li><a href="sistemi-di-magia-hard-magic-e-soft-magic.html">Sistemi di Magia - HARD MAGIC e SOFT MAGIC</a></li>
+    </ul>
+  </div>
+  <div class="cat-block">
+    <h2 class="cat-title">Revisione</h2>
+    <ul class="cat-list">
+      <li><a href="la-prima-bozza.html">La Prima Bozza</a></li>
+      <li><a href="15-consigli-per-non-farsi-sconfiggere-dalla-prima-bozza.html">15 consigli per non farsi sconfiggere dalla prima bozza</a></li>
+      <li><a href="beta-reader-consigli-pratici-per-il-beta-lettore-perfetto.html">Beta Reader - Consigli pratici per il Beta Lettore perfetto</a></li>
+      <li><a href="beta-reader-consigli-tecnici-per-il-beta-reader-perfetto.html">Beta Reader - Consigli tecnici per il Beta Lettore perfetto</a></li>
+      <li><a href="incipit-ilprimocapitolo.html">Incipit - Il Primo Capitolo</a></li>
+      <li><a href="tono-atmosfera-stile.html">Tono, Atmosfera, Stile</a></li>
+    </ul>
+  </div>
+  <div class="cat-block">
+    <h2 class="cat-title">Pubblicazione</h2>
+    <ul class="cat-list">
+      <li><a href="quanto-e-probabile-che-mi-rubino-lidea.html">Quanto è probabile che mi rubino l&#x27;idea?</a></li>
+      <li><a href="proteggere-il-proprio-lavoro.html">Proteggere il Proprio Lavoro</a></li>
+    </ul>
+  </div>
+  <div class="cat-block">
+    <h2 class="cat-title">Miscellanea</h2>
+    <ul class="cat-list">
+      <li><a href="tastiera-personalizzata-con-caporali-windows-10.html">Tastiera Personalizzata con Caporali - Windows 10</a></li>
+      <li><a href="tastiera-personalizzata-con-caporali-macos.html">Tastiera Personalizzata con Caporali - MacOS</a></li>
+      <li><a href="scrivere-un-libro-in-una-settimana-ce-la-posso-fare.html">Scrivere un libro in una settimana. Ce la posso fare?</a></li>
+      <li><a href="come-ho-scritto-un-romanzo-in-otto-giorni.html">Come ho scritto un romanzo in otto giorni</a></li>
+      <li><a href="il-blocco-dello-scrittore.html">Il Blocco dello Scrittore</a></li>
+      <li><a href="domande-da-non-fare-a-uno-scrittore.html">Domande da non fare a uno scrittore</a></li>
+      <li><a href="sessismo-che-non-vediamo-larticolo-determinativo-davanti-al-cognome-femminile.html">Sessismo che non vediamo: l&#x27;articolo determinativo davanti al cognome femminile</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="recent" id="recent">
+  <h2 class="section-eyebrow">Articoli recenti</h2>
+  <div class="recent-grid">
+  <article class="post-card">
+    <p class="post-card-meta">15 marzo 2022 · Struttura Narrativa</p>
+    <h3 class="post-card-title"><a href="scalettare-al-contrario-reverse-outlining.html">Scalettare al Contrario - Reverse Outlining</a></h3>
+    <p class="post-card-excerpt">Dove sono i miei esploramondi giardinieri ? Quelli che &#x27;ops, mi sono dimenticato di scalettare e nel frattempo ho scritto un libro&#x27;? Quelli che proprio non ne vogliono sapere della pianificazione. Siete delle persone…</p>
+    <a class="post-card-link" href="scalettare-al-contrario-reverse-outlining.html">Continua a leggere →</a>
+  </article>
+  <article class="post-card">
+    <p class="post-card-meta">8 marzo 2022 · Miscellanea</p>
+    <h3 class="post-card-title"><a href="sessismo-che-non-vediamo-larticolo-determinativo-davanti-al-cognome-femminile.html">Sessismo che non vediamo: l&#x27;articolo determinativo davanti al cognome femminile</a></h3>
+    <p class="post-card-excerpt">Preferisci i libri di Sanderson o i libri della Rowling? Perché non chiamiamo gli autori “IL King”, “IL Gaiman”, “IL Calvino”, ma le autrici sono sempre “LA Allende”, “LA Rowling”, “LA Troisi?” Fino a pochi decenni fa…</p>
+    <a class="post-card-link" href="sessismo-che-non-vediamo-larticolo-determinativo-davanti-al-cognome-femminile.html">Continua a leggere →</a>
+  </article>
+  <article class="post-card">
+    <p class="post-card-meta">15 febbraio 2022 · Worldbuilding</p>
+    <h3 class="post-card-title"><a href="sistemi-di-magia-hard-magic-e-soft-magic.html">Sistemi di Magia - HARD MAGIC e SOFT MAGIC</a></h3>
+    <p class="post-card-excerpt">Probabilmente avrete già sentito parlare di sistemi di magia hard e sistemi di magia soft . È una terminologia che fino a pochi anni fa non esisteva.…</p>
+    <a class="post-card-link" href="sistemi-di-magia-hard-magic-e-soft-magic.html">Continua a leggere →</a>
+  </article>
+  <article class="post-card">
+    <p class="post-card-meta">24 gennaio 2022 · Worldbuilding</p>
+    <h3 class="post-card-title"><a href="i-quattro-sistemi-di-magia-hard-soft-razionale-e-irrazionale.html">I quattro Sistemi di Magia - HARD, SOFT, RAZIONALE e IRRAZIONALE</a></h3>
+    <p class="post-card-excerpt">Per noi scrittori di fantasy e fantascienza, il sistema di magia è uno degli elementi portanti del nostro worldbuilding. Dà spessore al mondo che abbiamo creato, genera conflitti nella trama e aiuta a sviluppare gli…</p>
+    <a class="post-card-link" href="i-quattro-sistemi-di-magia-hard-soft-razionale-e-irrazionale.html">Continua a leggere →</a>
+  </article>
+  </div>
+</section>
+
+</main>
+<footer class="volcanic">
+  <p class="foot-left">© 2026 Titania Blesh</p>
+  <ul class="foot-links">
+    <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
+    <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
+    <li><a href="#top">Top ↑</a></li>
+  </ul>
+</footer>
+<script>
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  if (burger && navlinks) {
+    burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+  }
+</script>
+</body></html>
