@@ -1,0 +1,32 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches: [main, master]
+    paths-ignore:
+      # Avoid infinite loop: don't re-run when only sitemap.xml was updated
+      - 'sitemap.xml'
+  workflow_dispatch:
+
+jobs:
+  generate-sitemap:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history so git log gives accurate lastmod dates
+
+      - name: Generate sitemap.xml
+        run: python3 scripts/generate_sitemap.py
+
+      - name: Commit and push if sitemap changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git diff --staged --quiet || git commit -m "chore: regenerate sitemap"
+          git push
