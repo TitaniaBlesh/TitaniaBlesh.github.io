@@ -491,6 +491,10 @@ section { position: relative; }
 
 .trilogy-head { text-align: center; margin-bottom: 3rem; }
 .trilogy-head .sec-deck { margin: 0 auto; }
+.trilogy-sub {
+  font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); font-weight: 700; margin: 0.1rem 0 0.6rem;
+}
 
 .trilogy-grid {
   display: grid;
@@ -1184,7 +1188,7 @@ section { position: relative; }
     radial-gradient(ellipse 55% 80% at 50% 50%, rgba(245,237,224,1) 0%, rgba(245,237,224,1) 60%, rgba(245,237,224,0) 100%);
   z-index: 1;
 }
-.proj-head .sec-deck { margin: 0; max-width: 32ch; text-align: right; }
+.proj-head .sec-deck { margin: 0; max-width: 32ch; text-align: left; }
 
 .proj-grid {
   list-style: none; padding: 0; margin: 0;
@@ -1950,7 +1954,7 @@ footer::before {
   <div class="lapillus rock" style="left: 85%; --drift:  30px; --spin: -360deg; animation-duration: 15s;   animation-delay: 5.8s;"></div>
 
   <div class="hero-inner">
-    <p class="hero-kicker">Sci-Fi &amp; Fantasy · Author</p>
+    <p class="hero-kicker">Sci-Fi &amp; Fantasy Author</p>
     <h1 class="hero-name"><span class="first">Titania</span><span class="last">Blesh</span></h1>
     <div class="hero-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
     <div class="hero-meta">
@@ -2047,6 +2051,7 @@ footer::before {
   <div class="trilogy-head">
     <p class="sec-eyebrow">Books</p>
     <h2 class="sec-title"><span class="accent">Piratesse</span> del Mediterraneo</h2>
+    <p class="trilogy-sub">Complete Trilogy</p>
     <div class="ornament"><span class="line"></span><span class="glyph">✦  ✦  ✦</span><span class="line"></span></div>
     <p class="sec-deck">Seventeenth-century Sardinia, an all-female pirate crew, and cursed conquistador gold. A historical fantasy trilogy with captain rivalries, witch hunts, and a wicked sense of humor.<br>Traditionally published in Italy and France, also on audiobook.</p>
   </div>
@@ -2214,7 +2219,7 @@ footer::before {
   <div class="alsoby-text">
     <p class="sec-eyebrow">Also by Titania Blesh</p>
     <h2 class="sec-title"><span class="accent">Echoes of Sand</span><br>and Shattered Claws</h2>
-    <blockquote class="alsoby-quote">All she wants is to avoid the war. Becoming a <em>cerebrale</em> is her dream.<br>He has one goal: to be the best.<br>And the new cerebrale aspirant is his nightmare.</blockquote>
+    <blockquote class="alsoby-quote">All <strong>she</strong> wants is to avoid the war. Becoming a <strong><em>Cerebral</em></strong> is her dream.<br><strong>He</strong> has only one goal: to be the best.<br>And the new wannabe Cerebral is his nightmare.</blockquote>
     <p class="alsoby-tag">Neuroscience Romantasy · Spice Level <span class="proj-card-spice" aria-label="Spice rating: 2 out of 5">🌶️🌶️<span class="proj-card-spice-fade">🌶️🌶️🌶️</span></span> · Italian only</p>
     <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
       <a href="https://www.amazon.it/Sabbia-Chele-Spezzate-Titania-Blesh-ebook/dp/B0DPTHHLT9" class="btn btn-accent" target="_blank">Buy on Amazon</a>
@@ -2436,8 +2441,8 @@ footer::before {
   <div class="proj-head">
     <div>
       <h2 class="sec-title">My <span class="accent">Projects</span></h2>
+      <p class="sec-deck">Everything written, everything published, and everything still waiting for the right home.</p>
     </div>
-    <p class="sec-deck">Everything written, everything published, and everything still waiting for the right home.</p>
     <a href="/rights/" class="btn btn-outline">Foreign Rights &amp; Submissions</a>
   </div>
   <ul class="proj-grid">
