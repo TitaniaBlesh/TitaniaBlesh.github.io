@@ -4,11 +4,24 @@
 <meta charset="UTF-8"><!-- v2 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Titania Blesh · Autrice di Fantascienza e Fantasy</title>
-<meta name="description" content="Sito ufficiale di Titania Blesh, autrice italiana di fantascienza e fantasy. Trilogia Piratesse del Mediterraneo — pubblicata in Italia e in Francia. Vincitrice del Trofeo Cassiopea 2022.">
+<meta name="description" content="Titania Blesh, autrice italiana di fantascienza e fantasy. Piratesse del Mediterraneo — pubblicata in Italia e Francia. Vincitrice del Trofeo Cassiopea 2022.">
 <link rel="canonical" href="https://titaniablesh.com/it/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://titaniablesh.com/it/">
+<meta property="og:title" content="Titania Blesh · Autrice di Fantascienza e Fantasy">
+<meta property="og:description" content="Sito ufficiale di Titania Blesh, autrice italiana di fantascienza e fantasy. Trilogia Piratesse del Mediterraneo. Vincitrice del Trofeo Cassiopea 2022.">
+<meta property="og:image" content="https://titaniablesh.com/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Copertine della trilogia Piratesse del Mediterraneo — Titania Blesh">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://titaniablesh.com/assets/images/og-image.jpg">
 <link rel="alternate" hreflang="en" href="https://titaniablesh.com/">
 <link rel="alternate" hreflang="it" href="https://titaniablesh.com/it/">
 <link rel="alternate" hreflang="x-default" href="https://titaniablesh.com/">
+<meta name="author" content="Titania Blesh">
 <link rel="icon" type="image/png" href="../assets/images/favicon.png">
 <link rel="apple-touch-icon" href="../assets/images/favicon.png">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
@@ -89,7 +102,7 @@ a { color: inherit; }
 nav.masthead {
   position: sticky; top: 0; z-index: 100;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 1.5rem;
   padding: 1.4rem 3rem 1.2rem;
@@ -110,18 +123,17 @@ nav.masthead {
   background-repeat: no-repeat;
   border-bottom: none;
 }
-.brand-col { grid-column: 1; display: flex; flex-direction: column; gap: 0.15rem; }
+.brand-col { grid-column: 1; display: grid; grid-template-columns: 44px auto; column-gap: 0.7rem; align-items: center; }
 .brand-sub {
   font-family: var(--body); font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--txt-mid); text-decoration: none;
-  padding-left: calc(44px + 0.7rem);
   border-bottom: 1.5px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
 .brand-sub:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .nav-cta {
-  grid-column: 3;
+  grid-column: 4;
   font-family: var(--body); font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
   text-decoration: none;
@@ -151,16 +163,18 @@ nav.masthead::after {
     rgba(240,230,212,0)   100%);
 }
 .brand {
-  display: flex; align-items: center; gap: 0.7rem;
+  /* logo anchor: spans both text rows so the volcano centers between them */
+  grid-row: 1 / 3;
+  display: flex; align-items: center; justify-content: center;
   text-decoration: none;
 }
+.brand-name { display: flex; align-items: center; text-decoration: none; }
 .brand-logo {
   position: relative;
   display: inline-flex;
   align-items: center; justify-content: center;
   width: 44px; height: 44px;
   flex-shrink: 0;
-  /* logo's base aligns with the text bottom via flex-end on .brand */
 }
 .brand-logo::before {
   content: '';
@@ -185,9 +199,6 @@ nav.masthead::after {
 .brand-logo img {
   position: relative; z-index: 1;
   height: 32px; width: auto; display: block;
-  /* shift just the volcano GIF up so its base aligns with the bottom of the title text;
-     the halo (::before) stays put */
-  transform: translateY(-6px);
 }
 .brand-text {
   font-family: 'Lato', var(--body), system-ui, sans-serif;
@@ -211,6 +222,22 @@ nav.masthead::after {
 .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .nav-burger span { display: block; width: 22px; height: 2px; background: var(--txt); border-radius: 2px; transition: all 0.3s; }
+
+/* ─── LANG SWITCH ─────────────────────────────────── */
+.lang-switch {
+  grid-column: 3;
+  display: flex; align-items: center; gap: 0.3rem;
+  font-family: var(--body); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.lang-switch a, .lang-switch .lang-active, .lang-switch .lang-sep {
+  color: var(--txt-mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.lang-switch a:hover { color: var(--accent); }
+.lang-switch .lang-active { color: var(--txt-lt); pointer-events: none; opacity: 0.5; }
+.lang-switch .lang-sep { opacity: 0.35; }
 
 /* ─── HERO (VOLCANIC) ─────────────────────────────── */
 .hero {
@@ -1433,9 +1460,10 @@ footer::before {
 
 /* ─── RESPONSIVE ─────────────────────────────────── */
 @media (max-width: 960px) {
-  nav.masthead { padding: 1rem 1.2rem; grid-template-columns: 1fr auto; }
+  nav.masthead { padding: 1rem 1.2rem; grid-template-columns: 1fr auto auto; }
   nav.masthead::after { left: 1.2rem; right: 1.2rem; }
   .nav-cta { display: none; }
+  .lang-switch { grid-column: 2; }
   .nav-links {
     display: none; flex-direction: column;
     position: absolute; top: 100%; left: 0; right: 0;
@@ -1445,7 +1473,7 @@ footer::before {
     justify-content: flex-start;
   }
   .nav-links.open { display: flex; }
-  .nav-burger { display: flex; grid-column: 2; }
+  .nav-burger { display: flex; grid-column: 3; }
   .brand-text { font-size: 0.95rem; letter-spacing: 0; }
   .brand-logo { width: 38px; height: 38px; }
   .brand-logo img { height: 28px; }
@@ -1647,25 +1675,33 @@ footer::before {
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": "https://titaniablesh.com/it/#website",
   "name": "Titania Blesh",
-  "url": "https://titaniablesh.github.io/it/",
+  "url": "https://titaniablesh.com/it/",
   "description": "Sito ufficiale di Titania Blesh, autrice italiana di fantascienza e fantasy, pubblicata in Italia, Francia e Canada.",
   "inLanguage": "it",
-  "author": {
-    "@type": "Person",
-    "name": "Titania Blesh",
-    "url": "https://titaniablesh.github.io"
-  }
+  "author": { "@id": "https://titaniablesh.com/#titania-blesh" }
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://titaniablesh.com/#titania-blesh",
   "name": "Titania Blesh",
-  "url": "https://titaniablesh.github.io",
+  "url": "https://titaniablesh.com",
   "description": "Titania Blesh è un'autrice italiana di fantascienza e fantasy, pubblicata in Italia, Francia e Canada. È l'autrice della trilogia fantasy storica adulta Piratesse del Mediterraneo (Acheron Books, 2020–2023), tradotta in francese da Hikaya. Il suo romanzo YA fantasy Echi di Sabbia e Chele Spezzate ha vinto il Trofeo Cassiopea 2022, il principale premio italiano di fantascienza adulta. Ha nove romanzi completati tra adulti e YA, nei generi fantasy, fantasy storico e fantascienza.",
   "jobTitle": "Autrice di fantascienza e fantasy",
+  "nationality": { "@type": "Country", "name": "Italy" },
+  "knowsLanguage": [
+    { "@type": "Language", "name": "Italian" },
+    { "@type": "Language", "name": "English" },
+    { "@type": "Language", "name": "French" }
+  ],
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://titaniablesh.com/assets/images/photo-titania.jpg"
+  },
   "award": [
     "Trofeo Cassiopea 2022, vincitrice — Echi di Sabbia e Chele Spezzate",
     "Trofeo Cittadella 2021, finalista — A Colpi di Cannonau (Piratesse del Mediterraneo, Libro I)"
@@ -1686,7 +1722,9 @@ footer::before {
     "https://www.instagram.com/titaniablesh/",
     "https://www.tiktok.com/@titaniablesh",
     "https://www.amazon.it/kindle-dbs/entity/author/B00KFODOV8",
-    "https://www.goodreads.com/author/show/12382446.Titania_Blesh"
+    "https://www.goodreads.com/author/show/12382446.Titania_Blesh",
+    "https://www.audible.com/author/Titania-Blesh/B00KFODOV8",
+    "https://www.facebook.com/TitaniaBleshAuthor/"
   ],
   "author": [
     {
@@ -1695,7 +1733,7 @@ footer::before {
       "numberOfBooks": 3,
       "genre": ["Adult historical fantasy", "Pirate fantasy", "Mediterranean fantasy"],
       "description": "A completed adult historical-fantasy trilogy set in 17th-century Spanish-occupied Sardinia. An all-female pirate crew, a Sardinian fisherwoman who dreams of becoming the most feared pirate captain in the Mediterranean, and the Grand Inquisitor of the Crown of Spain on their trail.",
-      "author": { "@type": "Person", "name": "Titania Blesh" },
+      "author": { "@id": "https://titaniablesh.com/#titania-blesh" },
       "hasPart": [
         {
           "@type": "Book",
@@ -1758,10 +1796,123 @@ footer::before {
       "inLanguage": "it",
       "datePublished": "2021",
       "award": "Trofeo Cassiopea 2022, winner",
-      "author": { "@type": "Person", "name": "Titania Blesh" },
+      "author": { "@id": "https://titaniablesh.com/#titania-blesh" },
       "description": "YA neuroscience romantasy by Titania Blesh. Winner of Italy's Trofeo Cassiopea 2022. A young woman's dream of becoming a cerebrale — someone trained to mind-link with and control the giant Red Crab the city is built upon — set against a rival who sees her as his greatest threat."
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BookSeries",
+  "@id": "https://titaniablesh.com/#she-pirates-series",
+  "name": "Piratesse del Mediterraneo",
+  "alternateName": "She-Pirates of the Mediterranean",
+  "numberOfBooks": 3,
+  "genre": ["Adult historical fantasy", "Pirate fantasy", "Mediterranean fantasy"],
+  "inLanguage": "it",
+  "description": "A completed adult historical-fantasy trilogy set in 17th-century Spanish-occupied Sardinia. An all-female pirate crew, a Sardinian fisherwoman who dreams of becoming the most feared pirate captain in the Mediterranean, and the Grand Inquisitor of the Crown of Spain on their trail.",
+  "author": { "@id": "https://titaniablesh.com/#titania-blesh" },
+  "publisher": { "@type": "Organization", "name": "Acheron Books" },
+  "hasPart": [
+    {
+      "@type": "Book",
+      "name": "A Colpi di Cannonau",
+      "position": 1,
+      "url": "https://www.amazon.it/dp/B0FRXS566B",
+      "sameAs": ["https://www.goodreads.com/book/show/53336604-a-colpi-di-cannonau"],
+      "inLanguage": "it",
+      "datePublished": "2020",
+      "numberOfPages": 332,
+      "author": { "@id": "https://titaniablesh.com/#titania-blesh" },
+      "publisher": { "@type": "Organization", "name": "Acheron Books" }
+    },
+    {
+      "@type": "Book",
+      "name": "Un Bagno di Sangria",
+      "position": 2,
+      "url": "https://www.amazon.it/dp/B0FS7KWPLT",
+      "sameAs": ["https://www.goodreads.com/book/show/61393255-un-bagno-di-sangria"],
+      "inLanguage": "it",
+      "datePublished": "2022",
+      "numberOfPages": 330,
+      "author": { "@id": "https://titaniablesh.com/#titania-blesh" },
+      "publisher": { "@type": "Organization", "name": "Acheron Books" }
+    },
+    {
+      "@type": "Book",
+      "name": "O Mirto o Morte!",
+      "position": 3,
+      "url": "https://www.amazon.it/dp/B0FS7J3QHL",
+      "sameAs": ["https://www.goodreads.com/book/show/201645734-o-mirto-o-morte"],
+      "inLanguage": "it",
+      "datePublished": "2023",
+      "numberOfPages": 364,
+      "author": { "@id": "https://titaniablesh.com/#titania-blesh" },
+      "publisher": { "@type": "Organization", "name": "Acheron Books" }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Les Imaginales 2026",
+  "description": "Titania Blesh al festival letterario di fantascienza e fantasy Les Imaginales, a Épinal.",
+  "startDate": "2026-05-28",
+  "endDate": "2026-05-31",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Les Imaginales",
+    "address": { "@type": "PostalAddress", "addressLocality": "Épinal", "addressCountry": "FR" }
+  },
+  "url": "https://www.imaginales.fr/",
+  "organizer": { "@type": "Organization", "name": "Les Imaginales", "url": "https://www.imaginales.fr/" },
+  "performer": { "@id": "https://titaniablesh.com/#titania-blesh" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Les Intergalactiques 2026",
+  "description": "Titania Blesh al festival di fantascienza e fantasy Les Intergalactiques di Lione.",
+  "startDate": "2026-06-05",
+  "endDate": "2026-06-07",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Les Intergalactiques",
+    "address": { "@type": "PostalAddress", "addressLocality": "Lyon", "addressCountry": "FR" }
+  },
+  "url": "https://intergalactiques.net/",
+  "organizer": { "@type": "Organization", "name": "Les Intergalactiques", "url": "https://intergalactiques.net/" },
+  "performer": { "@id": "https://titaniablesh.com/#titania-blesh" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Étrange Grande 2026",
+  "description": "Titania Blesh all'Étrange Grande, il festival del fantastico di Montpellier.",
+  "startDate": "2026-09-19",
+  "endDate": "2026-09-20",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Étrange Grande",
+    "address": { "@type": "PostalAddress", "addressLocality": "Montpellier", "addressCountry": "FR" }
+  },
+  "url": "https://www.etrange-grande.fr/",
+  "organizer": { "@type": "Organization", "name": "Étrange Grande", "url": "https://www.etrange-grande.fr/" },
+  "performer": { "@id": "https://titaniablesh.com/#titania-blesh" }
 }
 </script>
 </head>
@@ -1781,10 +1932,12 @@ footer::before {
 <!-- MASTHEAD / NAV (volcanic) -->
 <nav class="masthead volcanic">
   <div class="brand-col">
-    <a class="brand" href="#">
+    <a class="brand" href="../" aria-label="Titania Blesh">
       <span class="brand-logo">
         <img src="../assets/images/logo-animation.gif" alt="Volcano logo">
       </span>
+    </a>
+    <a class="brand-name" href="../">
       <span class="brand-text">Titania Blesh</span>
     </a>
     <a class="brand-sub" href="../volcanoes/">I Miei Vulcani</a>
@@ -1798,6 +1951,11 @@ footer::before {
     <li><a href="#projects">Progetti</a></li>
     <li><a href="../rights/">Diritti</a></li>
   </ul>
+  <div class="lang-switch" aria-label="Lingua">
+    <a href="/" hreflang="en">EN</a>
+    <span class="lang-sep">/</span>
+    <span class="lang-active">IT</span>
+  </div>
   <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Acquista i Libri</a>
   <button class="nav-burger" id="burger" aria-label="Apri menu">
     <span></span><span></span><span></span>
