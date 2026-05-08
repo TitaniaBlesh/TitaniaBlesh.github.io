@@ -34,7 +34,7 @@ jobs:
       - name: Ping IndexNow
         run: |
           python3 - <<'EOF'
-          import urllib.request, json, xml.etree.ElementTree as ET
+          import urllib.request, urllib.error, json, xml.etree.ElementTree as ET
 
           key = "dd9b1b64597136b92bb41eb9e0d54e9c"
           host = "titaniablesh.com"
@@ -56,6 +56,11 @@ jobs:
             headers={"Content-Type": "application/json; charset=utf-8"},
             method="POST"
           )
-          with urllib.request.urlopen(req) as r:
-            print(f"IndexNow: {r.status} {r.reason} — {len(urls)} URLs submitted")
+          try:
+            with urllib.request.urlopen(req) as r:
+              print(f"IndexNow: {r.status} {r.reason} — {len(urls)} URLs submitted")
+          except urllib.error.HTTPError as e:
+            print(f"IndexNow warning: {e.code} {e.reason} (non-fatal)")
+          except Exception as e:
+            print(f"IndexNow warning: {e} (non-fatal)")
           EOF
