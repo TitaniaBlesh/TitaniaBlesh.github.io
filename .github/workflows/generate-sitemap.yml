@@ -30,3 +30,32 @@ jobs:
           git add sitemap.xml
           git diff --staged --quiet || git commit -m "chore: regenerate sitemap"
           git push
+
+      - name: Ping IndexNow
+        run: |
+          python3 - <<'EOF'
+          import urllib.request, json, xml.etree.ElementTree as ET
+
+          key = "dd9b1b64597136b92bb41eb9e0d54e9c"
+          host = "titaniablesh.com"
+
+          tree = ET.parse("sitemap.xml")
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          urls = [loc.text for loc in tree.findall(".//sm:loc", ns)]
+
+          payload = json.dumps({
+            "host": host,
+            "key": key,
+            "keyLocation": f"https://{host}/{key}.txt",
+            "urlList": urls
+          }).encode()
+
+          req = urllib.request.Request(
+            "https://api.indexnow.org/indexnow",
+            data=payload,
+            headers={"Content-Type": "application/json; charset=utf-8"},
+            method="POST"
+          )
+          with urllib.request.urlopen(req) as r:
+            print(f"IndexNow: {r.status} {r.reason} — {len(urls)} URLs submitted")
+          EOF
