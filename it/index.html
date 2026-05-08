@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Titania Blesh · Sci-Fi & Fantasy Author</title>
-<meta name="description" content="Official website of Titania Blesh, Italian science-fiction and fantasy author. Piratesse del Mediterraneo trilogy — published in Italy and France, English rights available. Trofeo Cassiopea 2022 winner.">
-<link rel="alternate" hreflang="en" href="https://titaniablesh.com/">
-<link rel="alternate" hreflang="it" href="https://titaniablesh.com/it/">
-<link rel="alternate" hreflang="x-default" href="https://titaniablesh.com/">
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<link rel="apple-touch-icon" href="assets/images/favicon.png">
-<link rel="stylesheet" href="assets/fonts/fonts.css">
+<title>Titania Blesh · Autrice di Fantascienza e Fantasy</title>
+<meta name="description" content="Sito ufficiale di Titania Blesh, autrice italiana di fantascienza e fantasy. Trilogia Piratesse del Mediterraneo — pubblicata in Italia e in Francia. Vincitrice del Trofeo Cassiopea 2022.">
+<link rel="alternate" hreflang="en" href="https://titaniablesh.github.io/">
+<link rel="alternate" hreflang="it" href="https://titaniablesh.github.io/it/">
+<link rel="alternate" hreflang="x-default" href="https://titaniablesh.github.io/">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap">
@@ -1637,19 +1637,19 @@ footer::before {
   .nl-modal-card { transition: none; transform: none; }
 }
 </style>
-<meta name="keywords" content="Titania Blesh, Italian fantasy author, Italian historical fantasy, Piratesse del Mediterraneo, Mediterranean pirate fantasy, Italian SFF, Italian fantasy in English, Sardinian fantasy, Italian science fiction, adult fantasy Italy, YA fantasy Italy, Echoes of Sand and Shattered Claws">
+<meta name="keywords" content="Titania Blesh, autrice fantasy italiana, fantasy storico italiano, Piratesse del Mediterraneo, A Colpi di Cannonau, piratesse fantasy, fantasy Sardegna, fantascienza italiana, fantasy adulto Italia, YA fantasy Italia, Echi di Sabbia e Chele Spezzate, Trofeo Cassiopea, Trofeo Cittadella">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Titania Blesh",
-  "url": "https://titaniablesh.com",
-  "description": "Official website of Titania Blesh, Italian science-fiction and fantasy author, traditionally published in Italy, France, and Canada.",
-  "inLanguage": "en",
+  "url": "https://titaniablesh.github.io/it/",
+  "description": "Sito ufficiale di Titania Blesh, autrice italiana di fantascienza e fantasy, pubblicata in Italia, Francia e Canada.",
+  "inLanguage": "it",
   "author": {
     "@type": "Person",
     "name": "Titania Blesh",
-    "url": "https://titaniablesh.com"
+    "url": "https://titaniablesh.github.io"
   }
 }
 </script>
@@ -1658,24 +1658,24 @@ footer::before {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Titania Blesh",
-  "url": "https://titaniablesh.com",
-  "description": "Titania Blesh is an Italian science-fiction and fantasy author, traditionally published in Italy, France, and Canada. She is the author of the completed adult historical-fantasy trilogy Piratesse del Mediterraneo (Acheron Books, 2020–2023), translated into French by Hikaya. Her standalone YA fantasy Echoes of Sand and Shattered Claws won the Trofeo Cassiopea 2022, Italy's adult science-fiction award. She has nine completed novels across adult and YA in fantasy, historical fantasy, and science fiction.",
-  "jobTitle": "Science fiction and fantasy author",
+  "url": "https://titaniablesh.github.io",
+  "description": "Titania Blesh è un'autrice italiana di fantascienza e fantasy, pubblicata in Italia, Francia e Canada. È l'autrice della trilogia fantasy storica adulta Piratesse del Mediterraneo (Acheron Books, 2020–2023), tradotta in francese da Hikaya. Il suo romanzo YA fantasy Echi di Sabbia e Chele Spezzate ha vinto il Trofeo Cassiopea 2022, il principale premio italiano di fantascienza adulta. Ha nove romanzi completati tra adulti e YA, nei generi fantasy, fantasy storico e fantascienza.",
+  "jobTitle": "Autrice di fantascienza e fantasy",
   "award": [
-    "Trofeo Cassiopea 2022, winner — Echoes of Sand and Shattered Claws",
-    "Trofeo Cittadella 2021, finalist — A Colpi di Cannonau (Piratesse del Mediterraneo, Book I)"
+    "Trofeo Cassiopea 2022, vincitrice — Echi di Sabbia e Chele Spezzate",
+    "Trofeo Cittadella 2021, finalista — A Colpi di Cannonau (Piratesse del Mediterraneo, Libro I)"
   ],
   "knowsAbout": [
-    "Historical fantasy",
-    "Mediterranean fantasy",
-    "Pirate fantasy",
-    "Science fiction",
+    "Fantasy storico",
+    "Fantasy mediterraneo",
+    "Fantasy piratesco",
+    "Fantascienza",
     "YA fantasy",
     "Romantasy",
-    "Italian SFF",
-    "Sardinian folklore",
+    "Narrativa di genere italiana",
+    "Folklore sardo",
     "Worldbuilding",
-    "Creative writing"
+    "Scrittura creativa"
   ],
   "sameAs": [
     "https://www.instagram.com/titaniablesh/",
@@ -1763,13 +1763,13 @@ footer::before {
 <body>
 
 <script>
-  // Geo-redirect: Italian browser → Italian page. One redirect per session.
+  // Geo-redirect: non-Italian browser → English page. One redirect per session.
   (function () {
     if (sessionStorage.getItem('langHandled')) return;
     sessionStorage.setItem('langHandled', '1');
     var langs = navigator.languages ? Array.from(navigator.languages) : [navigator.language || ''];
     var isItalian = langs.some(function (l) { return l.toLowerCase().startsWith('it'); });
-    if (isItalian) window.location.replace('./it/');
+    if (!isItalian) window.location.replace('../');
   })();
 </script>
 
@@ -1778,23 +1778,23 @@ footer::before {
   <div class="brand-col">
     <a class="brand" href="#">
       <span class="brand-logo">
-        <img src="assets/images/logo-animation.gif" alt="Volcano logo">
+        <img src="../assets/images/logo-animation.gif" alt="Volcano logo">
       </span>
       <span class="brand-text">Titania Blesh</span>
     </a>
-    <a class="brand-sub" href="volcanoes.html">Volcanoes</a>
+    <a class="brand-sub" href="../volcanoes.html">Vulcani</a>
   </div>
   <ul class="nav-links" id="navlinks">
-    <li><a href="#bestsellers">Books</a></li>
-    <li><a href="#about">The author</a></li>
+    <li><a href="#bestsellers">Libri</a></li>
+    <li><a href="#about">L'autrice</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#quotes">Reviews</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="rights.html">Rights</a></li>
+    <li><a href="#events">Eventi</a></li>
+    <li><a href="#quotes">Recensioni</a></li>
+    <li><a href="#projects">Progetti</a></li>
+    <li><a href="../rights.html">Diritti</a></li>
   </ul>
-  <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Buy the Books</a>
-  <button class="nav-burger" id="burger" aria-label="Toggle menu">
+  <a class="nav-cta" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank" rel="noopener">Acquista i Libri</a>
+  <button class="nav-burger" id="burger" aria-label="Apri menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -1950,17 +1950,17 @@ footer::before {
   <div class="lapillus rock" style="left: 85%; --drift:  30px; --spin: -360deg; animation-duration: 15s;   animation-delay: 5.8s;"></div>
 
   <div class="hero-inner">
-    <p class="hero-kicker">Sci-Fi &amp; Fantasy · Author</p>
+    <p class="hero-kicker">Fantascienza &amp; Fantasy · Autrice</p>
     <h1 class="hero-name"><span class="first">Titania</span><span class="last">Blesh</span></h1>
     <div class="hero-rule"><span class="line"></span><span class="star">✦</span><span class="line"></span></div>
     <div class="hero-meta">
-      <span>9 novels</span>
-      <span>Italian · French · English</span>
-      <span>Cittadella 2021 finalist · Cassiopea 2022 winner</span>
+      <span>9 romanzi</span>
+      <span>Italiano · Francese · Inglese</span>
+      <span>Finalista Cittadella 2021 · Vincitrice Cassiopea 2022</span>
     </div>
     <div class="hero-ctas">
-      <a href="#bestsellers" class="btn btn-fill">Browse the books</a>
-      <a href="#about" class="btn btn-outline">Meet Titania</a>
+      <a href="#bestsellers" class="btn btn-fill">Scopri i libri</a>
+      <a href="#about" class="btn btn-outline">Chi è Titania</a>
     </div>
   </div>
 </section>
@@ -2045,93 +2045,93 @@ footer::before {
   </svg>
 
   <div class="trilogy-head">
-    <p class="sec-eyebrow">Books</p>
+    <p class="sec-eyebrow">Libri</p>
     <h2 class="sec-title"><span class="accent">Piratesse</span> del Mediterraneo</h2>
     <div class="ornament"><span class="line"></span><span class="glyph">✦  ✦  ✦</span><span class="line"></span></div>
-    <p class="sec-deck">Seventeenth-century Sardinia, an all-female pirate crew, and cursed conquistador gold. A historical fantasy trilogy with captain rivalries, witch hunts, and a wicked sense of humor.<br>Traditionally published in Italy and France, also on audiobook.</p>
+    <p class="sec-deck">La Sardegna del Seicento, un equipaggio tutto al femminile e l'oro maledetto dei conquistadores. Una trilogia di fantasy storico con rivalità tra capitani, cacce alle streghe e un umorismo irresistibile.<br>Pubblicata in Italia e in Francia, disponibile anche in audiolibro.</p>
   </div>
 
   <div class="trilogy-grid">
     <article class="book">
       <a class="book-cover" href="http://www.amazon.it/dp/B0FRXS566B" target="_blank">
-        <img src="assets/images/book-a_colpi_di_cannonau.png" alt="A Colpi di Cannonau">
+        <img src="../assets/images/book-a_colpi_di_cannonau.png" alt="A Colpi di Cannonau">
       </a>
       <p class="book-title">A Colpi di Cannonau</p>
-      <p class="book-sub">Historical Fantasy · Book I</p>
-      <a href="http://www.amazon.it/dp/B0FRXS566B" class="btn btn-accent" target="_blank">Buy on Amazon</a>
+      <p class="book-sub">Fantasy Storico · Libro I</p>
+      <a href="http://www.amazon.it/dp/B0FRXS566B" class="btn btn-accent" target="_blank">Acquista su Amazon</a>
     </article>
     <article class="book">
       <a class="book-cover" href="http://www.amazon.it/dp/B0FS7KWPLT" target="_blank">
-        <img src="assets/images/book-un_bagno_di_sangria.png" alt="Un Bagno di Sangria">
+        <img src="../assets/images/book-un_bagno_di_sangria.png" alt="Un Bagno di Sangria">
       </a>
       <p class="book-title">Un Bagno di Sangria</p>
-      <p class="book-sub">Historical Fantasy · Book II</p>
-      <a href="http://www.amazon.it/dp/B0FS7KWPLT" class="btn btn-accent" target="_blank">Buy on Amazon</a>
+      <p class="book-sub">Fantasy Storico · Libro II</p>
+      <a href="http://www.amazon.it/dp/B0FS7KWPLT" class="btn btn-accent" target="_blank">Acquista su Amazon</a>
     </article>
     <article class="book">
       <a class="book-cover" href="http://www.amazon.it/dp/B0FS7J3QHL" target="_blank">
-        <img src="assets/images/book-o_mirto_o_morte.png" alt="O Mirto o Morte!">
+        <img src="../assets/images/book-o_mirto_o_morte.png" alt="O Mirto o Morte!">
       </a>
       <p class="book-title">O Mirto o Morte!</p>
-      <p class="book-sub">Historical Fantasy · Book III</p>
-      <a href="http://www.amazon.it/dp/B0FS7J3QHL" class="btn btn-accent" target="_blank">Buy on Amazon</a>
+      <p class="book-sub">Fantasy Storico · Libro III</p>
+      <a href="http://www.amazon.it/dp/B0FS7J3QHL" class="btn btn-accent" target="_blank">Acquista su Amazon</a>
     </article>
   </div>
 
   <div class="formats">
     <div class="format-block">
-      <p class="label">Translations</p>
+      <p class="label">Traduzioni</p>
       <div class="format-list">
         <a class="format-row" href="https://www.amazon.it/coups-canon-French-Titania-Blesh-ebook/dp/B0F7GR32WW/" target="_blank">
-          <img src="assets/images/book-a_coups_de_canon.jpg" alt="À Coups de Canon">
+          <img src="../assets/images/book-a_coups_de_canon.jpg" alt="À Coups de Canon">
           <div>
             <div class="format-name">À Coups de Canon</div>
-            <div class="format-meta">French edition</div>
+            <div class="format-meta">Edizione francese</div>
           </div>
-          <span class="format-cta">Buy →</span>
+          <span class="format-cta">Acquista →</span>
         </a>
         <a class="format-row" href="https://www.amazon.it/coups-canon-French-Titania-Blesh-ebook/dp/B0F7GR32WW/" target="_blank">
-          <img src="assets/images/book-un_bain_de_sangria.jpg" alt="Un Bain de Sangria">
+          <img src="../assets/images/book-un_bain_de_sangria.jpg" alt="Un Bain de Sangria">
           <div>
             <div class="format-name">Un Bain de Sangria</div>
-            <div class="format-meta">French edition</div>
+            <div class="format-meta">Edizione francese</div>
           </div>
-          <span class="format-cta">Buy →</span>
+          <span class="format-cta">Acquista →</span>
         </a>
         <div class="format-row disabled">
           <div class="format-placeholder"></div>
           <div>
             <div class="format-name"> – </div>
-            <div class="format-meta">Coming soon</div>
+            <div class="format-meta">Prossimamente</div>
           </div>
           <span class="format-cta">TBA</span>
         </div>
       </div>
     </div>
     <div class="format-block">
-      <p class="label">Audiobooks</p>
+      <p class="label">Audiolibri</p>
       <div class="format-list">
         <a class="format-row audio" href="https://www.audible.it/pd/A-colpi-di-Cannonau-Audiolibri/B0C66JWLGS" target="_blank">
-          <img src="assets/images/audible-a_colpi_di_cannonau.jpg" alt="A Colpi di Cannonau on Audible">
+          <img src="../assets/images/audible-a_colpi_di_cannonau.jpg" alt="A Colpi di Cannonau su Audible">
           <div>
             <div class="format-name">A Colpi di Cannonau</div>
-            <div class="format-meta">Listen on Audible</div>
+            <div class="format-meta">Ascolta su Audible</div>
           </div>
-          <span class="format-cta">Play →</span>
+          <span class="format-cta">Ascolta →</span>
         </a>
         <a class="format-row audio" href="https://www.audible.it/pd/Un-bagno-di-Sangria-Audiolibri/B0CB42G2K2" target="_blank">
-          <img src="assets/images/audible-un_bagno_di_sangria.jpg" alt="Un Bagno di Sangria on Audible">
+          <img src="../assets/images/audible-un_bagno_di_sangria.jpg" alt="Un Bagno di Sangria su Audible">
           <div>
             <div class="format-name">Un Bagno di Sangria</div>
-            <div class="format-meta">Listen on Audible</div>
+            <div class="format-meta">Ascolta su Audible</div>
           </div>
-          <span class="format-cta">Play →</span>
+          <span class="format-cta">Ascolta →</span>
         </a>
         <div class="format-row audio disabled">
           <div class="format-placeholder square"></div>
           <div>
             <div class="format-name"> – </div>
-            <div class="format-meta">Coming soon</div>
+            <div class="format-meta">Prossimamente</div>
           </div>
           <span class="format-cta">TBA</span>
         </div>
@@ -2209,7 +2209,7 @@ footer::before {
         <circle cx="290" cy="280" r="1.5"/>
       </g>
     </svg>
-    <img src="assets/images/book-echi_di_sabbia_e_chele_spezzate.png" alt="Echoes of Sand and Shattered Claws">
+    <img src="../assets/images/book-echi_di_sabbia_e_chele_spezzate.png" alt="Echoes of Sand and Shattered Claws">
   </div>
   <div class="alsoby-text">
     <p class="sec-eyebrow">Also by Titania Blesh</p>
@@ -2250,61 +2250,61 @@ footer::before {
     </g>
   </svg>
   <div class="about-photo">
-    <img src="assets/images/photo-titania.jpg" alt="Titania Blesh author photo">
+    <img src="../assets/images/photo-titania.jpg" alt="Titania Blesh author photo">
   </div>
   <div class="about-text">
-    <p class="sec-eyebrow">The author</p>
-    <h2 class="sec-title">Hey, I'm <span class="accent">Tita.</span></h2>
-    <p>I write <strong>sci-fi and fantasy</strong> for adults and young adults. I'm traditionally published in Italy, France, and Canada – and also on <em>Proxima Centauri b</em>, though you'll know for sure only in 4.25 light-years.</p>
-    <p>I love astronomy, volcanoes, handstands, and my dog Newt. My life goal is to climb every volcano on Earth and Olympus Mons on Mars.</p>
+    <p class="sec-eyebrow">L'autrice</p>
+    <h2 class="sec-title">Ciao, sono <span class="accent">Tita.</span></h2>
+    <p>Scrivo <strong>fantascienza e fantasy</strong> per adulti e young adult. Sono pubblicata tradizionalmente in Italia, Francia e Canada — e anche su <em>Proxima Centauri b</em>, ma lo saprete solo tra 4,25 anni luce.</p>
+    <p>Amo l'astronomia, i vulcani, le verticali sulle mani e il mio cane Newt. Il mio obiettivo di vita è scalare ogni vulcano sulla Terra e l'Olympus Mons su Marte.</p>
     <div class="about-awards">
-      <p class="sec-eyebrow">Recognition</p>
-      <p><strong>Trofeo Cittadella 2021</strong>, finalist <span aria-hidden="true">·</span> <em>A Colpi di Cannonau</em> (Acheron Books)</p>
-      <p><strong>Trofeo Cassiopea 2022</strong>, winner <span aria-hidden="true">·</span> <em>Echi di Sabbia e Chele Spezzate</em>, previously <em>Chelabron</em> (Dark Zone Edizioni)</p>
+      <p class="sec-eyebrow">Riconoscimenti</p>
+      <p><strong>Trofeo Cittadella 2021</strong>, finalista <span aria-hidden="true">·</span> <em>A Colpi di Cannonau</em> (Acheron Books)</p>
+      <p><strong>Trofeo Cassiopea 2022</strong>, vincitrice <span aria-hidden="true">·</span> <em>Echi di Sabbia e Chele Spezzate</em>, già <em>Chelabron</em> (Dark Zone Edizioni)</p>
     </div>
     <div class="about-socials">
       <a href="https://www.instagram.com/titaniablesh/" class="btn btn-fill" target="_blank">Instagram</a>
       <a href="https://www.tiktok.com/@titaniablesh" class="btn btn-outline" target="_blank">TikTok</a>
       <a href="https://www.goodreads.com/author/show/12382446.Titania_Blesh" class="btn btn-outline" target="_blank" rel="noopener">Goodreads</a>
-      <a href="volcanoes.html" class="btn btn-gold" target="_blank">🌋 Climb with me</a>
+      <a href="../volcanoes.html" class="btn btn-gold" target="_blank">🌋 Arrampica con me</a>
     </div>
   </div>
 </section>
 
 <!-- FACTS BANNER (VOLCANIC, marquee) -->
-<div class="facts volcanic" aria-label="At a glance">
+<div class="facts volcanic" aria-label="In breve">
   <div class="facts-track" aria-hidden="true">
     <!-- group 1 -->
-    <span class="fact"><span class="num">3</span> <em class="hl">countries</em> published</span>
+    <span class="fact"><span class="num">3</span> <em class="hl">paesi</em> pubblicata</span>
     <span class="dot">✦</span>
-    <span class="fact"><span class="num">9</span> <em class="hl">completed</em> novels</span>
+    <span class="fact"><span class="num">9</span> <em class="hl">romanzi</em> completati</span>
     <span class="dot">✦</span>
     <span class="fact">Sci-fi · <em class="hl">Fantasy</em> · Romantasy</span>
     <span class="dot">✦</span>
-    <span class="fact"><em class="hl">Adult</em> &amp; YA</span>
+    <span class="fact"><em class="hl">Adulti</em> &amp; YA</span>
     <span class="dot">✦</span>
     <!-- group 2 (duplicate for seamless loop) -->
-    <span class="fact"><span class="num">3</span> <em class="hl">countries</em> published</span>
+    <span class="fact"><span class="num">3</span> <em class="hl">paesi</em> pubblicata</span>
     <span class="dot">✦</span>
-    <span class="fact"><span class="num">9</span> <em class="hl">completed</em> novels</span>
+    <span class="fact"><span class="num">9</span> <em class="hl">romanzi</em> completati</span>
     <span class="dot">✦</span>
     <span class="fact">Sci-fi · <em class="hl">Fantasy</em> · Romantasy</span>
     <span class="dot">✦</span>
-    <span class="fact"><em class="hl">Adult</em> &amp; YA</span>
+    <span class="fact"><em class="hl">Adulti</em> &amp; YA</span>
     <span class="dot">✦</span>
   </div>
 </div>
 
 <!-- #publishers (sepia) -->
 <section id="publishers" class="sec-pad">
-  <p class="sec-eyebrow">Published with</p>
+  <p class="sec-eyebrow">Pubblicata con</p>
   <div class="ornament"><span class="line"></span><span class="glyph">✦</span><span class="line"></span></div>
   <div class="pub-grid">
-    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" target="_blank"><img src="assets/images/publisher-hikaya.png" alt="Hikaya"></a>
-    <a href="https://www.acheron.it/" target="_blank"><img src="assets/images/publisher-acheron.png" alt="Acheron Books"></a>
-    <a href="https://www.lumien.it/" target="_blank"><img src="assets/images/publisher-lumien.png" alt="Lumien"></a>
-    <a href="http://www.dark-zone.it/" target="_blank"><img src="assets/images/publisher-dark_zone.png" alt="Dark Zone Edizioni"></a>
-    <a href="https://www.mirrorworldpublishing.com/" target="_blank"><img src="assets/images/publisher-mirror_world.webp" alt="Mirror World Publishing"></a>
+    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" target="_blank"><img src="../assets/images/publisher-hikaya.png" alt="Hikaya"></a>
+    <a href="https://www.acheron.it/" target="_blank"><img src="../assets/images/publisher-acheron.png" alt="Acheron Books"></a>
+    <a href="https://www.lumien.it/" target="_blank"><img src="../assets/images/publisher-lumien.png" alt="Lumien"></a>
+    <a href="http://www.dark-zone.it/" target="_blank"><img src="../assets/images/publisher-dark_zone.png" alt="Dark Zone Edizioni"></a>
+    <a href="https://www.mirrorworldpublishing.com/" target="_blank"><img src="../assets/images/publisher-mirror_world.webp" alt="Mirror World Publishing"></a>
   </div>
 </section>
 
@@ -2329,17 +2329,17 @@ footer::before {
   <div class="nl-content">
     <div class="nl-text">
       <div class="nl-text-row">
-        <p class="nl-tag">Stay in the loop</p>
-        <h2><span class="nl-icon">💌</span>Subscribe to my <em>spam-free newsletter</em></h2>
+        <p class="nl-tag">Resta aggiornata</p>
+        <h2><span class="nl-icon">💌</span>Iscriviti alla mia <em>newsletter spam-free</em></h2>
       </div>
-      <p class="nl-desc">Hear about new releases, book signings, conferences, and the not-so-occasional volcano expedition.</p>
+      <p class="nl-desc">Novità, firmacopie, conferenze e qualche spedizione vulcanica di troppo.</p>
     </div>
     <form class="nl-form"
           action="https://titaniablesh.substack.com/about"
           method="get"
           target="_blank" rel="noopener">
-      <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
-      <button type="submit">Sign up</button>
+      <input type="email" name="email" placeholder="tua@email.com" required aria-label="Indirizzo email">
+      <button type="submit">Iscriviti</button>
     </form>
   </div>
 </section>
@@ -2347,8 +2347,8 @@ footer::before {
 <!-- #events (sepia) -->
 <section id="events">
   <div class="events-head">
-    <p class="sec-eyebrow">Where to find me</p>
-    <h2>Upcoming <span class="accent">events</span></h2>
+    <p class="sec-eyebrow">Dove trovarmi</p>
+    <h2>Prossimi <span class="accent">eventi</span></h2>
   </div>
   <div class="events-track" role="list">
     <a class="event-card" role="listitem" href="https://www.imaginales.fr/invites/?saison=2026" target="_blank" rel="noopener">
@@ -2392,42 +2392,42 @@ footer::before {
       <g transform="translate(60,255) scale(0.6) rotate(25)"><path d="M 0 -12 Q 2 -2 12 0 Q 2 2 0 12 Q -2 2 -12 0 Q -2 -2 0 -12 Z"/></g>
     </g>
   </svg>
-  <p class="quotes-eyebrow">What readers say</p>
+  <p class="quotes-eyebrow">Cosa dicono i lettori</p>
   <div class="quotes-stage" aria-live="polite">
-    <button class="quotes-arrow prev" type="button" aria-label="Previous quote">‹</button>
-    <button class="quotes-arrow next" type="button" aria-label="Next quote">›</button>
+    <button class="quotes-arrow prev" type="button" aria-label="Citazione precedente">‹</button>
+    <button class="quotes-arrow next" type="button" aria-label="Citazione successiva">›</button>
     <div class="quote active">
       <blockquote><span class="qmark">Brilliant, funny, gripping.</span> Behind every character there's serious study, care, and depth. You fall for the protagonist from the very first page. <span class="qmark">One of the best examples of Italian fantasy</span> I've ever read!</blockquote>
-      <span class="quote-source">Amazon review</span>
+      <span class="quote-source">Recensione Amazon</span>
     </div>
     <div class="quote">
       <blockquote>This book is a <span class="qmark">stroke of genius</span>! Pirates, fantasy, charismatic characters, so much spirit in the lead, Fiammetta. I adored her madly. Plot twists planted with care and a gripping story that keeps you on a knife's edge. I found it funny and irreverent even when it tackles burning subjects, interesting and original. I read it with so much pleasure. <span class="qmark">The prose flows beautifully</span>, the ending was a bombshell that left me completely satisfied. I can't wait to read the next one.</blockquote>
-      <span class="quote-source">Amazon review</span>
+      <span class="quote-source">Recensione Amazon</span>
     </div>
     <div class="quote">
       <blockquote><span class="qmark">Surprise and wonder</span> reading this book, the first of three! It literally made me dream, got me on edge in places, and somehow even <span class="qmark">moved me to tears</span> at times… Anyway, straight on to Un Bagno di Sangria!</blockquote>
-      <span class="quote-source">Amazon review</span>
+      <span class="quote-source">Recensione Amazon</span>
     </div>
     <div class="quote">
       <blockquote>If I could give it <span class="qmark">10 stars</span>, I would. I loved the entire trilogy from beginning to end, <span class="qmark">devoured the books in a matter of days</span>, perpetually torn between “I don't want it to end” and “I have to know how it finishes.”</blockquote>
-      <span class="quote-source">Amazon review</span>
+      <span class="quote-source">Recensione Amazon</span>
     </div>
     <div class="quote">
       <blockquote>Of all the Italian fantasy authors, Titania Blesh is <span class="qmark">hands down one of my favorites</span>, one of those writers I'd <span class="qmark">never tire of reading</span>.</blockquote>
-      <span class="quote-source">Amazon review</span>
+      <span class="quote-source">Recensione Amazon</span>
     </div>
     <div class="quote">
       <blockquote><span class="qmark">Ragtag pirates</span>, creative insults, brilliant old women, repressed inquisitors, disastrous plans, pyrotechnic explosions, evocative settings, Spanish chorizo… and last but not least, a protagonist who is, to put it mildly, <span class="qmark">one of a kind</span>, and one I never get tired of.</blockquote>
-      <span class="quote-source">Amazon review</span>
+      <span class="quote-source">Recensione Amazon</span>
     </div>
   </div>
-  <div class="quotes-dots" role="tablist" aria-label="Reader endorsements">
-    <button class="quotes-dot active" type="button" aria-label="Quote 1" data-idx="0"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 2" data-idx="1"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 3" data-idx="2"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 4" data-idx="3"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 5" data-idx="4"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 6" data-idx="5"></button>
+  <div class="quotes-dots" role="tablist" aria-label="Citazioni dei lettori">
+    <button class="quotes-dot active" type="button" aria-label="Citazione 1" data-idx="0"></button>
+    <button class="quotes-dot" type="button" aria-label="Citazione 2" data-idx="1"></button>
+    <button class="quotes-dot" type="button" aria-label="Citazione 3" data-idx="2"></button>
+    <button class="quotes-dot" type="button" aria-label="Citazione 4" data-idx="3"></button>
+    <button class="quotes-dot" type="button" aria-label="Citazione 5" data-idx="4"></button>
+    <button class="quotes-dot" type="button" aria-label="Citazione 6" data-idx="5"></button>
   </div>
 </section>
 
@@ -2435,10 +2435,10 @@ footer::before {
 <section id="projects" class="sec-pad">
   <div class="proj-head">
     <div>
-      <h2 class="sec-title">My <span class="accent">Projects</span></h2>
+      <h2 class="sec-title">I miei <span class="accent">Progetti</span></h2>
     </div>
-    <p class="sec-deck">Everything written, everything published, and everything still waiting for the right home.</p>
-    <a href="rights.html" class="btn btn-outline">Foreign Rights &amp; Submissions</a>
+    <p class="sec-deck">Tutto ciò che ho scritto, tutto quello che ho pubblicato, e tutto ciò che aspetta ancora la casa giusta.</p>
+    <a href="../rights.html" class="btn btn-outline">Diritti esteri e submissioni</a>
   </div>
   <ul class="proj-grid">
     <li class="proj-card published">
@@ -2453,9 +2453,9 @@ footer::before {
       </div>
       <div class="proj-card-meta">
         <span class="proj-card-langs">Italian, French</span>
-        <span class="proj-card-status published">Published</span>
+        <span class="proj-card-status published">Pubblicato</span>
       </div>
-      <p class="proj-card-rights"><a href="rights.html">All rights belong to the author</a> <em>(excl. French rights)</em></p>
+      <p class="proj-card-rights"><a href="../rights.html">Tutti i diritti appartengono all'autrice</a> <em>(excl. French rights)</em></p>
     </li>
     <li class="proj-card published">
       <div class="proj-card-top">
@@ -2467,9 +2467,9 @@ footer::before {
       </div>
       <div class="proj-card-meta">
         <span class="proj-card-langs">Italian</span>
-        <span class="proj-card-status published">Published</span>
+        <span class="proj-card-status published">Pubblicato</span>
       </div>
-      <p class="proj-card-rights"><a href="rights.html">All rights belong to the author</a></p>
+      <p class="proj-card-rights"><a href="../rights.html">Tutti i diritti appartengono all'autrice</a></p>
     </li>
     <li class="proj-card unpublished">
       <div class="proj-card-top">
@@ -2481,9 +2481,9 @@ footer::before {
       </div>
       <div class="proj-card-meta">
         <span class="proj-card-langs">Italian, English</span>
-        <span class="proj-card-status unpublished">Unpublished</span>
+        <span class="proj-card-status unpublished">Inedito</span>
       </div>
-      <p class="proj-card-rights"><a href="rights.html">All rights belong to the author</a></p>
+      <p class="proj-card-rights"><a href="../rights.html">Tutti i diritti appartengono all'autrice</a></p>
     </li>
     <li class="proj-card unpublished">
       <div class="proj-card-top">
@@ -2495,9 +2495,9 @@ footer::before {
       </div>
       <div class="proj-card-meta">
         <span class="proj-card-langs">English</span>
-        <span class="proj-card-status unpublished">Unpublished</span>
+        <span class="proj-card-status unpublished">Inedito</span>
       </div>
-      <p class="proj-card-rights"><a href="rights.html">All rights belong to the author</a></p>
+      <p class="proj-card-rights"><a href="../rights.html">Tutti i diritti appartengono all'autrice</a></p>
     </li>
     <li class="proj-card unpublished">
       <div class="proj-card-top">
@@ -2509,9 +2509,9 @@ footer::before {
       </div>
       <div class="proj-card-meta">
         <span class="proj-card-langs">English</span>
-        <span class="proj-card-status unpublished">Unpublished</span>
+        <span class="proj-card-status unpublished">Inedito</span>
       </div>
-      <p class="proj-card-rights"><a href="rights.html">All rights belong to the author</a></p>
+      <p class="proj-card-rights"><a href="../rights.html">Tutti i diritti appartengono all'autrice</a></p>
     </li>
     <li class="proj-card unpublished">
       <div class="proj-card-top">
@@ -2524,9 +2524,9 @@ footer::before {
       </div>
       <div class="proj-card-meta">
         <span class="proj-card-langs">English</span>
-        <span class="proj-card-status unpublished">Unpublished</span>
+        <span class="proj-card-status unpublished">Inedito</span>
       </div>
-      <p class="proj-card-rights"><a href="rights.html">All rights belong to the author</a></p>
+      <p class="proj-card-rights"><a href="../rights.html">Tutti i diritti appartengono all'autrice</a></p>
     </li>
   </ul>
 </section>
@@ -2582,10 +2582,10 @@ footer::before {
   <div class="lapillus spark" style="left: 94%; --drift: -45px; --spin: -240deg; animation-duration: 12.5s; animation-delay: 3s;"></div>
 
   <div class="vol-inner">
-    <p class="sec-eyebrow">A personal obsession</p>
-    <h2 class="sec-title">Why 🌋 <em>volcanoes?</em></h2>
-    <p>I'm utterly, uncontrollably fascinated by volcanoes. I have recurrent dreams of burning alive in a molten lava flow, and I wouldn't have it any other way.</p>
-    <a href="volcanoes.html" class="btn btn-gold" target="_blank">Explore my craters collection →</a>
+    <p class="sec-eyebrow">Un'ossessione personale</p>
+    <h2 class="sec-title">Perché 🌋 <em>i vulcani?</em></h2>
+    <p>Sono completamente, irrimediabilmente affascinata dai vulcani. Ho sogni ricorrenti in cui brucio viva in un fiume di lava incandescente, e non lo cambierei per niente al mondo.</p>
+    <a href="../volcanoes.html" class="btn btn-gold" target="_blank">Esplora la mia collezione di crateri →</a>
   </div>
 </section>
 
@@ -2598,7 +2598,7 @@ footer::before {
     <li><a href="https://www.instagram.com/titaniablesh/" target="_blank">Instagram</a></li>
     <li><a href="https://www.tiktok.com/@titaniablesh" target="_blank">TikTok</a></li>
     <li><a href="https://www.goodreads.com/author/show/12382446.Titania_Blesh" target="_blank" rel="noopener">Goodreads</a></li>
-    <li><a href="/blog/">Blog</a></li>
+    <li><a href="../blog/index.html">Blog</a></li>
     <li><a href="#">Top ↑</a></li>
   </ul>
 </footer>
@@ -2607,16 +2607,16 @@ footer::before {
 <div class="nl-modal" id="nl-modal" role="dialog" aria-modal="true" aria-labelledby="nl-modal-title" aria-hidden="true">
   <div class="nl-modal-backdrop"></div>
   <div class="nl-modal-card">
-    <button class="nl-modal-close" type="button" aria-label="Close">×</button>
+    <button class="nl-modal-close" type="button" aria-label="Chiudi">×</button>
     <div class="nl-modal-image">
-      <img src="assets/images/photo-titania%26newt.JPG" alt="Titania Blesh and her newt">
+      <img src="../assets/images/photo-titania%26newt.JPG" alt="Titania Blesh and her newt">
     </div>
     <div class="nl-modal-text">
-      <h2 id="nl-modal-title">Titania's <em>Newsletter</em></h2>
-      <p class="nl-modal-desc">Hear about new releases, book signings, conferences, and the not-so-occasional volcano expedition. (Anche in italiano 🇮🇹)</p>
+      <h2 id="nl-modal-title">La <em>Newsletter</em> di Titania</h2>
+      <p class="nl-modal-desc">Novità, firmacopie, conferenze e qualche spedizione vulcanica di troppo. (Also in English 🇬🇧)</p>
       <div class="nl-modal-actions">
-        <a class="nl-modal-cta" href="https://titaniablesh.substack.com/about" target="_blank" rel="noopener">Subscribe for free!</a>
-        <button class="nl-modal-dismiss" type="button">Maybe later</button>
+        <a class="nl-modal-cta" href="https://titaniablesh.substack.com/about" target="_blank" rel="noopener">Iscriviti gratis!</a>
+        <button class="nl-modal-dismiss" type="button">Forse dopo</button>
       </div>
     </div>
   </div>
