@@ -29,10 +29,16 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/favicon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicon-192.png">
 <link rel="apple-touch-icon" href="/assets/images/favicon-192.png">
-<link rel="stylesheet" href="assets/fonts/fonts.css">
+<!-- Preload critical Nunito latin subset (body text, renders hero h1) -->
+<link rel="preload" href="assets/fonts/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Non-blocking self-hosted font CSS -->
+<link rel="preload" href="assets/fonts/fonts.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="assets/fonts/fonts.css"></noscript>
+<!-- Non-blocking Google Fonts (Lato) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -225,7 +231,7 @@ nav.masthead::after {
   transition: color 0.2s, border-color 0.2s;
 }
 .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
-.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 11px; /* 22px visual + 11px padding each side ≈ 44px touch */ }
 .nav-burger span { display: block; width: 22px; height: 2px; background: var(--txt); border-radius: 2px; transition: all 0.3s; }
 
 /* ─── LANG SWITCH ─────────────────────────────────── */
@@ -615,7 +621,7 @@ section { position: relative; }
 .format-meta {
   font-family: var(--body); font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--txt-lt); margin-top: 0.2rem;
+  color: var(--txt-mid); margin-top: 0.2rem;
 }
 .format-cta {
   font-family: var(--body); font-size: 0.7rem; font-weight: 700;
@@ -1165,6 +1171,13 @@ section { position: relative; }
   padding: 0;
   cursor: pointer;
   transition: background 0.25s, transform 0.2s;
+  /* Expand touch target to ≥44×44px without changing visual size */
+  position: relative;
+}
+.quotes-dot::after {
+  content: '';
+  position: absolute;
+  inset: -18px;
 }
 .quotes-dot:hover { background: var(--accent-lt); }
 .quotes-dot.active { background: var(--accent); transform: scale(1.25); }
@@ -1172,7 +1185,7 @@ section { position: relative; }
   #quotes { padding: 2rem 1.5rem 2.4rem; }
   .quotes-bg { display: none; }   /* hide side stars on narrow screens to keep text completely clear */
   .quotes-stage { min-height: 100px; padding: 1.2rem 2.4rem; }
-  .quotes-arrow { width: 32px; height: 32px; font-size: 1rem; }
+  .quotes-arrow { width: 44px; height: 44px; font-size: 1rem; }
 }
 
 /* ─── #projects (SEPIA, card grid) ────────────────── */
@@ -1476,6 +1489,7 @@ footer::before {
     grid-column: 1 / -1;
     justify-content: flex-start;
   }
+  .nav-links a { min-height: 44px; display: flex; align-items: center; }
   .nav-links.open { display: flex; }
   .nav-burger { display: flex; grid-column: 3; }
   .brand-text { font-size: 0.95rem; letter-spacing: 0; }
@@ -2395,7 +2409,10 @@ footer::before {
       <p class="label">Audiobooks</p>
       <div class="format-list">
         <a class="format-row audio" href="https://www.audible.it/pd/A-colpi-di-Cannonau-Audiolibri/B0C66JWLGS" target="_blank">
-          <img src="assets/images/audible-a_colpi_di_cannonau.jpg" loading="lazy" alt="A colpi di Cannonau audiobook cover — She-Pirates of the Mediterranean Book I by Titania Blesh, on Audible">
+          <picture>
+            <source srcset="assets/images/audible-a_colpi_di_cannonau.webp" type="image/webp">
+            <img src="assets/images/audible-a_colpi_di_cannonau.jpg" width="500" height="500" loading="lazy" alt="A colpi di Cannonau audiobook cover — She-Pirates of the Mediterranean Book I by Titania Blesh, on Audible">
+          </picture>
           <div>
             <div class="format-name">A colpi di Cannonau</div>
             <div class="format-meta">Listen on Audible</div>
@@ -2403,7 +2420,10 @@ footer::before {
           <span class="format-cta">Play →</span>
         </a>
         <a class="format-row audio" href="https://www.audible.it/pd/Un-bagno-di-Sangria-Audiolibri/B0CB42G2K2" target="_blank">
-          <img src="assets/images/audible-un_bagno_di_sangria.jpg" loading="lazy" alt="Un bagno di Sangria audiobook cover — She-Pirates of the Mediterranean Book II by Titania Blesh, on Audible">
+          <picture>
+            <source srcset="assets/images/audible-un_bagno_di_sangria.webp" type="image/webp">
+            <img src="assets/images/audible-un_bagno_di_sangria.jpg" width="500" height="500" loading="lazy" alt="Un bagno di Sangria audiobook cover — She-Pirates of the Mediterranean Book II by Titania Blesh, on Audible">
+          </picture>
           <div>
             <div class="format-name">Un bagno di Sangria</div>
             <div class="format-meta">Listen on Audible</div>
@@ -2533,7 +2553,10 @@ footer::before {
     </g>
   </svg>
   <div class="about-photo">
-    <img src="assets/images/photo-titania.jpg" loading="lazy" alt="Titania Blesh, Italian science fiction and fantasy author">
+    <picture>
+      <source srcset="assets/images/photo-titania.webp" type="image/webp">
+      <img src="assets/images/photo-titania.jpg" width="981" height="1024" alt="Titania Blesh, Italian science fiction and fantasy author">
+    </picture>
   </div>
   <div class="about-text">
     <p class="sec-eyebrow">The author</p>
@@ -2555,7 +2578,7 @@ footer::before {
 </section>
 
 <!-- FACTS BANNER (VOLCANIC, marquee) -->
-<div class="facts volcanic" aria-label="At a glance">
+<div class="facts volcanic" role="region" aria-label="At a glance">
   <div class="facts-track" aria-hidden="true">
     <!-- group 1 -->
     <span class="fact"><span class="num">3</span> <em class="hl">countries</em> published</span>
@@ -2583,11 +2606,11 @@ footer::before {
   <p class="sec-eyebrow">Published with</p>
   <div class="ornament"><span class="line"></span><span class="glyph">✦</span><span class="line"></span></div>
   <div class="pub-grid">
-    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" target="_blank"><img src="assets/images/publisher-hikaya.png" loading="lazy" alt="Hikaya"></a>
-    <a href="https://www.acheron.it/" target="_blank"><img src="assets/images/publisher-acheron.png" loading="lazy" alt="Acheron Books"></a>
-    <a href="https://www.lumien.it/" target="_blank"><img src="assets/images/publisher-lumien.png" loading="lazy" alt="Lumien"></a>
-    <a href="http://www.dark-zone.it/" target="_blank"><img src="assets/images/publisher-dark_zone.png" loading="lazy" alt="Dark Zone Edizioni"></a>
-    <a href="https://www.mirrorworldpublishing.com/" target="_blank"><img src="assets/images/publisher-mirror_world.webp" loading="lazy" alt="Mirror World Publishing"></a>
+    <a href="https://it.ulule.com/users/hikaya-asso/#/projects/online/" target="_blank"><img src="assets/images/publisher-hikaya.png" width="1024" height="496" loading="lazy" alt="Hikaya"></a>
+    <a href="https://www.acheron.it/" target="_blank"><img src="assets/images/publisher-acheron.png" width="150" height="150" loading="lazy" alt="Acheron Books"></a>
+    <a href="https://www.lumien.it/" target="_blank"><img src="assets/images/publisher-lumien.png" width="188" height="152" loading="lazy" alt="Lumien"></a>
+    <a href="http://www.dark-zone.it/" target="_blank"><img src="assets/images/publisher-dark_zone.png" width="150" height="150" loading="lazy" alt="Dark Zone Edizioni"></a>
+    <a href="https://www.mirrorworldpublishing.com/" target="_blank"><img src="assets/images/publisher-mirror_world.webp" width="1024" height="961" loading="lazy" alt="Mirror World Publishing"></a>
   </div>
 </section>
 
@@ -2705,12 +2728,12 @@ footer::before {
     </div>
   </div>
   <div class="quotes-dots" role="tablist" aria-label="Reader endorsements">
-    <button class="quotes-dot active" type="button" aria-label="Quote 1" data-idx="0"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 2" data-idx="1"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 3" data-idx="2"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 4" data-idx="3"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 5" data-idx="4"></button>
-    <button class="quotes-dot" type="button" aria-label="Quote 6" data-idx="5"></button>
+    <button class="quotes-dot active" type="button" role="tab" aria-label="Quote 1" data-idx="0"></button>
+    <button class="quotes-dot" type="button" role="tab" aria-label="Quote 2" data-idx="1"></button>
+    <button class="quotes-dot" type="button" role="tab" aria-label="Quote 3" data-idx="2"></button>
+    <button class="quotes-dot" type="button" role="tab" aria-label="Quote 4" data-idx="3"></button>
+    <button class="quotes-dot" type="button" role="tab" aria-label="Quote 5" data-idx="4"></button>
+    <button class="quotes-dot" type="button" role="tab" aria-label="Quote 6" data-idx="5"></button>
   </div>
 </section>
 
@@ -2892,7 +2915,10 @@ footer::before {
   <div class="nl-modal-card">
     <button class="nl-modal-close" type="button" aria-label="Close">×</button>
     <div class="nl-modal-image">
-      <img src="assets/images/photo-titania%26newt.JPG" loading="lazy" alt="Titania Blesh and her newt">
+      <picture>
+        <source srcset="assets/images/photo-titania-newt.webp" type="image/webp">
+        <img src="assets/images/photo-titania%26newt.JPG" width="1000" height="1285" loading="lazy" alt="Titania Blesh and her newt">
+      </picture>
     </div>
     <div class="nl-modal-text">
       <h2 id="nl-modal-title">Titania's <em>Newsletter</em></h2>
