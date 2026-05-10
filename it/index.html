@@ -2528,7 +2528,7 @@ Un'avventura fantasy di <strong>ribellione femminista</strong>, per chi cerca pr
     </g>
   </svg>
   <div class="about-photo">
-    <img src="../assets/images/photo-titania.webp" width="981" height="1024" alt="Titania Blesh, autrice italiana di fantascienza e fantasy">
+    <img src="../assets/images/photo-titania.webp" width="600" height="627" alt="Titania Blesh, autrice italiana di fantascienza e fantasy">
   </div>
   <div class="about-text">
     <p class="sec-eyebrow">L'autrice</p>
@@ -2887,7 +2887,7 @@ Un'avventura fantasy di <strong>ribellione femminista</strong>, per chi cerca pr
   <div class="nl-modal-card">
     <button class="nl-modal-close" type="button" aria-label="Chiudi">×</button>
     <div class="nl-modal-image">
-      <img src="../assets/images/photo-titania-newt.webp" width="600" height="772" loading="lazy" alt="Titania Blesh e il suo tritone">
+      <img data-src="../assets/images/photo-titania-newt.webp" width="600" height="772" loading="lazy" alt="Titania Blesh e il suo tritone">
     </div>
     <div class="nl-modal-text">
       <h2 id="nl-modal-title">La <em>Newsletter</em> di Titania</h2>
@@ -2953,6 +2953,8 @@ Un'avventura fantasy di <strong>ribellione femminista</strong>, per chi cerca pr
     const SHOW_DELAY = 6000;
 
     function open() {
+      const lazyImg = modal.querySelector('img[data-src]');
+      if (lazyImg) { lazyImg.src = lazyImg.dataset.src; lazyImg.removeAttribute('data-src'); }
       modal.classList.add('open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
