@@ -653,18 +653,6 @@ nav.masthead {
   position: relative;
 }
 .post-body blockquote.pullquote p { margin: 0; }
-.post-body blockquote.pullquote::before,
-.post-body blockquote.pullquote::after {
-  position: absolute;
-  font-family: 'Lora', Georgia, serif;
-  font-size: 3rem;
-  line-height: 1;
-  color: var(--gold);
-  font-style: normal;
-  pointer-events: none;
-}
-.post-body blockquote.pullquote::before { content: 'C'; left: 0.4rem; top: 0.6rem; }
-.post-body blockquote.pullquote::after  { content: 'D'; right: 0.4rem; bottom: 0.4rem; }
 
 /* ─── CALLOUTS ──────────────────────────────────── */
 .post-body .callout {
